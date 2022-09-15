@@ -41,7 +41,7 @@
 <body>
     <div class="calculadora">
         <h1 class="marrom">Simule</h1>
-        <p>Insira a quantidade de quilos(kg) de soja armazenados:</p> <br>
+        <p>Insira a quantidade de quilos(kg) de café armazenados:</p> <br>
         <input type="number" id="input_qtdGraos">
         <button onclick="calcularPerda()">Simular</button>
         <div id="div_mostrarResultado"></div>
@@ -63,7 +63,7 @@
         var perdaComCoffeTech = perda * 0.66
         
         div_mostrarResultado.innerHTML = `
-        Levando em consideração que em média um quilo de café custa R$ 25 reias sem a CoffeTech você perderá <b class= "vermelho">R$ ${perda.toFixed(1)} (15%)</b>, mas com a CoffeTech você economizaria <b class = "verde"> R$ ${perdaComCoffeTech.toFixed(1)} (66%)</b> do valor perdido.
+        Levando em consideração que em média um quilo de café custa R$ 25, sem a nossa solução Coffe Thermal Solution você perderá <b class= "vermelho">R$ ${perda.toFixed(1)} (15%)</b>, mas com a Coffe Thermal Solution você economizará <b class = "verde"> R$ ${perdaComCoffeTech.toFixed(1)} (66%)</b> do valor perdido, perdendo apenas 5% e não 15%.
         `
     }
 </script>
