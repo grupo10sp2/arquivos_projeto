@@ -59,8 +59,8 @@ select * from Silo;
 
 select * from Silo join Cliente on fkCliente = idCliente;
 
-create table colheitaDados (
-idcolheitaDados int primary key auto_increment,
+create table coletaDeDados (
+idcoletaDeDados int primary key auto_increment,
 dataHora datetime,
 luminosidadeLDR int,
 temperaturaDHT11 decimal(3,1),
@@ -69,14 +69,14 @@ fkSilo int,
 foreign key (fkSilo) references Silo (idSilo)
 );
 
-insert into colheitaDados (datahora, luminosidadeLDR, temperaturaDHT11, umidadeDHT11, fkSilo) values
+insert into coletaDeDados (datahora, luminosidadeLDR, temperaturaDHT11, umidadeDHT11, fkSilo) values
 ('2022-10-01 15:35:40', 85, 9, 11.2, 1),
 ('2022-10-01 15:35:40', 83, 10, 10.9, 2);
 
-insert into colheitaDados (datahora, luminosidadeLDR, temperaturaDHT11, umidadeDHT11, fkSilo) values
+insert into coletaDeDados (datahora, luminosidadeLDR, temperaturaDHT11, umidadeDHT11, fkSilo) values
 ('2022-10-01 15:36:40', 86, 10, 10.8, 1),
 ('2022-10-01 15:36:40', 84, 9, 11.1, 2);
 
-select * from colheitaDados;
+select * from coletaDeDados;
 
-select * from colheitaDados join Silo on fkSilo = idSilo;
+select * from coletaDeDados join Silo on fkSilo = idSilo;
