@@ -6,6 +6,7 @@
  padding: 0px;
  box-sizing: border-box;
  font-family: 'Inder', sans-serif;
+ scroll-behavior: smooth;
 }
 
 .container{
@@ -44,6 +45,11 @@
   text-decoration: none;
   margin-right: 0px;
   color: #000000;
+  transition: 0.5s;
+}
+
+.navegacao ul li a:hover{
+  color: #603808;
 }
 
 .navegacao a{
@@ -59,6 +65,12 @@
   border: 1px solid #583101;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  transition: 0.5s;
+}
+
+.botaoClaro:hover{
+  background: #f1dcc6;
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
 }
 
 .botaoEscuro{
@@ -69,6 +81,12 @@
   border: 1px solid #603808;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+  transition: 0.5s;
+}
+
+.botaoEscuro:hover{
+  background: #814c0c;
+  box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
 }
 
 main img{
@@ -76,10 +94,10 @@ main img{
 } 
 
 /* Nossa Empresa */
-.nossa-empresa{
+.nossa-empresa .container{
   display: flex;
-  justify-content: space-between;
-  margin: 100px 0;
+  justify-content: center;
+  margin-top: 100px; 
 }
 
 .nossa-empresa img{
@@ -100,3 +118,128 @@ main img{
 .nossa-empresa .texto p{
   max-width: 550px;
 }
+
+/* Banner */
+.banner{
+  background-image: url(../img/cafe-xicara.png);
+  background-size: cover;
+  width: 100%;
+  height: 150px;
+  margin-top: 100px;
+}
+
+/* Valores */
+
+ .valores .container{
+  justify-content: center;
+  flex-direction: column;
+}
+
+.valores h1{
+  font-size: 4rem;
+  color: #583101;
+  margin-top: 50px;
+}
+
+.cards{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 70px;
+  max-width: 1000px;
+}
+
+.cards-caixa{
+  display: flex;
+  align-items: center;
+  background-color: #FEFAE0;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 5px 5px;
+  padding: 25px 25px;
+}  
+
+.cards-caixa-texto p{
+  max-width: 300px;
+}
+
+.cards-caixa:nth-child(1){
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+.cards-caixa:nth-child(2){
+  margin-bottom: 50px;
+}
+
+.cards-caixa:nth-child(3){
+  margin-right: 50px;
+}
+
+.cards-caixa img{
+  max-width: 110px;
+  margin-bottom: 80px;
+}
+
+.cards-caixa:nth-child(3) img{
+  max-width: 100px;
+}
+
+.cards-caixa:nth-child(4) img{
+  max-width: 100px;
+}
+
+.cards-caixa-texto h2{
+  color: #583101;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.cards-caixa-texto p{
+  margin-bottom: 60px;
+}
+
+/* Footer */
+footer img{
+  width: auto;
+}
+
+footer{
+  margin-top: 100px;
+  background-color: #D4A276;
+  padding: 20px;
+}
+
+.navegacao-footer{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+ 
+}
+
+.navegacao-footer ul{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  align-items: center;
+  margin: 65px 0;
+}
+
+.navegacao-footer ul li{
+  margin-right: 30px;
+}
+
+.navegacao-footer ul li a{
+  text-decoration: none;
+  /* margin-right: 10px; */
+  color: #000000;
+  transition: 0.5s;
+}
+
+.navegacao-footer ul li a:hover{
+  color: #603808;
+}
+
+.redes-footer img:nth-child(1){
+  margin-right: 20px;
+} 
