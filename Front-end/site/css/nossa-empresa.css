@@ -1,0 +1,102 @@
+/* Estilos gerais */
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+*{
+ margin: 0px;
+ padding: 0px;
+ box-sizing: border-box;
+ font-family: 'Inder', sans-serif;
+}
+
+.container{
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Header */
+
+.header{
+  background-color: #F3D5B5;
+}
+
+.navegacao{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.navegacao ul{
+  display: flex;
+  align-items: center;
+}
+
+.navegacao ul li{
+  list-style: none;
+  margin-right: 30px;
+  text-decoration: none;
+}
+
+.navegacao ul li a{
+  text-decoration: none;
+  margin-right: 0px;
+  color: #000000;
+}
+
+.navegacao a{
+  display: block;
+  margin-right: 30px;
+}
+
+.botaoClaro{
+  padding: 10px 20px;
+  color: #583101;
+  text-decoration: none;
+  background: #F3D5B5;
+  border: 1px solid #583101;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.botaoEscuro{
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #000000;
+  background: #603808;
+  border: 1px solid #603808;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+main img{
+  width: 100%;
+} 
+
+/* Nossa Empresa */
+.nossa-empresa{
+  display: flex;
+  justify-content: space-between;
+  margin: 100px 0;
+}
+
+.nossa-empresa img{
+  width: 468px;
+}
+
+.nossa-empresa .texto{
+  border-left: 6px solid#583101;
+  padding: 60px 40px;
+}
+
+.nossa-empresa .texto h1{
+  margin-bottom: 50px;
+  color: #583101;
+  font-weight: bold;
+}
+
+.nossa-empresa .texto p{
+  max-width: 550px;
+}
