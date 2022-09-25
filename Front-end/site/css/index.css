@@ -1,1 +1,301 @@
-/*colocar imagens do figma aqui. 
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
+*{
+ margin: 0px;
+ padding: 0px;
+ box-sizing: border-box;
+ font-family: 'Inder', sans-serif;
+ scroll-behavior: smooth;
+}
+
+.container{
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+  }
+
+  /* Header */
+
+.header{
+    background-color: #F3D5B5;
+  }
+  
+  .navegacao{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+  }
+  
+  .navegacao ul{
+    display: flex;
+    align-items: center;
+  }
+  
+  .navegacao ul li{
+    list-style: none;
+    margin-right: 30px;
+    text-decoration: none;
+  }
+  
+  .navegacao ul li a{
+    text-decoration: none;
+    margin-right: 0px;
+    color: #000000;
+    transition: 0.5s;
+  }
+  
+  .navegacao ul li a:hover{
+    color: #603808;
+  }
+  
+  .navegacao a{
+    display: block;
+    margin-right: 30px;
+  }
+  
+  .botaoClaro{
+    padding: 10px 20px;
+    color: #583101;
+    text-decoration: none;
+    background: #F3D5B5;
+    border: 1px solid #583101;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+  
+  .botaoClaro:hover{
+    background: #f1dcc6;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .botaoEscuro{
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000000;
+    background: #603808;
+    border: 1px solid #603808;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+  
+  .botaoEscuro:hover{
+    background: #814c0c;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+  }
+
+
+   /* banner */
+  .banner {
+    padding: 100px 0;
+    
+
+  }
+  
+  .banner .container {
+    height: 350px;
+    align-items:flex-end;
+    justify-content:flex-end;
+  }
+
+  .banner .texto-b{
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-right: 150px;
+  }
+
+  .banner p {
+    width: 20px;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 30px;
+
+    
+  }
+
+  .banner h1{
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+
+  .banner button{
+    margin-top: 30px;
+  }
+
+  /*SOCIAL*/
+.social {
+    margin: 50px 0;
+
+  }
+  
+  .social .caixas {
+    display: flex;
+    align-items: center;
+  
+  }
+  
+  .caixa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 360px;
+    height: 360px;
+    padding-bottom: 30px;
+    margin-top: 100px;
+     
+  }
+  
+  .caixa h4 {
+    margin: 15px 0;
+    color: #583101;
+  }
+  
+  .caixa p {
+    text-align: center;
+    margin: 0 20px;
+
+  }
+  
+  .caixa img {
+    margin-top: 20px;
+    width: 120px;
+  }
+
+  /* Nossa solução */
+.nossa-solução .container{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px; 
+    
+  }
+  
+  .nossa-solução img{
+    width: 468px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  .nossa-solução .texto{
+    border-right: 6px solid#583101;
+    padding: 60px 40px;
+  }
+  
+  .nossa-solução .texto h1{
+    margin-bottom: 50px;
+    color: #583101;
+    font-weight: bold;
+  }
+  
+  .nossa-solução .texto p{
+    max-width: 550px;
+    margin-bottom: 30px
+  }
+
+  .nossa-solução button{
+    margin-top: 30px;
+  }
+
+  /* Nossa Empresa */
+.nossa-empresa .container{
+    display: flex;
+    justify-content: center;
+    margin-top: 200px; 
+  }
+  
+  .nossa-empresa img{
+    width: 468px;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  .nossa-empresa .texto{
+    border-left: 6px solid#583101;
+    padding: 60px 40px;
+  }
+  
+  .nossa-empresa .texto h1{
+    margin-bottom: 50px;
+    color: #583101;
+    font-weight: bold;
+  }
+  
+  .nossa-empresa .texto p{
+    max-width: 550px;
+    margin-bottom: 30px;
+  }
+
+  .nossa-empresa button{
+    margin-top: 30px;
+  }
+
+  /* banner 02 */
+
+  .banner02 .img-b2{
+    width: 100%;
+    height: 850px;
+    padding: 100px 0;
+    background-size: cover;
+    margin-top: 100px;
+    
+  }
+  
+  .banner02 .container {
+    height: 350px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+
+  /* Footer */
+footer img{
+    width: auto;
+  }
+  
+  footer{
+    margin-top: 500px;
+    background-color: #D4A276;
+    padding: 20px;
+  }
+  
+  .navegacao-footer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+   
+  }
+  
+  .navegacao-footer ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    align-items: center;
+    margin: 65px 0;
+  }
+  
+  .navegacao-footer ul li{
+    margin-right: 30px;
+  }
+  
+  .navegacao-footer ul li a{
+    text-decoration: none;
+    /* margin-right: 10px; */
+    color: #000000;
+    transition: 0.5s;
+  }
+  
+  .navegacao-footer ul li a:hover{
+    color: #603808;
+  }
+  
+  .redes-footer img:nth-child(1){
+    margin-right: 20px;
+  } 
+  
