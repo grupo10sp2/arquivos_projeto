@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{font-family: Roboto;}
+
+
+.banner {
+    margin: -8px;
+    background-image: url(../img/coffee-beans-close-up\ 1.png);
+    padding: 54px 0;
+    background-size:cover;
+    height: 95vh;
+  }
+
+  .banner .container {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center ;
+  }
+  
+  .formulario {
+    background-color: #f1eeee;
+    padding: 19px 110px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .campo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+ .formulario label {
+    color: #969090;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+  } 
+
+  .campo label{
+    color: black;
+  }
+
+  .formulario button {
+  margin-top: 20px;
+  width: 140px;
+  color: #fff;
+  background-color: #583101;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  }
+
+.container .home {
+    position: relative;
+    top: -26px;
+    left: 184px;
+}
+
+.formulario h2 {
+    margin: 0;
+    padding: 0;
+}
+
+ 
