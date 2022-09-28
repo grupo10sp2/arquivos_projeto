@@ -4,7 +4,7 @@
 
 .banner {
     margin: -8px;
-    background-image: url(/img/coffee-beans-close-up\ 1.png);
+    background-image: url(img/teladecadastro.png);
     padding: 54px 0;
     background-size:cover;
     height: 95vh;
@@ -61,7 +61,7 @@
 .container .home {
     position: relative;
     top: -26px;
-    left: 184px;
+    left: 145px;
 }
 
 .formulario h2 {
