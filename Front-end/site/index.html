@@ -128,14 +128,14 @@
           <p>Através do nosso simulador financeiro sua empresa pode calcular o quanto de perda pode evitar utilizando nosso projeto.</p>
           <p>Insira a quantidade em quilos (Kg) de café armazenados em seu estoque:</p>
           <div>
-            <input class="input" type="number">
-            <a onclick="simule()">Simule!</a>
+            <input class="input" id="inputQtdGraos" type="number">
+            <a onclick="calcularPerda()">Simule!</a>
           </div>
         </div>
         <div class="containerCards">
           <div class="card">
             <h1>Por que contratar nossa empresa?</h1>
-            <p>Sabemos que, em média, um quilo (1kg) de café custa R$ 25 reais, sem a nossa soluçao Coffee Thermal Solution sua empresa perderá R$ <span>187.5</span> reais investidos. Ou seja, 15% dos grãos de café armazenados. Utilizando a CoffeTech sua empresa irá poupar R$ <span>123.8</span> reais, cerca de 66%, do valor perdido.</p>
+            <p id="pResultado">Faça a simulação para ver o resultado do cálculo!</p>
           </div>
           <div class="card">
             <h1>Explicação do Calculo:</h1>
@@ -171,3 +171,13 @@
 </body>
 
 </html>
+<script>
+    function calcularPerda(){
+        var perda = (Number(inputQtdGraos.value) * 0.15) * 25
+        var perdaComCoffeTech = perda * 0.66
+        
+        pResultado.innerHTML = `
+        Levando em consideração que em média um quilo de café custa R$ 25, sem a nossa solução Coffee Thermal Solution você perderá <b class= "vermelho">R$ ${perda.toFixed(1)} (15%)</b>, mas com a Coffee Thermal Solution você economizará <b class = "verde"> R$ ${perdaComCoffeTech.toFixed(1)} (66%)</b> do valor perdido, perdendo apenas 5% e não 15%.
+        `
+    }
+</script>

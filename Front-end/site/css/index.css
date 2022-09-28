@@ -424,3 +424,11 @@ footer img{
     margin-right: 20px;
   } 
   
+  /* Estilos Script */
+  .vermelho{
+    color: red;
+  }
+
+  .verde{
+    color: green;
+  }
