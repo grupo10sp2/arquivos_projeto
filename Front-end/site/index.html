@@ -8,12 +8,13 @@
   <link rel="stylesheet" href="./css/index.css">
   <link rel="icon" 
     type="image/png" 
-    href="./img/Logo 1.png" />
+    href="img/favicon.png" />
   <title>CoffeeTech | Home</title>
 </head>
 
 <body>
 <!-- header -->
+<div class="banner">
   <header class="header">
     <div class="container">
       <img src="img/Logo 1.png" alt="CoffeTech">
@@ -33,13 +34,13 @@
 
   <main>
     <!-- Imagem Inicial -->
-
-       <div class="banner" style="background-image:url(./img/white-cup-on-coffee-beans\ 1.png); height: 850px; background-size: cover;">
-        <div class="container">
+        <div class="container home">
             <div class="texto-b">
-                <h1>Nossa solução</h1>
-                <p>Conheça nossa solução para sua empresa</p>s
-                <a class="botaoEscuro" href="./nossa-solução.html">Saiba mais!</a>
+                <div class="titulo">
+                <h1>Somos a </h1><img src="img/Logo2.png" alt=""><h1>!</h1>
+                </div>
+                <p>Trazemos uma solução para o seu armazenamento de café em silos, para que ela dure em bom estado por mais tempo, evitando pragas, bactérias, fungos.</p>
+                <a class="botaoHome" href="#simuladorFinanceiro">Simule conosco!</a>
             </div>
           
         </div>
@@ -83,14 +84,14 @@
 <!-- Nossa solução  -->
       <div class="nossa-solução">
         <div class="container">
-         <img src="./img/woman-pouring-milk-into-her-coffee.jpg" alt="Café">
+         <img src="./img/coffee-beans-close-up 1.png" alt="Café">
           <div class="texto">
             <h1>Nossa Solução</h1>
             <p>
               Somos uma empresa de tecnologia que oferece soluções através do uso de sensores aplicados no agronegócio, especificamente na armazenagem e transporte do café!
               Nosso time é formado por desenvolvedores do curso de análise e desenvolvimento de sistemas na faculdade SPTech.
             </p>
-            <a class="botaoEscuro" href="./nossa-solução.html">Saiba mais!</a>
+            <a class="botaoHome" href="./nossa-solução.html">Saiba mais!</a>
           </div>
   
          
@@ -107,16 +108,42 @@
             Somos uma empresa de tecnologia que oferece soluções através do uso de sensores aplicados no agronegócio, especificamente na armazenagem e transporte do café!
             Nosso time é formado por desenvolvedores do curso de análise e desenvolvimento de sistemas na faculdade SPTech.
           </p>
-          <a class="botaoEscuro" href="./nossa-empresa.html">Saiba mais!</a>
+          <a class="botaoHome" href="./nossa-empresa.html">Saiba mais!</a>
         </div>
 
-        <img src="./img/background-of-roasted-fresh-brown-coffee-beans-perfect-for-a-cool-wallpaper.jpg.crdownload" alt="Café">,
+        <img src="./img/top-view-coffee-cup-and-coffee-beans-on-dark-table 1.png" alt="Café">,
       </div>
     </div>
 
   <!-- bunner2 -->
     <div class="banner02">
-        <img class="img-b2"src="./img/wooden-spoon-with-coffee-beans (1) 2.png">   
+        <img class="img-b2" src="./img/white-cup-on-coffee-beans.png">   
+    </div>
+
+  <!-- Simulador Financeiro -->
+    <div class="simuladorFinanceiro" id="simuladorFinanceiro">
+      <div class="container">
+        <div class="simule">
+          <h1>Simulador Financeiro</h1>
+          <p>Através do nosso simulador financeiro sua empresa pode calcular o quanto de perda pode evitar utilizando nosso projeto.</p>
+          <p>Insira a quantidade em quilos (Kg) de café armazenados em seu estoque:</p>
+          <div>
+            <input class="input" type="number">
+            <a onclick="simule()">Simule!</a>
+          </div>
+        </div>
+        <div class="containerCards">
+          <div class="card">
+            <h1>Por que contratar nossa empresa?</h1>
+            <p>Sabemos que, em média, um quilo (1kg) de café custa R$ 25 reais, sem a nossa soluçao Coffee Thermal Solution sua empresa perderá R$ <span>187.5</span> reais investidos. Ou seja, 15% dos grãos de café armazenados. Utilizando a CoffeTech sua empresa irá poupar R$ <span>123.8</span> reais, cerca de 66%, do valor perdido.</p>
+          </div>
+          <div class="card">
+            <h1>Explicação do Calculo:</h1>
+            <p>Segundo o Embrapa o armazenamento inadequado de grãos pode provocar 15% de perdas fazendo com que o café saia do padrão de comercialização, constando mudança na cor, mudança no gosto, maior probabilidade de infestação por insetos, colonização por fungos e deterioração do produto.</p>
+            <p>Através dessas informações fizemos um simulador para mostrar a diferença com e sem a nossa solução comparando-os.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Rodapé  -->

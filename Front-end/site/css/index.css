@@ -18,10 +18,6 @@
   }
 
   /* Header */
-
-.header{
-    background-color: #F3D5B5;
-  }
   
   .navegacao{
     display: flex;
@@ -44,7 +40,7 @@
   .navegacao ul li a{
     text-decoration: none;
     margin-right: 0px;
-    color: #000000;
+    color: #FFF;
     transition: 0.5s;
   }
   
@@ -90,32 +86,63 @@
   }
 
 
-   /* banner */
-  .banner {
-    padding: 100px 0;
-    
+   /* Home */
+  .home{
+    justify-content: flex-end;
+  }
 
+  .home .container{
+    width: 100%;
+  }
+
+  .texto-b{
+    margin-top: 80px;
+    margin-right: 50px;
+  }
+
+  .texto-b p{
+    width: 500px;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 50px;
+  }
+
+  .titulo{
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .texto-b img{
+    padding-bottom: 20px;
+    margin-left: 10px;
+  }
+
+  .botaoHome{
+    font-size: 32px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    background: rgba(96, 56, 8, 0.432);
+    border: 1px solid #603808;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    transition: 0.5s;
   }
   
-  .banner .container {
-    height: 350px;
-    align-items:flex-end;
-    justify-content:flex-end;
+  .botaoHome:hover{
+    background: #814c0c;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
   }
 
+  .banner{
+    background-image:url(../img/wooden-spoon-with-coffee-beans\ \(1\)\ 2.png);
+    height: 100vh;
+    background-size: cover;
+  }
+  
   .banner .texto-b{
     flex-direction: column;
     justify-content: flex-end;
-    margin-right: 150px;
-  }
-
-  .banner p {
-    width: 20px;
-    color: white;
-    font-size: 20px;
-    margin-bottom: 30px;
-
-    
   }
 
   .banner h1{
@@ -132,6 +159,11 @@
 .social {
     margin: 50px 0;
 
+  }
+
+  .social .container{
+    margin: 0 auto;
+    justify-content: center;
   }
   
   .social .caixas {
@@ -202,6 +234,17 @@
     margin-top: 30px;
   }
 
+  .nossa-solução .botaoHome{
+    font-size: 20px;
+    background: rgb(96, 56, 8);
+  }
+
+  .nossa-solução .botaoHome:hover{
+    background: #814c0c;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+
+  }
+
   /* Nossa Empresa */
 .nossa-empresa .container{
     display: flex;
@@ -212,6 +255,7 @@
   .nossa-empresa img{
     width: 468px;
      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     
   }
   
   .nossa-empresa .texto{
@@ -234,14 +278,29 @@
     margin-top: 30px;
   }
 
+  .nossa-empresa .botaoHome{
+    font-size: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #ffffff;
+    background: rgb(96, 56, 8);
+    border: 1px solid #603808;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+
+  .nossa-empresa .botaoHome:hover{
+    background: #814c0c;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+  }
+
   /* banner 02 */
 
   .banner02 .img-b2{
     width: 100%;
-    height: 850px;
-    padding: 100px 0;
+    margin: 100px 0;
     background-size: cover;
-    margin-top: 100px;
     
   }
   
@@ -251,7 +310,73 @@
     justify-content: center;
   }
 
-  
+  /* Calculadora Financeira */
+  .simuladorFinanceiro .container{
+    display: block;
+  }
+
+  .simuladorFinanceiro h1{
+    color: #583101;
+    margin-bottom: 20px;
+  }
+
+  .simuladorFinanceiro p{
+    margin-bottom: 10px;
+  }
+
+  .simule div{
+    display: flex;
+    align-items: center;
+  }
+
+  .simuladorFinanceiro .input{
+    width: 550px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #583101;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+    margin-right: 10px;
+  }
+
+  .simuladorFinanceiro a{
+    padding: 8px 15px;
+    border-radius: 10px;
+    background-color: #583101;
+    border: none;
+    color: white;
+    font-size: 20px;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .simuladorFinanceiro a:hover{
+    background: #814c0c;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .simuladorFinanceiro a:active{
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  .containerCards{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .containerCards .card{
+    background-color: #FEFAE0;
+    width: 500px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 50px;
+    padding: 10px 40px;
+  }
+  .containerCards .card p{
+    margin: 20px 0;
+  }
+
+  .containerCards .card h1{
+    font-size: 30px;
+  }
 
   /* Footer */
 footer img{
@@ -259,7 +384,7 @@ footer img{
   }
   
   footer{
-    margin-top: 500px;
+    margin-top: 200px;
     background-color: #D4A276;
     padding: 20px;
   }
