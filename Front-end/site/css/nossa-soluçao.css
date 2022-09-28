@@ -1,13 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
 
 
-   /* Header */
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Inder', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.container{
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Header */
    
-   .header{
-     background-color: #F3D5B5;
-   }
+.header{
+  background-color: #F3D5B5;
+}
    
-   .navegacao{
+   .navegacao {
      display: flex;
      justify-content: space-between;
      align-items: center;
@@ -40,6 +56,7 @@
      display: block;
      margin-right: 30px;
    }
+
    
    .botaoClaro{
      padding: 10px 20px;
@@ -77,4 +94,12 @@
      width: 100%;
    } 
 
+   /*LOGO / NOSSA SOLUÇÃO*/
+
+   .container .texto{
+    background-color:rgba(0, 0, 0, 0.25);
+    justify-content: center;
+   }
+
+   
 
