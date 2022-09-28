@@ -1,13 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-*{font-family: Roboto;}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+}
+
+img{
+  display: block;
+}
 
 .banner {
-    margin: -8px;
-    background-image: url(/img/coffee-beans-close-up\ 1.png);
-    padding: 54px 0;
+    display: flex;
+    align-items: center;
+    background-image: url(../img/close-up-of-roasted-coffee-beans.png);
     background-size:cover;
-    height: 95vh;
+    padding: 20px 0;
   }
 
   .banner .container {
@@ -20,13 +28,28 @@
   }
   
   .formulario {
-    background-color: #f1eeee;
-    padding: 19px 110px;
+    background-color: #ffffff;
+    padding: 50px 80px 0px 80px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .formulario img{
+    width: 75px;
+    margin-bottom: 30px;
+  }
+
+  .formulario h2{
+    display: block;
+    font-size: 26px;
+    font-weight: 400;
+  }
+
+  .subtitulo{
+    margin-bottom: 40px;
   }
 
   .campo {
@@ -37,36 +60,60 @@
   }
   
  .formulario label {
-    color: #969090;
-    cursor: pointer;
-    border: none;
-    border-radius: 10px;
+    color: #848484;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+
   } 
 
   .campo label{
-    color: black;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 400; 
+  }
+
+  .campo input{
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    margin-bottom: 40px;
+    padding: 2px;
+  }
+
+  .formulario a {
+    text-decoration: none;
+    color: #848484;
+    margin-top: 10px;
+    transition: 0.5s;
+  }
+
+  .formulario a:hover{
+    color: #000000;
   }
 
   .formulario button {
-  margin-top: 20px;
-  width: 140px;
-  color: #fff;
-  background-color: #583101;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    margin-top: 40px;
+    color: #fff;
+    background-color: #583101;
+    padding: 10px 80px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.5s;
   }
 
-.container .home {
+  .formulario button:hover{
+    background: #814c0c;
+  }
+
+  .formulario .home{
     position: relative;
-    top: -26px;
-    left: 184px;
-}
+    top: -45px;
+    left: 170px;
+    width: 25px;
+    cursor: pointer;
+  }
 
-.formulario h2 {
-    margin: 0;
-    padding: 0;
-}
-
- 
