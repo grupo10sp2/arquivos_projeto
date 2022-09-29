@@ -96,10 +96,18 @@
 
    /*LOGO / NOSSA SOLUÇÃO*/
 
-   .container .texto{
-    background-color:rgba(0, 0, 0, 0.25);
+   .logo{
     justify-content: center;
+    align-items: center;
+    width: 468px;
    }
+
+   .container .texto{
+    justify-content: center;
+    align-items: center;
+   }
+
+   
 
    
 
