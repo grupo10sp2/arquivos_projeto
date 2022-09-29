@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+ }
+
+ .banner{
+  background-image: url(../img/close-up-of-roasted-coffee-beans.png);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ 
+ .dashboard{
+  width: 95%;
+  height: 95%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  display: flex;
+ }
+
+ .divLateral{
+  background-color: #000000;
+  padding: 40px 40px;
+  color: white;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.divLateral .nomeUsuario{
+  font-weight: bold;
+}
+
+.navegacao ul{
+  margin: 10px 0;
+  list-style: none;
+  
+}
+.navegacao ul img{
+  width: 25px;
+}
+
+.navegacao ul li{
+  display: flex;
+  width: 180px;
+  margin: 20px 0;
+  padding: 10px 20px;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.navegacao ul li:hover{
+  background-color: #60380880;
+}
+
+.navegacao ul li p{
+  margin-right: 0px;
+  margin-left: 30px;
+}
+
+.saida{
+  list-style: none;
+}
+
+.saida a {
+  color: white;
+  display: flex;
+  width: 180px;
+  margin: 10px 0;
+  padding: 10px 20px;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.saida li p{
+  margin-left: 30px;
+}
+
+.saida a:hover{
+  background-color: #60380880;
+}
+
+.saida img{
+  width: 25px;
+}
+
