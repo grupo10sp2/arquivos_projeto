@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/login.css">
-    <link rel="icon" type="image/png" href="img/favicon.png" />
     <title>CoffeeTech | Home</title>
+    <script type="text/javascript" src="js/script_login.js"></script>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="icon" type="image/png" href="img/favicon.png" /> 
 </head>
 
 <body>
@@ -18,16 +19,16 @@
                 <img src="./img/user (1) 1.png" alt="Icone Usuario">
                 <h2>Faça seu Login</h2>
                 <div class="campo">
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email">
+                    <label for="input_email">E-mail</label>
+                    <input type="email" onfocus="Focus(input_email)" id="input_email">
                 </div>
                 <div class="campo">
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha"> 
+                    <label for="input_senha">Senha</label>
+                    <input type="password" onfocus="Focus(input_senha)" id="input_senha"> 
                 </div>
                 <a href="#">Esqueceu sua senha?</a>
                 <a href="cadastro.html">Cadastrar</a>
-                <a class="entrar" href="dashboard.html">Entrar</a>
+                <a class="entrar" onclick="login()">Entrar</a>
                 <a href="index.html"><img class="home" src="img/Home.png" alt=""></a>
             </div>
         </div>

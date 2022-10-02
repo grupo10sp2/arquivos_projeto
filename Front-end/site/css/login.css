@@ -79,6 +79,11 @@ img{
     padding: 2px;
   }
 
+
+   input:focus{
+    border-color: #000000;
+  }
+
   .formulario a {
     text-decoration: none;
     color: #848484;
