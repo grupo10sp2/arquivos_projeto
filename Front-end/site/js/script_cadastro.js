@@ -11,7 +11,7 @@ function cadastrar(){
 
     var cadastro_valido = true;
 
-    if (nome == "" || nome[0] == " "){
+    if (nome == "" || nome[0] == " " || nome.length < 3){
         input_nome.style.borderColor = "#FF0000";
         cadastro_valido = false;
     }    
