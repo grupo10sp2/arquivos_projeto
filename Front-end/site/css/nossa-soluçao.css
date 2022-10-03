@@ -104,14 +104,13 @@
    .logo{
     justify-content: center;
     align-items: center;
-    width: 468px;
+    width: 700px;
    }
 
    .container .texto{
     justify-content: center;
     align-items: center;
    }
-
    
    footer img{
     width: auto;
