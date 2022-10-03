@@ -7,6 +7,7 @@ function login(){
     var senha = input_senha.value;
     var login_valido = true;
     
+    /* Verificação do Email */
     if (email == "" ||
         email.indexOf(" ") > -1 ||
         email.indexOf("@") < 3 ||
@@ -15,11 +16,16 @@ function login(){
         input_email.style.borderColor = "#FF0000";
         login_valido = false;
     }
+
+    /* Verificação da Email */
     if (senha == "" || senha[0] == " " || senha.length < 5){
         input_senha.style.borderColor = "#FF0000";
         login_valido = false;
     }
-    if (login_valido){
-        location = "dashboard.html";
+
+    if (login_valido && email == 'fernando.brandao@sptech.school'){
+        location = "dashboardAdmin.html";
+    } else if (login_valido && email == 'rafa@sptech.school'){
+        location = "dashboard.html"
     }
 }
