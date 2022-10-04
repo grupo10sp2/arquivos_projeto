@@ -370,6 +370,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-top: 50px;
     padding: 10px 40px;
+    transition: 0.5s;
   }
   .containerCards .card p{
     margin: 20px 0;
@@ -432,4 +433,16 @@ footer img{
 
   .verde{
     color: green;
+  }
+
+  .bPerdaDeCafe{
+    cursor: pointer;
+  }
+  
+  .bPerdaDeCafe:hover{
+      color: #282828;
+  }
+
+  .divExplicacao{
+    
   }
