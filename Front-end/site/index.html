@@ -173,9 +173,11 @@
     function calcularPerda(){
         var perda = (Number(inputQtdGraos.value) * 0.15) * 25
         var perdaComCoffeTech = perda * 0.66
+        var exibicaoPerda = Number(perda.toFixed(1)).toLocaleString('pt-br' ,{ minimumFractionDigits: 2 , style: 'currency', currency: 'BRL'})
+        var exibicaoPerdaComCoffeTech = Number(perdaComCoffeTech.toFixed(1)).toLocaleString('pt-br' ,{ minimumFractionDigits: 2 , style: 'currency', currency: 'BRL'})
         
         pResultado.innerHTML = `
-        Levando em consideração que em média um quilo de café custa R$ 25, e a perda é de <b class="bPerdaDeCafe" onclick="destaqueExplicacao()">15%</b>, sem a nossa solução Coffee Thermal Solution você perderá <b class= "vermelho">R$ ${perda.toFixed(1)} (15%)</b>, mas com a Coffee Thermal Solution você economizará <b class = "verde"> R$ ${perdaComCoffeTech.toFixed(1)} (66%)</b> do valor perdido, perdendo apenas 5% e não 15%.
+        Levando em consideração que em média um quilo de café custa R$ 25, e a perda é de <b class="bPerdaDeCafe" onclick="destaqueExplicacao()">15%</b>, sem a nossa solução Coffee Thermal Solution você perderá <b class= "vermelho">R$ ${exibicaoPerda} (15%)</b>, mas com a Coffee Thermal Solution você economizará <b class = "verde"> R$ ${perdaComCoffeTech.toFixed(1)} (66%)</b> do valor perdido, perdendo apenas 5% e não 15%.
         `
     }
 
