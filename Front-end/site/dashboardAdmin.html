@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/dashboard.css">
-  <link rel="icon" type="image/png" href="img/favicon.png"/>
+  <link rel="icon" type="image/png" href="img/favicon.png" />
   <title>CoffeTech | Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
   <div class="banner">
     <div class="dashboard">
@@ -34,23 +36,29 @@
             </li>
           </ul>
         </nav>
-        
-          <ul class="saida">
-            <li>
-              <a href="index.html">
+
+        <ul class="saida">
+          <li>
+            <a href="index.html">
               <img src="img/homeBranco.png" alt="">
-              <p>Home</p></a>
-            </li>
-            <li>
-              <a href="index.html">
+              <p>Home</p>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
               <img src="img/exit.png" alt="">
-              <p>Exit</p></a>
-            </li>
-          </ul>
-        
+              <p>Exit</p>
+            </a>
+          </li>
+        </ul>
+
       </div>
-      <div class="caixa_branca">
-        <div class="cabecalho">
+
+     
+
+      <div class="unificacao_grafico">
+         <header>
+        <div class="container_header">
           <h4>Painel</h4>
           <label for="select_data">Pesquisa:</label><br>
           <select name="select_data" id="select_data">
@@ -58,15 +66,36 @@
             <option value="mes">mês</option>
           </select>
         </div>
+      </header>
 
-        <div class="grafico_barra">
-            <canvas id="myChart" style="position: relative; height:4vh; width:8vw"></canvas>
+      <main>
+        <div class="container">
+          <div class="graficoTemp">
+            <div class="kpi_primaria">
+              <div class="kpi1">Temperatura Média<br><b>20°C</b></div>
+              <div class="kpi2">Vezes Fora do Padrão<br><b>5</b></div>
+              <div class="kpi3">Temperatura Máxima<br><b>20°C</b></div>
+            </div>
+            <canvas id="myChart" style="position: relative; height: 25vh; width:35vw;"></canvas>
+          </div>
+          <div class="graficoUmi">
+            <div class="kpi_primaria">
+              <div class="kpi1">Umidade Média<br><b>20%</b></div>
+              <div class="kpi2">Vezes Fora do Padrão<br><b>7</b></div>
+              <div class="kpi3">Umidade Máxima<br><b>20%</b></div>
+            </div>
+            <canvas id="myChart2" style="position: relative; height:25vh; width:35vw"></canvas>
+          </div>
         </div>
-          
-        <div class="grafico_barra">
-            <canvas id="myChart2" style="position: relative; height:4vh; width:8vw"></canvas>
-        </div>  
+      </main>
       </div>
+      
+      
+
+
+
+
+
     </div>
   </div>
 </body>
@@ -80,7 +109,7 @@
     '9/27/22 13:10',
     '9/27/22 13:15',
   ];
-   
+
   const labels2 = [
     '9/27/22 12:50',
     '9/27/22 12:55',
@@ -108,7 +137,7 @@
       borderColor: 'rgb(90, 90, 255)',
       data: [10, 12, 9, 8, 11, 13],
     }
-  ]
+    ]
   };
 
   const config = {

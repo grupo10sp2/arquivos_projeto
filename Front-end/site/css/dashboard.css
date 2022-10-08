@@ -66,24 +66,77 @@
   margin-left: 30px;
 }
 
-.caixa_branca {
-  width: 71%;
-  margin: 0 auto;
+.unificacao_grafico {
+  width: 100%;
+  display: flex;
+  flex-direction:column;
 }
 
-.cabecalho {
-  padding: 20px 0;
+header {  
+  height: 10%;
+  margin: 20px;
+  padding: 15px 0;
   border-bottom: 3px solid black;
+}
+
+.container_header {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
-.cabecalho select {
-    margin-top: 30px;
-    padding: 0px 70px;
+.container_header select {
+    padding: 0px 50px;
     cursor: pointer;
+}
+
+main {
+  width: 80%;
+  height: 80%;
+  margin: 10px;
+}
+
+main .container {
+  padding: 5px 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.graficoTemp {
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+
+.graficoUmi {
+  background-color: whitesmoke;
+  border-radius: 5px;
+}
+
+.kpi_primaria {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.kpi1 {
+background: #02C252;
+border-radius: 10px;
+padding: 10px 5px;
+}
+
+.kpi2 {
+ background: #ECD400;
+ border-radius: 10px;
+ padding: 10px 5px;
+}
+
+.kpi3 {
+ background: #C20202;
+ border-radius: 10px;
+ padding: 10px 5px;
 }
 
 .saida{
