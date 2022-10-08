@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/dashboardAdmin.css">
+  <link rel="stylesheet" href="css/dashboard.css">
   <link rel="icon" type="image/png" href="img/favicon.png" />
   <title>CoffeTech | Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-  <div class="banner"> 
+  <div class="banner">
     <div class="dashboard">
       <div class="divLateral">
         <div>
@@ -68,28 +68,33 @@
         </div>
       </header>
 
-      <!-- KPIs -->
-
       <main>
-        <div class="container grafico">
+        <div class="container">
           <div class="graficoTemp">
             <div class="kpi_primaria">
-              <div class="kpi1">Temperatura Média<br><b>20°C</b></div>
-              <div class="kpi2">Vezes Fora do Padrão<br><b>5</b></div>
-              <div class="kpi3">Temperatura Máxima<br><b>20°C</b></div>
+              <div class="kpi1">Temperatura<br> Média <b>20°C</b></div>
+              <div class="kpi2">Vezes Fora do Padrão <b>5</b></div>
+              <div class="kpi3">Temperatura<br> Máxima <b>20°C</b></div>
             </div>
-            <canvas id="myChart" style="position: relative; height: 25vh; width:35vw;"></canvas>
+            <canvas id="myChart" style="position: relative; height: 28vh; width:36vw;"></canvas>
           </div>
           <div class="graficoUmi">
             <div class="kpi_primaria">
-              <div class="kpi1">Umidade Média<br><b>20%</b></div>
-              <div class="kpi2">Vezes Fora do Padrão<br><b>7</b></div>
-              <div class="kpi3">Umidade Máxima<br><b>20%</b></div>
+              <div class="kpi1">Umidade<br> Média <b>20%</b></div>
+              <div class="kpi2">Vezes Fora do Padrão <b>7</b></div>
+              <div class="kpi3">Umidade<br> Máxima <b>20%</b></div>
             </div>
-            <canvas id="myChart2" style="position: relative; height:25vh; width:35vw"></canvas>
+            <canvas id="myChart2" style="position: relative; height:28vh; width:36vw"></canvas>
           </div>
         </div>
       </main>
+      <span>
+        <main>
+          <div class="graficoVari">
+            <canvas id="myChart3" style="position: relative; height:25vh; width:30vw"></canvas>
+          </div>
+        </main>
+      </span>
       </div>
       
       
@@ -121,6 +126,15 @@
     '9/27/22 13:15',
   ];
 
+  const labels3 = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+  ];
+
   const data = {
     labels: labels,
     datasets: [{
@@ -142,6 +156,23 @@
     ]
   };
 
+  const data3 = {
+    labels: labels3,
+    datasets: [{
+      label: 'Variação de Limite (Mensal)',
+      backgroundColor: [ 
+        'rgb(139,69,19)',
+        'rgb(255,69,0)',
+        'rgb(220,20,60)',
+        'rgb(189,183,107)',
+        'rgb(0,255,127)',
+        'rgb(255,182,193)',
+    ],
+      data: [10, 12, 9, 8, 11, 13],
+    }
+    ]
+  };
+
   const config = {
     type: 'line',
     data: data,
@@ -151,6 +182,12 @@
   const config2 = {
     type: 'line',
     data: data2,
+    options: {}
+  };
+
+  const config3 = {
+    type: 'doughnut',
+    data: data3,
     options: {}
   };
 </script>
@@ -164,6 +201,11 @@
   const myChart2 = new Chart(
     document.getElementById('myChart2'),
     config2
+  );
+
+  const myChart3 = new Chart(
+    document.getElementById('myChart3'),
+    config3
   );
 </script>
 
