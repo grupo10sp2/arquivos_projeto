@@ -45,14 +45,15 @@ select * from Usuario join Fazenda on fkFazenda = idFazenda;
 select * from Usuario as u join Usuario as adm on u.fkAdmin = adm.idUsuario;
 
 create table Silo (
-idSilo int primary key auto_increment,
+idSilo int auto_increment,
 codigoSilo varchar(10),
 temperaturaMin decimal(3,1),
 temperaturaMax decimal(3,1),
 umidadeMin decimal(3,1),
 umidadeMax decimal(3,1),
 fkFazenda int,
-foreign key (fkFazenda) references Fazenda (idFazenda)
+foreign key (fkFazenda) references Fazenda (idFazenda),
+primary key (idSilo, fkFazenda)
 );
 
 insert into Silo (codigoSilo, temperaturaMin, temperaturaMax, umidadeMin, umidadeMax, fkFazenda) values
@@ -64,12 +65,13 @@ select * from Silo;
 select * from Silo join Fazenda on fkFazenda = idFazenda;
 
 create table HistoricoMedicoes (
-idHistorico int primary key auto_increment,
+idHistorico int auto_increment,
 dataHora datetime,
 temperatura decimal(3,1),
 umidade decimal(3,1),
 fkSilo int,
-foreign key (fkSilo) references Silo (idSilo)
+foreign key (fkSilo) references Silo (idSilo),
+primary key (idHistorico, fkSilo)
 );
 
 insert into HistoricoMedicoes (datahora, temperatura, umidade, fkSilo) values
