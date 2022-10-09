@@ -27,5 +27,7 @@ function login(){
         location = "dashboardAdmin.html";
     } else if (login_valido && email == 'rafa@sptech.school'){
         location = "dashboard.html"
-    }
+    } else if (login_valido) {
+		alert("E-mail ou senha inválidos");
+	}
 }
