@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/dashboard.css">
-  <link rel="icon" type="image/png" href="img/favicon.png"/>
+  <link rel="icon" type="image/png" href="img/favicon.png" />
   <title>CoffeTech | Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
   <div class="banner">
     <div class="dashboard">
@@ -33,25 +36,178 @@
             </li>
           </ul>
         </nav>
-        
-          <ul class="saida">
-            <li>
-              <a href="index.html">
+
+        <ul class="saida">
+          <li>
+            <a href="index.html">
               <img src="img/homeBranco.png" alt="">
-              <p>Home</p></a>
-            </li>
-            <li>
-              <a href="index.html">
+              <p>Home</p>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
               <img src="img/exit.png" alt="">
-              <p>Exit</p></a>
-            </li>
-          </ul>
-        
+              <p>Exit</p>
+            </a>
+          </li>
+        </ul>
+
       </div>
-      <div>
-        <p>sdkamskdjasd</p>
+
+     
+
+      <div class="unificacao_grafico">
+         <header>
+        <div class="container_header">
+          <h4>Painel</h4>
+          <label for="select_data">Pesquisa:</label><br>
+          <select name="select_data" id="select_data">
+            <option value="dia">dia</option>
+            <option value="mes">mês</option>
+          </select>
+        </div>
+      </header>
+
+      <main>
+        <div class="container">
+          <div class="graficoTemp">
+            <div class="kpi_primaria">
+              <div class="kpi1">Temperatura<br> Média <b>20°C</b></div>
+              <div class="kpi2">Vezes Fora do Padrão <b>5</b></div>
+              <div class="kpi3">Temperatura<br> Máxima <b>20°C</b></div>
+            </div>
+            <canvas id="myChart" style="position: relative; height: 28vh; width:36vw;"></canvas>
+          </div>
+          <div class="graficoUmi">
+            <div class="kpi_primaria">
+              <div class="kpi1">Umidade<br> Média <b>20%</b></div>
+              <div class="kpi2">Vezes Fora do Padrão <b>7</b></div>
+              <div class="kpi3">Umidade<br> Máxima <b>20%</b></div>
+            </div>
+            <canvas id="myChart2" style="position: relative; height:28vh; width:36vw"></canvas>
+          </div>
+        </div>
+      </main>
+      <span>
+        <main>
+          <div class="graficoVari">
+            <canvas id="myChart3" style="position: relative; height:25vh; width:30vw"></canvas>
+          </div>
+        </main>
+      </span>
       </div>
+      
+      
+
+
+
+
+
     </div>
   </div>
 </body>
+
+<script>
+  const labels = [
+    '9/27/22 12:50',
+    '9/27/22 12:55',
+    '9/27/22 13:00',
+    '9/27/22 13:05',
+    '9/27/22 13:10',
+    '9/27/22 13:15',
+  ];
+
+  const labels2 = [
+    '9/27/22 12:50',
+    '9/27/22 12:55',
+    '9/27/22 13:00',
+    '9/27/22 13:05',
+    '9/27/22 13:10',
+    '9/27/22 13:15',
+  ];
+
+  const labels3 = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Temperatura',
+      backgroundColor: 'rgb(255, 90, 90)',
+      borderColor: 'rgb(255, 90, 90)',
+      data: [13, 14, 10, 11, 15, 10],
+    }]
+  };
+
+  const data2 = {
+    labels: labels2,
+    datasets: [{
+      label: 'Umidade',
+      backgroundColor: 'rgb(90, 90, 255)',
+      borderColor: 'rgb(90, 90, 255)',
+      data: [10, 12, 9, 8, 11, 13],
+    }
+    ]
+  };
+
+  const data3 = {
+    labels: labels3,
+    datasets: [{
+      label: 'Variação de Limite (Mensal)',
+      backgroundColor: [ 
+        'rgb(139,69,19)',
+        'rgb(255,69,0)',
+        'rgb(220,20,60)',
+        'rgb(189,183,107)',
+        'rgb(0,255,127)',
+        'rgb(255,182,193)',
+    ],
+      data: [10, 12, 9, 8, 11, 13],
+    }
+    ]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+
+  const config2 = {
+    type: 'line',
+    data: data2,
+    options: {}
+  };
+
+  const config3 = {
+    type: 'doughnut',
+    data: data3,
+    options: {}
+  };
+</script>
+
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+
+  const myChart2 = new Chart(
+    document.getElementById('myChart2'),
+    config2
+  );
+
+  const myChart3 = new Chart(
+    document.getElementById('myChart3'),
+    config3
+  );
+</script>
+
+
 </html>

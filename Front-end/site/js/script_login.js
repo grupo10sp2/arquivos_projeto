@@ -1,5 +1,5 @@
-function Focus(input){
-    input.style.borderColor = "#000000"
+function Focus(id_input){
+    id_input.style.borderColor = "#000000"
 }
 
 function login(){

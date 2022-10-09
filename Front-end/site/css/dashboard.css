@@ -23,6 +23,8 @@
   display: flex;
  }
 
+/* Painel da esquerda */
+
  .divLateral{
   background-color: #000000;
   padding: 40px 40px;
@@ -92,5 +94,95 @@
 
 .saida img{
   width: 25px;
+}
+
+/* Dashboard geral */
+.unificacao_grafico {
+  width: 80%;
+  display: flex;
+  flex-direction:column;
+}
+
+/* Cabeçalho Dashboard */
+header {  
+  height: 10%;
+  margin: 10px;
+  padding: 15px 0;
+  border-bottom: 3px solid black;
+}
+
+.container_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container_header select {
+    padding: 0px 50px;
+    cursor: pointer;
+}
+
+/* Gráfico Dashboard */
+main {
+  width: 100%;
+  height: 36%;
+  margin: 5px;
+}
+
+main .container {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+span main {
+  width: 26%;
+  height: 25%;
+  margin: 20px;
+  padding-left: 34px;
+}
+
+.graficoTemp {
+  background-color: ghostwhite	;
+  border-radius: 5px;
+}
+
+.graficoUmi {
+  background-color: ghostwhite;
+  border-radius: 5px;
+}
+
+.graficoVari {
+  background-color: ghostwhite;
+  border-radius: 5px;
+}
+
+
+/* Estilização das KPIs */
+.kpi_primaria {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.kpi1 {
+background: #02C252;
+border-radius: 10px;
+padding: 10px 5px;
+}
+
+.kpi2 {
+ background: #ECD400;
+ border-radius: 10px;
+ padding: 10px 5px;
+}
+
+.kpi3 {
+ background: #C20202;
+ border-radius: 10px;
+ padding: 10px 5px;
 }
 
