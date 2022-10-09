@@ -1,31 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
- }
+}
 
- .banner{
+.banner {
   background-image: url(../img/close-up-of-roasted-coffee-beans.png);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
- }
- 
- .dashboard{
+}
+
+.dashboard {
   width: 95%;
   height: 95%;
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
   display: flex;
- }
+}
 
 /* Painel da esquerda */
 
- .divLateral{
+.divLateral {
   background-color: #000000;
   padding: 40px 40px;
   color: white;
@@ -36,20 +36,21 @@
   justify-content: space-between;
 }
 
-.divLateral .nomeUsuario{
+.divLateral .nomeUsuario {
   font-weight: bold;
 }
 
-.navegacao ul{
+.navegacao ul {
   margin: 10px 0;
   list-style: none;
-  
+
 }
-.navegacao ul img{
+
+.navegacao ul img {
   width: 25px;
 }
 
-.navegacao ul li{
+.navegacao ul li {
   display: flex;
   width: 180px;
   margin: 20px 0;
@@ -59,16 +60,16 @@
   cursor: pointer;
 }
 
-.navegacao ul li:hover{
+.navegacao ul li:hover {
   background-color: #60380880;
 }
 
-.navegacao ul li p{
+.navegacao ul li p {
   margin-right: 0px;
   margin-left: 30px;
 }
 
-.saida{
+.saida {
   list-style: none;
 }
 
@@ -84,15 +85,15 @@
   text-decoration: none;
 }
 
-.saida li p{
+.saida li p {
   margin-left: 30px;
 }
 
-.saida a:hover{
+.saida a:hover {
   background-color: #60380880;
 }
 
-.saida img{
+.saida img {
   width: 25px;
 }
 
@@ -100,11 +101,11 @@
 .unificacao_grafico {
   width: 80%;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 }
 
 /* Cabeçalho Dashboard */
-header {  
+header {
   height: 10%;
   margin: 10px;
   padding: 15px 0;
@@ -119,8 +120,8 @@ header {
 }
 
 .container_header select {
-    padding: 0px 50px;
-    cursor: pointer;
+  padding: 0px 50px;
+  cursor: pointer;
 }
 
 /* Gráfico Dashboard */
@@ -131,7 +132,7 @@ main {
 }
 
 main .container {
-  padding: 0 10px;
+  padding: 0 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -145,7 +146,7 @@ span main {
 }
 
 .graficoTemp {
-  background-color: ghostwhite	;
+  background-color: ghostwhite;
   border-radius: 5px;
 }
 
@@ -159,6 +160,12 @@ span main {
   border-radius: 5px;
 }
 
+ .unificacao_grafico {
+  /* display: flex;
+  flex-direction: column;
+  background-color: aqua; */
+}
+
 
 /* Estilização das KPIs */
 .kpi_primaria {
@@ -169,20 +176,21 @@ span main {
 }
 
 .kpi1 {
-background: #02C252;
-border-radius: 10px;
-padding: 10px 5px;
+  background: #02C252;
+  border-radius: 10px;
+  padding: 10px 5px;
 }
 
 .kpi2 {
- background: #ECD400;
- border-radius: 10px;
- padding: 10px 5px;
+  background: #ECD400;
+  border-radius: 10px;
+  padding: 10px 5px;
 }
 
 .kpi3 {
- background: #C20202;
- border-radius: 10px;
- padding: 10px 5px;
+  background: #C20202;
+  border-radius: 10px;
+  padding: 10px 5px;
 }
+
 

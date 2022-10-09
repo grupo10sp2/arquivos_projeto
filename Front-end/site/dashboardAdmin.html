@@ -72,17 +72,17 @@
         <div class="container">
           <div class="graficoTemp">
             <div class="kpi_primaria">
-              <div class="kpi1">Temperatura<br> Média <b>20°C</b></div>
-              <div class="kpi2">Vezes Fora do Padrão <b>5</b></div>
+              <div class="kpi1">Temperatura Média<br> <b>20°C</b></div>
+              <div class="kpi2">Vezes Fora do Padrão<br> <b>5</b></div>
               <div class="kpi3">Temperatura<br> Máxima <b>20°C</b></div>
             </div>
             <canvas id="myChart" style="position: relative; height: 28vh; width:36vw;"></canvas>
           </div>
           <div class="graficoUmi">
             <div class="kpi_primaria">
-              <div class="kpi1">Umidade<br> Média <b>20%</b></div>
-              <div class="kpi2">Vezes Fora do Padrão <b>7</b></div>
-              <div class="kpi3">Umidade<br> Máxima <b>20%</b></div>
+              <div class="kpi1">Umidade Média<br> <b>20%</b></div>
+              <div class="kpi2">Vezes Fora do Padrão<br> <b>7</b></div>
+              <div class="kpi3">Umidade Máxima<br> <b>20%</b></div>
             </div>
             <canvas id="myChart2" style="position: relative; height:28vh; width:36vw"></canvas>
           </div>
@@ -127,12 +127,10 @@
   ];
 
   const labels3 = [
-    'Janeiro',
-    'Fevereiro',
-    'Março',
-    'Abril',
-    'Maio',
-    'Junho',
+    'Hora',
+    'Dia',
+    'Semana',
+    'Mês',
   ];
 
   const data = {
@@ -161,14 +159,12 @@
     datasets: [{
       label: 'Variação de Limite (Mensal)',
       backgroundColor: [ 
-        'rgb(139,69,19)',
-        'rgb(255,69,0)',
-        'rgb(220,20,60)',
-        'rgb(189,183,107)',
-        'rgb(0,255,127)',
-        'rgb(255,182,193)',
+        'rgb(0, 107, 241)',  
+        'rgb(220, 1, 57)',
+        'rgb(220, 121, 57)',
+        'rgb(0, 187, 255)',
     ],
-      data: [10, 12, 9, 8, 11, 13],
+      data: [10, 12, 9, 8,],
     }
     ]
   };
