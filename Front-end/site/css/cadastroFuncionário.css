@@ -1,72 +1,184 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-*{font-family: Roboto;}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+ }
 
-.banner {
-    margin: -8px;
-    background-image: url(img/teladecadastro.png);
-    padding: 54px 0;
-    background-size:cover;
-    height: 95vh;
-  }
+a{
+  text-decoration: none;
+  color: white;
+}
+ .banner{
+  background-image: url(../img/close-up-of-roasted-coffee-beans.png);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ 
+ .dashboard{
+  width: 95%;
+  height: 95%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  display: flex;
+ }
 
-  .banner .container {
-    width: 70%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center ;
-  }
+/* Painel da esquerda */
+
+ .divLateral{
+  background-color: #000000;
+  padding: 40px 40px;
+  color: white;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.divLateral .nomeUsuario{
+  font-weight: bold;
+}
+
+.navegacao ul{
+  margin: 10px 0;
+  list-style: none;
   
-  .formulario {
-    background-color: #f1eeee;
-    padding: 19px 110px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+}
+.navegacao ul img{
+  width: 25px;
+}
 
-  .campo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-  
- .formulario label {
-    color: #969090;
-    cursor: pointer;
+.navegacao ul li{
+  display: flex;
+  width: 180px;
+  margin: 20px 0;
+  padding: 10px 20px;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.navegacao ul li:hover{
+  background-color: #60380880;
+}
+
+.navegacao ul li p{
+  margin-right: 0px;
+  margin-left: 30px;
+}
+
+.saida{
+  list-style: none;
+}
+
+.saida a {
+  color: white;
+  display: flex;
+  width: 180px;
+  margin: 10px 0;
+  padding: 10px 20px;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.saida li p{
+  margin-left: 30px;
+}
+
+.saida a:hover{
+  background-color: #60380880;
+}
+
+.saida img{
+  width: 25px;
+}
+
+/* Registrar Fúncionario */
+
+.registrarFuncionario{
+  width: 100%;
+}
+
+header {  
+  height: 10%;
+  margin: 10px;
+  padding: 15px 0;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.titulo{
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.registrarFuncionario .linha{
+  width: 100%;
+  height: 1px;
+  background-color: #000000;
+  display: block;
+}
+
+
+/* Cadastrar Inputs */
+
+.cadastrar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tituloCadastrar{
+  font-size: 1.5rem;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.campo{
+  margin-bottom: 30px;
+}
+
+.campo label , .campo input{
+  display: block;
+}
+
+.campo input {
+  border: none;
+  border-bottom: 1px solid #000;
+  width: 300px;
+  padding: 10px 0 0 2px;
+  outline: none;
+  font-size: 1.1rem;
+}
+
+.botao{
+    color: #fff;
+    background-color: #301C04;
+    padding: 10px 20px;
     border: none;
     border-radius: 10px;
-  } 
-
-  .campo label{
-    color: black;
-  }
-
-  .formulario button {
-  margin-top: 20px;
-  width: 140px;
-  color: #fff;
-  background-color: #583101;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  }
-
-.container .home {
-    position: relative;
-    top: -26px;
-    left: 145px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: 0.5s;
 }
 
-.formulario h2 {
-    margin: 0;
-    padding: 0;
+.botao:hover{
+  background: #814c0c;
 }
-
- 

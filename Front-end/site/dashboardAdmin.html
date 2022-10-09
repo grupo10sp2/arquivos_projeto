@@ -22,18 +22,18 @@
 
         <nav class="navegacao">
           <ul>
-            <li>
-              <img src="img/iconSignal.png" alt="">
-              <p>Painel</p>
-            </li>
-            <li>
-              <img src="img/add.png" alt="">
-              <p>Registrar</p>
-            </li>
-            <li>
-              <img src="img/config.png" alt="">
-              <p>Config.</p>
-            </li>
+            <a href="#">
+              <li>
+                <img src="img/iconSignal.png" alt="">
+                <p>Painel</p>
+              </li>
+            </a>
+            <a href="cadastroFuncionário.html">
+              <li>
+                <img src="img/add.png" alt="">
+                <p>Registrar</p>
+              </li>
+            </a>
           </ul>
         </nav>
 
@@ -54,50 +54,97 @@
 
       </div>
 
-     
+
 
       <div class="unificacao_grafico">
-         <header>
-        <div class="container_header">
-          <h4>Painel</h4>
-          <label for="select_data">Pesquisa:</label><br>
-          <select name="select_data" id="select_data">
-            <option value="dia">dia</option>
-            <option value="mes">mês</option>
-          </select>
-        </div>
-      </header>
+        <header>
+          <div class="container_header">
+            <h4 class="titulo">Painel</h4>
+            <div>
+              <label for="select_data">Pesquisa:</label><br>
+              <select name="select_data" id="select_data">
+                <option value="dia">Dia</option>
+                <option value="mes">Mês</option>
+            </div>
+            </select>
+          </div>
+        </header>
+        <span class="linha"></span>
 
-      <main>
-        <div class="container">
-          <div class="graficoTemp">
-            <div class="kpi_primaria">
-              <div class="kpi1">Temperatura Média<br> <b>20°C</b></div>
-              <div class="kpi2">Vezes Fora do Padrão<br> <b>5</b></div>
-              <div class="kpi3">Temperatura<br> Máxima <b>20°C</b></div>
-            </div>
-            <canvas id="myChart" style="position: relative; height: 28vh; width:36vw;"></canvas>
-          </div>
-          <div class="graficoUmi">
-            <div class="kpi_primaria">
-              <div class="kpi1">Umidade Média<br> <b>20%</b></div>
-              <div class="kpi2">Vezes Fora do Padrão<br> <b>7</b></div>
-              <div class="kpi3">Umidade Máxima<br> <b>20%</b></div>
-            </div>
-            <canvas id="myChart2" style="position: relative; height:28vh; width:36vw"></canvas>
-          </div>
-        </div>
-      </main>
-      <span>
+
         <main>
-          <div class="graficoVari">
-            <canvas id="myChart3" style="position: relative; height:25vh; width:30vw"></canvas>
+          <div class="container">
+            <div class="graficoTemp">
+              <div class="kpi_primaria">
+                <div class="kpi kpi1">
+                  <img src="img/temperaturaVector.png" alt="Simbolo Temperatura">
+                  <div class="kpiTexto">
+                    <p>Temp. Média</p>
+                    <span>26.5°C</span>
+                  </div>
+                </div>
+                <div class="kpi kpi2">
+                  <img src="img/warningVector.png" alt="Simbolo Aviso">
+                  <div class="kpiTexto">
+                    <p>Fora do Padrão</p>
+                    <span>2</span>
+                  </div>
+                </div>
+
+                <div class="kpi kpi3">
+                  <img src="img/tempMaxVector.png" alt="Simbolo Temperatura Maxima">
+                  <div class="kpiTexto">
+                    <p>Temp. Máxima</p>
+                    <span>30°C</span>
+                  </div>
+                </div>
+              </div>
+              <canvas id="myChart" style="position: relative; height: 28vh; width:36vw;"></canvas>
+            </div>
+            <div class="graficoUmi">
+              <div class="kpi_secundaria">
+                <div class="kpi kpi1">
+                  <img src="img/umidadeVector.png" alt="">
+                  <div class="kpiTexto">
+                    <p>Umidade Média</p>
+                    <span>12%</span>
+                  </div>
+                </div>
+                <div class="kpi kpi2">
+                  <img src="img/warningVector.png" alt="">
+                  <div class="kpiTexto">
+                    <p>Fora do Padrão</p>
+                    <span>4</span>
+                  </div>
+                </div>
+                <div class="kpi kpi3">
+                  <img src="img/umidadeMaxVector.png" alt="">
+                  <div class="kpiTexto">
+                    <p>Umidade Discrepante</p>
+                    <span>7%</span>
+                  </div>
+                </div>
+              </div>
+              <canvas id="myChart2" style="position: relative; height:28vh; width:36vw"></canvas>
+            </div>
+
+            <div class="graficoVari">
+              <canvas id="myChart3" style="position: relative; height:15vh; width:15vw"></canvas>
+            </div>
           </div>
+
+
+
         </main>
-      </span>
+
+
+
+
+
+
       </div>
-      
-      
+
+
 
 
 
@@ -109,28 +156,42 @@
 
 <script>
   const labels = [
-    '9/27/22 12:50',
-    '9/27/22 12:55',
-    '9/27/22 13:00',
-    '9/27/22 13:05',
-    '9/27/22 13:10',
-    '9/27/22 13:15',
+    '2',
+    '4',
+    '8',
+    '10',
+    '12',
+    '14',
+    '16',
+    '18',
+    '20',
+    '22',
+    '24',
+    '26',
+    '28',
+    '30'
   ];
 
   const labels2 = [
-    '9/27/22 12:50',
-    '9/27/22 12:55',
-    '9/27/22 13:00',
-    '9/27/22 13:05',
-    '9/27/22 13:10',
-    '9/27/22 13:15',
+    '2',
+    '4',
+    '8',
+    '10',
+    '12',
+    '14',
+    '16',
+    '18',
+    '20',
+    '22',
+    '24',
+    '26',
+    '28',
+    '30'
   ];
 
   const labels3 = [
-    'Hora',
-    'Dia',
-    'Semana',
-    'Mês',
+    'Janeiro',
+
   ];
 
   const data = {
@@ -139,7 +200,7 @@
       label: 'Temperatura',
       backgroundColor: 'rgb(255, 90, 90)',
       borderColor: 'rgb(255, 90, 90)',
-      data: [13, 14, 10, 11, 15, 10],
+      data: [25, 26, 25, 29, 30, 28, 25, 23, 25, 24, 29, 27, 25, 30],
     }]
   };
 
@@ -149,7 +210,7 @@
       label: 'Umidade',
       backgroundColor: 'rgb(90, 90, 255)',
       borderColor: 'rgb(90, 90, 255)',
-      data: [10, 12, 9, 8, 11, 13],
+      data: [10, 12, 9, 8, 7, 10, 12, 11, 10, 12, 11, 11.5, 12, 12.5],
     }
     ]
   };
@@ -158,13 +219,15 @@
     labels: labels3,
     datasets: [{
       label: 'Variação de Limite (Mensal)',
-      backgroundColor: [ 
-        'rgb(0, 107, 241)',  
-        'rgb(220, 1, 57)',
-        'rgb(220, 121, 57)',
-        'rgb(0, 187, 255)',
-    ],
-      data: [10, 12, 9, 8,],
+      backgroundColor: [
+        '#02C252',
+        '#ECD400',
+        '#02C252',
+        '#02C252',
+        '#C20202',
+        '#02C252',
+      ],
+      data: [5, 6, 3, 4, 9, 2],
     }
     ]
   };
