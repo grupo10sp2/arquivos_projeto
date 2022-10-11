@@ -1,53 +1,306 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/dashboard.css">
-  <link rel="icon" type="image/png" href="img/favicon.png"/>
+  <link rel="icon" type="image/png" href="img/favicon.png" />
   <title>CoffeTech | Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
   <div class="banner">
     <div class="dashboard">
       <div class="divLateral">
         <div>
           <p>Bem vindo(a),</p>
-          <p class="nomeUsuario">Rafael</p>
+          <p class="nomeUsuario">Fernando Brandão</p>
         </div>
 
         <nav class="navegacao">
           <ul>
-            <li>
-              <img src="img/iconSignal.png" alt="">
-              <p>Painel</p>
-            </li>
-            <li>
-              <img src="img/config.png" alt="">
-              <p>Config.</p>
-            </li>
+            <a href="#">
+              <li>
+                <img src="img/iconSignal.png" alt="">
+                <p>Painel</p>
+              </li>
+            </a>
           </ul>
         </nav>
-        
-          <ul class="saida">
-            <li>
-              <a href="index.html">
+
+        <ul class="saida">
+          <li>
+            <a href="index.html">
               <img src="img/homeBranco.png" alt="">
-              <p>Home</p></a>
-            </li>
-            <li>
-              <a href="index.html">
+              <p>Home</p>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
               <img src="img/exit.png" alt="">
-              <p>Exit</p></a>
-            </li>
-          </ul>
-        
+              <p>Exit</p>
+            </a>
+          </li>
+        </ul>
+
       </div>
-      <div>
-        <p>sdkamskdjasd</p>
+
+
+
+      <div class="unificacao_grafico">
+        <header>
+          <div class="container_header">
+            <h4 class="titulo">Painel</h4>
+            <div class="select">
+              <div class="selectMes">             
+                <label for="select_data">Mês</label><br>
+                <select name="select_mes" id="select_mes">
+                  <option value="">Selecione</option>
+                  <option value="jan">Janeiro</option>
+                  <option value="fev">Fevereiro</option>
+                  <option value="mar">Março</option>
+                  <option value="abr">Abril</option>
+                  <option value="mai">Maio</option>
+                  <option value="jun">Junho</option>
+                  <option value="jul">Julho</option>
+                  <option value="ago">Agosto</option>
+                  <option value="set">Setembro</option>
+                  <option value="out">Outubro</option>
+                  <option value="nov">Novembro</option>
+                  <option value="dez">Dezembro</option>
+                </select> 
+              </div>
+              <div class="selectAno">
+                <label for="select_ano">Ano</label>
+                <select name="select_ano" id="select_ano">
+                  <option value="">Selecione</option>
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                </select>
+              </div>
+            </div>
+            
+
+          </div>
+        </header>
+        <span class="linha"></span>
+
+
+        <main>
+          <div class="container">
+            <div class="graficoTemp">
+              <div class="kpi_primaria">
+                <div class="kpi kpi1">
+                  <img src="img/temperaturaVector.png" alt="Simbolo Temperatura">
+                  <div class="kpiTexto">
+                    <p>Temp. Média</p>
+                    <span>26.5°C</span>
+                  </div>
+                </div>
+                <div class="kpi kpi2">
+                  <img src="img/warningVector.png" alt="Simbolo Aviso">
+                  <div class="kpiTexto">
+                    <p>Fora do Padrão</p>
+                    <span>2</span>
+                  </div>
+                </div>
+
+                <div class="kpi kpi3">
+                  <img src="img/tempMaxVector.png" alt="Simbolo Temperatura Maxima">
+                  <div class="kpiTexto">
+                    <p>Temp. Máxima</p>
+                    <span>30°C</span>
+                  </div>
+                </div>
+              </div>
+              <canvas id="myChart" style="position: relative; height: 28vh; width:36vw;"></canvas>
+            </div>
+            <div class="graficoUmi">
+              <div class="kpi_secundaria">
+                <div class="kpi kpi1">
+                  <img src="img/umidadeVector.png" alt="">
+                  <div class="kpiTexto">
+                    <p>Umidade Média</p>
+                    <span>12%</span>
+                  </div>
+                </div>
+                <div class="kpi kpi2">
+                  <img src="img/warningVector.png" alt="">
+                  <div class="kpiTexto">
+                    <p>Fora do Padrão</p>
+                    <span>4</span>
+                  </div>
+                </div>
+                <div class="kpi kpi3">
+                  <img src="img/umidadeMaxVector.png" alt="">
+                  <div class="kpiTexto">
+                    <p>Umidade Discrepante</p>
+                    <span>7%</span>
+                  </div>
+                </div>
+              </div>
+              <canvas id="myChart2" style="position: relative; height:28vh; width:36vw"></canvas>
+            </div>
+
+            <div class="legendaTemp">
+              <h3>Legenda Temperatura</h3>
+              <div class="legendaTempTexto">
+                <div>
+                  <span class="verde"></span>
+                  <p>Temperatura Ideal <b>25°C até 30°C</b></p>
+                </div>
+                <div>
+                  <span class="amarelo"></span>
+                  <p>Temperatura Alerta <b>23°C < ou > 30°C</ou> </b></p>
+                </div>
+                <div>
+                  <span class="laranja"></span>
+                  <p> Temperatura Emergência <b>21°C < ou > 32°C</ou></b></p>
+                </div>
+                <div>
+                  <span class="vermelho"></span>
+                  <p>Temperatura Crítico <b>19°C < ou > 34°C</b></p>
+                </div>
+              </div>
+            </div>
+            <div class="legendaUmid">
+              <h3>Legenda Umidade</h3>
+              <div class="legendaUmidTexto">
+                <div>
+                  <span class="verde"></span>
+                  <p>Umidade Ideal <b>10% até 12%</b></p>
+                </div>
+                <div>
+                  <span class="amarelo"></span>
+                  <p>Umidade Alerta <b>10% < ou > 12%</b></p>
+                </div>
+                <div>
+                  <span class="laranja"></span>
+                  <p>Umidade Emergência <b>8% < ou > 13%</b></p>
+                </div>
+                <div>
+                  <span class="vermelho"></span>
+                  <p>Umidade Crítico <b>7% < ou > 14%</b></p>
+                </div>
+              </div>
+            </div>
+<!--           <div class="graficoVari">
+              <canvas id="myChart3" style="position: relative; height:15vh; width:15vw"></canvas>
+            </div>--> 
+          </div>
+
+
+
+        </main>
+
+
+
+
+
+
       </div>
+
+
+
+
+
+
+
     </div>
   </div>
 </body>
+
+<script>
+  const labels = [
+    '2',
+    '4',
+    '8',
+    '10',
+    '12',
+    '14',
+    '16',
+    '18',
+    '20',
+    '22',
+    '24',
+    '26',
+    '28',
+    '30'
+  ];
+
+  const labels2 = [
+    '2',
+    '4',
+    '8',
+    '10',
+    '12',
+    '14',
+    '16',
+    '18',
+    '20',
+    '22',
+    '24',
+    '26',
+    '28',
+    '30'
+  ];
+
+  const labels3 = [
+    'Janeiro',
+
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Temperatura',
+      backgroundColor: 'rgb(255, 90, 90)',
+      borderColor: 'rgb(255, 90, 90)',
+      data: [25, 26, 25, 29, 30, 28, 25, 23, 25, 24, 29, 27, 25, 30],
+    }]
+  };
+
+  const data2 = {
+    labels: labels2,
+    datasets: [{
+      label: 'Umidade',
+      backgroundColor: 'rgb(90, 90, 255)',
+      borderColor: 'rgb(90, 90, 255)',
+      data: [10, 12, 9, 8, 7, 10, 12, 11, 10, 12, 11, 11.5, 12, 12.5],
+    }
+    ]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+
+  const config2 = {
+    type: 'line',
+    data: data2,
+    options: {}
+  };
+
+</script>
+
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+
+  const myChart2 = new Chart(
+    document.getElementById('myChart2'),
+    config2
+  );
+
+</script>
+
+
 </html>

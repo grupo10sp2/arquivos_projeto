@@ -56,18 +56,39 @@
 
 
 
-      <div class="unificacao_grafico">
+       <div class="unificacao_grafico">
         <header>
           <div class="container_header">
             <h4 class="titulo">Painel</h4>
-            <div>
-              <label for="select_data">Pesquisa:</label><br>
-              <select name="select_data" id="select_data">
-                <option value="dia">Dia</option>
-                <option value="mes">Mês</option>
+            <div class="select">
+              <div class="selectMes">             
+                <label for="select_data">Mês</label><br>
+                <select name="select_mes" id="select_mes">
+                  <option value="">Selecione</option>
+                  <option value="jan">Janeiro</option>
+                  <option value="fev">Fevereiro</option>
+                  <option value="mar">Março</option>
+                  <option value="abr">Abril</option>
+                  <option value="mai">Maio</option>
+                  <option value="jun">Junho</option>
+                  <option value="jul">Julho</option>
+                  <option value="ago">Agosto</option>
+                  <option value="set">Setembro</option>
+                  <option value="out">Outubro</option>
+                  <option value="nov">Novembro</option>
+                  <option value="dez">Dezembro</option>
+                </select> 
+              </div>
+              <div class="selectAno">
+                <label for="select_ano">Ano</label>
+                <select name="select_ano" id="select_ano">
+                  <option value="">Selecione</option>
+                  <option value="2020">2020</option>
+                  <option value="2021">2021</option>
+                  <option value="2022">2022</option>
+                </select>
+              </div>
             </div>
-            </select>
-          </div>
         </header>
         <span class="linha"></span>
 
@@ -128,9 +149,51 @@
               <canvas id="myChart2" style="position: relative; height:28vh; width:36vw"></canvas>
             </div>
 
-            <div class="graficoVari">
-              <canvas id="myChart3" style="position: relative; height:15vh; width:15vw"></canvas>
+            <div class="legendaTemp">
+              <h3>Legenda Temperatura</h3>
+              <div class="legendaTempTexto">
+                <div>
+                  <span class="verde"></span>
+                  <p>Temperatura Ideal <b>25°C até 30°C</b></p>
+                </div>
+                <div>
+                  <span class="amarelo"></span>
+                  <p>Temperatura Alerta <b>23°C < ou > 30°C</ou> </b></p>
+                </div>
+                <div>
+                  <span class="laranja"></span>
+                  <p> Temperatura Emergência <b>21°C < ou > 32°C</ou></b></p>
+                </div>
+                <div>
+                  <span class="vermelho"></span>
+                  <p>Temperatura Crítico <b>19°C < ou > 34°C</b></p>
+                </div>
+              </div>
             </div>
+            <div class="legendaUmid">
+              <h3>Legenda Umidade</h3>
+              <div class="legendaUmidTexto">
+                <div>
+                  <span class="verde"></span>
+                  <p>Umidade Ideal <b>10% até 12%</b></p>
+                </div>
+                <div>
+                  <span class="amarelo"></span>
+                  <p>Umidade Alerta <b>10% < ou > 12%</b></p>
+                </div>
+                <div>
+                  <span class="laranja"></span>
+                  <p>Umidade Emergência <b>8% < ou > 13%</b></p>
+                </div>
+                <div>
+                  <span class="vermelho"></span>
+                  <p>Umidade Crítico <b>7% < ou > 14%</b></p>
+                </div>
+              </div>
+            </div>
+           <!-- <div class="graficoVari">
+              <canvas id="myChart3" style="position: relative; height:15vh; width:15vw"></canvas>
+            </div>-->
           </div>
 
 

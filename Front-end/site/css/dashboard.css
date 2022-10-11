@@ -139,6 +139,15 @@ header {
   font-size: 1.5rem;
 }
 
+.select{
+  display: flex;
+  gap: 20px; 
+}
+
+.selectAno label{
+  display: block;
+}
+
 /* Gráfico Dashboard */
 main {
   width: 100%;
@@ -184,13 +193,83 @@ span main {
   margin-top: 5px;
 }
 
- .unificacao_grafico {
-  /* display: flex;
-  flex-direction: column;
-  background-color: aqua; */
+.legendaTemp{
+  background-color: ghostwhite;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-right: 2px;
+  width: 36vw;
+  text-align: center;
+}
+
+.legendaTemp h3{
+  margin-top: 10px;
+}
+
+.legendaTempTexto{
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.legendaTempTexto div{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.legendaUmid{
+  background-color: ghostwhite;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-right: 2px;
+  width: 36vw;
+  align-items: center;
+  text-align: center;
+}
+
+.legendaUmid h3{
+  margin-top: 10px;
+}
+
+.legendaUmidTexto{
+  margin-top: 20px;
+  margin-left: 15px;
 }
 
 
+.legendaUmidTexto div{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.verde{
+  display: block;
+  width: 20px;
+  height: 15px;
+  background-color: #02C252;
+}
+
+.amarelo{
+  display: block;
+  width: 20px;
+  height: 15px;
+  background-color: #ECD400;
+}
+
+.vermelho{
+  display: block;
+  width: 20px;
+  height: 15px;
+  background-color: #C20202;
+}
+
+.laranja{
+  display: block;
+  width: 20px;
+  height: 15px;
+  background-color: #ec8e00;
+}
 /* Estilização das KPIs */
 .kpi_primaria {
   display: flex;
