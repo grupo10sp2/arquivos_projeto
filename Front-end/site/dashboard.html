@@ -50,7 +50,7 @@
 
 
 
-      <div class="unificacao_grafico">
+       <div class="unificacao_grafico">
         <header>
           <div class="container_header">
             <h4 class="titulo">Painel</h4>
@@ -83,9 +83,6 @@
                 </select>
               </div>
             </div>
-            
-
-          </div>
         </header>
         <span class="linha"></span>
 
@@ -102,17 +99,17 @@
                   </div>
                 </div>
                 <div class="kpi kpi2">
-                  <img src="img/warningVector.png" alt="Simbolo Aviso">
+                  <img src="img/tempAtual.png" alt="Simbolo Temperatura">
                   <div class="kpiTexto">
-                    <p>Fora do Padrão</p>
-                    <span>2</span>
+                    <p>Temperatura Atual</p>
+                    <span>30°C</span>
                   </div>
                 </div>
 
                 <div class="kpi kpi3">
                   <img src="img/tempMaxVector.png" alt="Simbolo Temperatura Maxima">
                   <div class="kpiTexto">
-                    <p>Temp. Máxima</p>
+                    <p>Temp. Discrepante</p>
                     <span>30°C</span>
                   </div>
                 </div>
@@ -129,16 +126,16 @@
                   </div>
                 </div>
                 <div class="kpi kpi2">
-                  <img src="img/warningVector.png" alt="">
+                  <img src="img/umidadeVector.png" alt="">
                   <div class="kpiTexto">
-                    <p>Fora do Padrão</p>
-                    <span>4</span>
+                    <p>Umidade Atual</p>
+                    <span>12,5%</span>
                   </div>
                 </div>
                 <div class="kpi kpi3">
                   <img src="img/umidadeMaxVector.png" alt="">
                   <div class="kpiTexto">
-                    <p>Umidade Discrepante</p>
+                    <p>Umid. Discrepante</p>
                     <span>7%</span>
                   </div>
                 </div>
@@ -188,9 +185,9 @@
                 </div>
               </div>
             </div>
-<!--           <div class="graficoVari">
+           <!-- <div class="graficoVari">
               <canvas id="myChart3" style="position: relative; height:15vh; width:15vw"></canvas>
-            </div>--> 
+            </div>-->
           </div>
 
 
@@ -258,19 +255,63 @@
     labels: labels,
     datasets: [{
       label: 'Temperatura',
-      backgroundColor: 'rgb(255, 90, 90)',
-      borderColor: 'rgb(255, 90, 90)',
+      backgroundColor: 'rgb(122, 232, 84)',
+      borderColor: 'rgb(122, 232, 84)',
       data: [25, 26, 25, 29, 30, 28, 25, 23, 25, 24, 29, 27, 25, 30],
-    }]
+    },
+    {/* rgb(122, 232, 84) */
+      label: 'Temp Max',
+      backgroundColor: 'rgb(255, 90, 90',
+      borderColor: 'rgb(255, 90, 90',
+      data: [27, 30, 27, 32, 31, 30, 28, 27, 27, 29, 30, 29, 26, 32],
+
+    },
+    {
+      label: 'Temp Mín',
+      backgroundColor: 'rgb(84, 134, 232)',
+      borderColor: 'rgb(84, 134, 232)',
+      data: [20, 21, 20, 25, 22, 25, 21, 20, 20, 22, 26, 23, 23, 25],
+    }
+  ],
+    
   };
 
   const data2 = {
     labels: labels2,
     datasets: [{
       label: 'Umidade',
-      backgroundColor: 'rgb(90, 90, 255)',
-      borderColor: 'rgb(90, 90, 255)',
+      backgroundColor: 'rgb(122, 232, 84)',
+      borderColor: 'rgb(122, 232, 84)',
       data: [10, 12, 9, 8, 7, 10, 12, 11, 10, 12, 11, 11.5, 12, 12.5],
+    },
+    {
+      label: 'Umid Max',
+      backgroundColor: 'rgb(255, 90, 90)',
+      borderColor: 'rgb(255, 90, 90)',
+      data: [12, 14, 10, 11, 12, 11, 13, 12, 11, 13, 12, 12.5, 13, 13.5],
+    },
+    {
+      label: 'Umid Min',
+      backgroundColor: 'rgb(84, 134, 232)',
+      borderColor: 'rgb(84, 134, 232)',
+      data: [9, 10, 8, 7, 6, 9, 11, 10, 9, 11, 10, 10.5, 11, 10.5],
+    }
+    ]
+  };
+
+  const data3 = {
+    labels: labels3,
+    datasets: [{
+      label: 'Variação de Limite (Mensal)',
+      backgroundColor: [
+        '#02C252',
+        '#ECD400',
+        '#02C252',
+        '#02C252',
+        '#C20202',
+        '#02C252',
+      ],
+      data: [5, 6, 3, 4, 9, 2],
     }
     ]
   };
@@ -287,6 +328,11 @@
     options: {}
   };
 
+  const config3 = {
+    type: 'doughnut',
+    data: data3,
+    options: {}
+  };
 </script>
 
 <script>
@@ -300,6 +346,10 @@
     config2
   );
 
+  const myChart3 = new Chart(
+    document.getElementById('myChart3'),
+    config3
+  );
 </script>
 
 
