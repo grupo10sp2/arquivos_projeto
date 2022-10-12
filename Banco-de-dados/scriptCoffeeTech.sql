@@ -66,22 +66,22 @@ select * from Silo join Fazenda on fkFazenda = idFazenda;
 
 create table HistoricoMedicoes (
 idHistorico int auto_increment,
+nomeSensor varchar(15),
 dataHora datetime,
 temperatura decimal(3,1),
 umidade decimal(3,1),
 fkSilo int,
 foreign key (fkSilo) references Silo (idSilo),
-primary key (idHistorico, fkSilo),
-registroSensor varchar(45)
+primary key (idHistorico, fkSilo)
 );
 
-insert into HistoricoMedicoes (datahora, temperatura, umidade, fkSilo) values
-('2022-10-01 15:35:40',  25, 11.2, 1),
-('2022-10-01 15:35:40', 26, 10.9, 2);
+insert into HistoricoMedicoes (datahora, nomeSensor, temperatura, umidade, fkSilo) values
+('2022-10-01 15:35:40', 'DHT11-001',  25, 11.2, 1),
+('2022-10-01 15:35:40', 'DHT11-002', 26, 10.9, 2);
 
-insert into HistoricoMedicoes (datahora, temperatura, umidade, fkSilo) values
-('2022-10-01 15:36:40', 25, 10.8, 1),
-('2022-10-01 15:36:40', 27, 11.1, 2);
+insert into HistoricoMedicoes (datahora, nomeSensor, temperatura, umidade, fkSilo) values
+('2022-10-01 15:36:40', 'DHT11-001', 25, 10.8, 1),
+('2022-10-01 15:36:40', 'DHT11-002', 27, 11.1, 2);
 
 select * from HistoricoMedicoes;
 
