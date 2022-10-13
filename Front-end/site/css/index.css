@@ -1,93 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
-
-*{
- margin: 0px;
- padding: 0px;
- box-sizing: border-box;
- font-family: 'Inder', sans-serif;
- scroll-behavior: smooth;
+.header{
+   background-color: transparent;
 }
 
-.container{
-    margin: 0 auto;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-   
-  }
+.navegacao ul li a{
+  color: #FFF;
+}
 
-  /* Header */
-  
-  .navegacao{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
-  }
-  
-  .navegacao ul{
-    display: flex;
-    align-items: center;
-  }
-  
-  .navegacao ul li{
-    list-style: none;
-    margin-right: 30px;
-    text-decoration: none;
-  }
-  
-  .navegacao ul li a{
-    text-decoration: none;
-    margin-right: 0px;
-    color: #FFF;
-    transition: 0.5s;
-  }
-  
-  .navegacao ul li a:hover{
-    color: #603808;
-  }
-  
-  .navegacao a{
-    display: block;
-    margin-right: 30px;
-  }
-  
-  .botaoClaro{
-    padding: 10px 20px;
-    color: #583101;
-    text-decoration: none;
-    background: #F3D5B5;
-    border: 1px solid #583101;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    transition: 0.5s;
-  }
-  
-  .botaoClaro:hover{
-    background: #f1dcc6;
-    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  .botaoEscuro{
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #000000;
-    background: #603808;
-    border: 1px solid #603808;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    transition: 0.5s;
-  }
-  
-  .botaoEscuro:hover{
-    background: #814c0c;
-    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
-  }
-
-
-   /* Home */
-  .home{
+.home{
     justify-content: flex-end;
   }
 
@@ -148,14 +67,17 @@
   .banner h1{
     color: white;
     margin-bottom: 10px;
-  }
-  
+  }  
 
   .banner button{
     margin-top: 30px;
   }
 
-  /*SOCIAL*/
+  main img {
+    width: auto;
+  }
+
+/*SOCIAL*/
 .social {
     margin: 50px 0;
 
@@ -202,51 +124,51 @@
     width: 120px;
   }
 
-  /* Nossa solução */
-.nossa-solução .container{
+/* Nossa solução */
+.nossa-solucao .container{
     display: flex;
     justify-content: center;
     margin-top: 200px; 
     
   }
   
-  .nossa-solução img{
+  .nossa-solucao img{
     width: 468px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   
-  .nossa-solução .texto{
+  .nossa-solucao .texto{
     border-right: 6px solid#583101;
     padding: 60px 40px;
   }
   
-  .nossa-solução .texto h1{
+  .nossa-solucao .texto h1{
     margin-bottom: 50px;
     color: #583101;
     font-weight: bold;
   }
   
-  .nossa-solução .texto p{
+  .nossa-solucao .texto p{
     max-width: 550px;
     margin-bottom: 30px
   }
 
-  .nossa-solução button{
+  .nossa-solucao button{
     margin-top: 30px;
   }
 
-  .nossa-solução .botaoHome{
+  .nossa-solucao .botaoHome{
     font-size: 20px;
     background: rgb(96, 56, 8);
   }
 
-  .nossa-solução .botaoHome:hover{
+  .nossa-solucao .botaoHome:hover{
     background: #814c0c;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
 
   }
 
-  /* Nossa Empresa */
+/* Nossa Empresa */
 .nossa-empresa .container{
     display: flex;
     justify-content: center;
@@ -378,71 +300,4 @@
 
   .containerCards .card h1{
     font-size: 30px;
-  }
-
-  /* Footer */
-footer img{
-    width: auto;
-  }
-  
-  footer{
-    margin-top: 200px;
-    background-color: #D4A276;
-    padding: 20px;
-  }
-  
-  .navegacao-footer{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-   
-  }
-  
-  .navegacao-footer ul{
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    align-items: center;
-    margin: 65px 0;
-  }
-  
-  .navegacao-footer ul li{
-    margin-right: 30px;
-  }
-  
-  .navegacao-footer ul li a{
-    text-decoration: none;
-    /* margin-right: 10px; */
-    color: #000000;
-    transition: 0.5s;
-  }
-  
-  .navegacao-footer ul li a:hover{
-    color: #603808;
-  }
-  
-  .redes-footer img:nth-child(1){
-    margin-right: 20px;
-  } 
-  
-  /* Estilos Script */
-  .vermelho{
-    color: red;
-  }
-
-  .verde{
-    color: green;
-  }
-
-  .bPerdaDeCafe{
-    cursor: pointer;
-  }
-  
-  .bPerdaDeCafe:hover{
-      color: #282828;
-  }
-
-  .divExplicacao{
-    
   }
