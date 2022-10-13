@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cadastro-funcionario.css">
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <title>CoffeTech | Registrar Funcionário</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="dashboard">
+            <div class="divLateral">
+                <div>
+                    <p>Bem vindo(a),</p>
+                    <p class="nomeUsuario">Fernando Brandão</p>
+                </div>
+
+                <nav class="navegacao">
+                    <ul>
+                        <a href="dashboard-admin.html">
+                            <li>
+                                <img src="img/signal-icon.png" alt="">
+                                <p>Painel</p>
+                            </li>
+                        </a>
+                        <a href="cadastro-funcionario.html">
+                            <li>
+                                <img src="img/add.png" alt="">
+                                <p>Registrar</p>
+                            </li>
+                        </a>
+                    </ul>
+                </nav>
+
+                <ul class="saida">
+                    <li>
+                        <a href="index.html">
+                            <img src="img/home-branco.png" alt="">
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            <img src="img/exit.png" alt="">
+                            <p>Exit</p>
+                        </a>
+                    </li>
+                </ul>
+
+                
+            </div>
+
+            <div class="registrarFuncionario">
+                <div class="container">
+                    <header>
+                        <h1 class="titulo">Registrar</h1>
+                    </header>
+                </div>
+                <span class="linha"></span>
+                <div class="cadastrar">
+                    <h2 class="tituloCadastrar">Cadastrar Funcionário</h2>
+                    <div class="campo">
+                        <label for="input_nome">Nome</label>
+                        <input type="text" id="input_nome">
+                    </div>
+                    <div class="campo">
+                        <label for="email">Email Institucional</label>
+                        <input type="email" id="input_email">
+                    </div>
+                    <div class="campo">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="input_senha">
+                    </div>
+                    <div class="campo">
+                        <label for="confirmarSenha">Confirmar senha</label>
+                        <input type="password" id="input_confirmacao_senha">
+                    </div>
+                    <button onclick="cadastrarFuncionario()" class="botao">Cadastrar</button>
+                </div>
+            </div>
+            
+        </div>
+
+
+</body>
+
+</html>
+<script src="js/script_cadastro.js"></script>

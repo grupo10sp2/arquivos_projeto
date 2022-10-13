@@ -10,7 +10,7 @@ function login(){
 
 
     if (login_valido && email == 'fernando.brandao@sptech.school'){
-        location = "dashboardAdmin.html";
+        location = "dashboard-admin.html";
     } else if (login_valido && email == 'rafa@sptech.school'){
         location = "dashboard.html"
     } else {
