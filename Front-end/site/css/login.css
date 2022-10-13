@@ -12,7 +12,7 @@ img{
 .banner {
     display: flex;
     align-items: center;
-    background-image: url(../img/close-up-of-roasted-coffee-beans.png);
+    background-image: url(../images/close-up-of-roasted-coffee-beans.png);
     background-size:cover;
     min-height: 100vh;
     padding: 20px 0;
