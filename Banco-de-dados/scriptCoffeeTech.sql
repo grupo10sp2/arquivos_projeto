@@ -86,3 +86,9 @@ insert into HistoricoMedicoes (datahora, nomeSensor, temperatura, umidade, fkSil
 select * from HistoricoMedicoes;
 
 select * from HistoricoMedicoes join Silo on fkSilo = idSilo;
+
+select nomeFazenda, nomeUsuario, codigoSilo, temperaturaMin, temperaturaMax, umidadeMin, UmidadeMax, nomeSensor, temperatura, umidade, dataHora 
+from Fazenda join Usuario on Usuario.fkFazenda = idFazenda
+join Silo on Silo.fkFazenda = idFazenda
+join HistoricoMedicoes on fkSilo = idSilo
+where nomeUsuario = 'jose_silva' and nomeFazenda = 'Recanto do Café';
