@@ -1,0 +1,91 @@
+.container-forms{
+    display: flex;
+    justify-content: center;
+}
+
+.forms-contato{
+    width: 500px;
+    background-color: #ffff;
+    margin-top: 80px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 50px 80px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.forms-contato h2{
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 26px;
+    font-weight: 400;
+  }
+
+  .campo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+
+  .forms-contato label {
+    color: #848484;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+
+  } 
+
+  .campo label{
+    color: #000000;
+    font-size: 20px;
+    font-weight: 400; 
+  }
+
+  .campo input{
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    margin-bottom: 40px;
+    padding: 2px;
+  }
+
+  .campo textarea{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-style: none;
+    width: 300px;
+  }
+
+
+   input:focus{
+    border-color: #000000;
+  }
+
+  .forms-contato a {
+    text-decoration: none;
+    color: #848484;
+    margin-top: 10px;
+    transition: 0.5s;
+  }
+
+  .forms-contato a:hover{
+    color: #000000;
+  }
+
+  button{
+    font-size: 15px;
+    padding: 10px 30px;
+    margin-top: 35px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #603808;
+    border-style: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    transition: 0.5s;
+  }
