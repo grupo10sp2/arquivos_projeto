@@ -57,38 +57,52 @@ primary key (idSilo, fkFazenda)
 );
 
 insert into Silo (codigoSilo, temperaturaMin, temperaturaMax, umidadeMin, umidadeMax, fkFazenda) values
-('SILO100', 25, 30, 10.5, 11.5, 1),
-('SILO101', 25, 30, 10.5, 11.5, 1);
+('SILO100', 25, 30, 10, 12, 1),
+('SILO101', 25, 30, 10, 12, 1);
 
 select * from Silo;
 
 select * from Silo join Fazenda on fkFazenda = idFazenda;
 
+create table Sensor (
+idSensor int primary key auto_increment,
+TipoSensor varchar(10),
+fkSilo int,
+foreign key (fkSilo) references Silo (idSilo)
+);
+
+insert into Sensor (TipoSensor, fkSilo) values
+('DHT11', 1),
+('DHT11', 2);
+
+select * from Sensor;
+
 create table HistoricoMedicoes (
 idHistorico int auto_increment,
-nomeSensor varchar(15),
 dataHora datetime,
 temperatura decimal(3,1),
 umidade decimal(3,1),
-fkSilo int,
-foreign key (fkSilo) references Silo (idSilo),
-primary key (idHistorico, fkSilo)
+fkSensor int,
+foreign key (fkSensor) references Sensor (idSensor),
+primary key (idHistorico, fkSensor)
 );
 
-insert into HistoricoMedicoes (datahora, nomeSensor, temperatura, umidade, fkSilo) values
-('2022-10-01 15:35:40', 'DHT11-001',  25, 11.2, 1),
-('2022-10-01 15:35:40', 'DHT11-002', 26, 10.9, 2);
+insert into HistoricoMedicoes (datahora, temperatura, umidade, fkSensor) values
+('2022-10-01 15:35:40',  25, 11.2, 1),
+('2022-10-01 15:35:40', 26, 10.9, 2);
 
-insert into HistoricoMedicoes (datahora, nomeSensor, temperatura, umidade, fkSilo) values
-('2022-10-01 15:36:40', 'DHT11-001', 25, 10.8, 1),
-('2022-10-01 15:36:40', 'DHT11-002', 27, 11.1, 2);
+insert into HistoricoMedicoes (datahora, temperatura, umidade, fkSensor) values
+('2022-10-01 15:36:40', 25, 10.8, 1),
+('2022-10-01 15:36:40', 27, 11.1, 2);
 
 select * from HistoricoMedicoes;
 
-select * from HistoricoMedicoes join Silo on fkSilo = idSilo;
+select * from HistoricoMedicoes join Sensor on fkSensor = idSensor;
 
-select nomeFazenda, nomeUsuario, codigoSilo, temperaturaMin, temperaturaMax, umidadeMin, UmidadeMax, nomeSensor, temperatura, umidade, dataHora 
+select nomeFazenda, nomeUsuario, codigoSilo, temperaturaMin, temperaturaMax,
+umidadeMin, UmidadeMax, idSensor, tipoSensor, temperatura, umidade, dataHora 
 from Fazenda join Usuario on Usuario.fkFazenda = idFazenda
 join Silo on Silo.fkFazenda = idFazenda
-join HistoricoMedicoes on fkSilo = idSilo
+join Sensor on Sensor.fkSilo = idSilo
+join HistoricoMedicoes on fkSensor = idSensor
 where nomeUsuario = 'jose_silva' and nomeFazenda = 'Recanto do Café';
