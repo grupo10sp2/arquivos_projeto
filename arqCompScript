@@ -1,0 +1,52 @@
+create table Fazenda (
+idFazenda int primary key auto_increment,
+nomeFazenda varchar(45),
+cnpj char(14),
+logradouro varchar(70),
+numero varchar(10),
+complemento varchar(50),
+cep char(8),
+tamanhoHectares int
+);
+
+create table Usuario (
+idUsuario int primary key auto_increment,
+nome varchar(60),
+nomeUsuario varchar(50),
+cpf char(11),
+email varchar(50),
+senha varchar(20),
+fkFazenda int, 
+foreign key (fkFazenda) references Fazenda (idFazenda),
+fkAdmin int,
+foreign key (fkAdmin) references Usuario (idUsuario)
+);
+
+create table Silo (
+idSilo int auto_increment,
+codigoSilo varchar(10),
+temperaturaMin decimal(3,1),
+temperaturaMax decimal(3,1),
+umidadeMin decimal(3,1),
+umidadeMax decimal(3,1),
+fkFazenda int,
+foreign key (fkFazenda) references Fazenda (idFazenda),
+primary key (idSilo, fkFazenda)
+);
+
+create table HistoricoMedicoes (
+	idHistorico int auto_increment,
+	dataHora datetime,
+	temperatura1 decimal(3,1),
+	temperatura2 decimal(3,1),
+	temperatura3 decimal(3,1),
+	temperatura4 decimal(3,1),
+	temperatura5 decimal(3,1),
+	umidade1 decimal(3,1),
+	umidade2 decimal(3,1),
+	umidade3 decimal(3,1),
+	umidade4 decimal(3,1),
+	umidade5 decimal(3,1),
+	fkSensor int,
+	foreign key (fkSensor) references Sensor(idSensor),
+	primary key (idHistorico, fkSensor));
