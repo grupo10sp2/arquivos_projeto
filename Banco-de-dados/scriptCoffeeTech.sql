@@ -97,6 +97,21 @@ insert into HistoricoMedicoes (datahora, temperatura, umidade, fkSensor) values
 
 select * from HistoricoMedicoes;
 
+create table Contato (
+idContato int primary key auto_increment,
+nome varchar(45),
+email varchar(45),
+telefone char(10),
+assunto varchar(45),
+descricao varchar(130)
+);
+
+insert into Contato (nome, email, telefone, assunto, descricao) values
+('Carlos', 'carlosantos@gamil.com', '1199845622', 'Sobre o Contrato', 'Gostaria de marcar uma reunião para contratar seus serviços.'),
+('Alberto', 'alberto@gamil.com', '1199115825', 'Produto', 'Como funciona seus produtos e quais os meios de instalação.');
+
+select * from Contato;
+
 select * from HistoricoMedicoes join Sensor on fkSensor = idSensor;
 
 select nomeFazenda, nomeUsuario, codigoSilo, temperaturaMin, temperaturaMax,
