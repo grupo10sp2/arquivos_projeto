@@ -65,6 +65,7 @@ function cadastrar(){
 
 function cadastrarFuncionario(){
     var nome = input_nome.value;
+    var cpf = input_cpf.value;
     var email = input_email.value;
     var senha = input_senha.value;
     var confirmacao_senha = input_confirmacao_senha.value;
@@ -73,6 +74,10 @@ function cadastrarFuncionario(){
 
     if (nome == "" || nome[0] == " " || nome.length < 3){
         input_nome.style.borderColor = "#FF0000";
+        cadastro_valido = false;
+    }
+    if (cpf.length != 11){
+        input_cpf.style.borderColor = "#FF0000";
         cadastro_valido = false;
     }
     if (email == "" ||

@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <title>CoffeTech | Registrar Funcionário</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script_cadastro.js"></script>
 </head>
 
 <body>
@@ -69,19 +70,19 @@
                         <input type="text" id="input_nome">
                     </div>
                     <div class="campo">
-                        <label for="input_nome">CPF</label>
+                        <label for="input_cpf">CPF</label>
                         <input type="text" id="input_cpf">
                     </div>
                     <div class="campo">
-                        <label for="email">Email Institucional</label>
+                        <label for="input_email">Email Institucional</label>
                         <input type="email" id="input_email">
                     </div>
                     <div class="campo">
-                        <label for="senha">Senha</label>
+                        <label for="input_senha">Senha</label>
                         <input type="password" id="input_senha">
                     </div>
                     <div class="campo">
-                        <label for="confirmarSenha">Confirmar senha</label>
+                        <label for="input_confirmacao_senha">Confirmar senha</label>
                         <input type="password" id="input_confirmacao_senha">
                     </div>
                     <button onclick="cadastrarFuncionario()" class="botao">Cadastrar</button>
@@ -89,9 +90,5 @@
             </div>
             
         </div>
-
-
 </body>
-
 </html>
-<script src="js/script_cadastro.js"></script>
