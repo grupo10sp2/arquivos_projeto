@@ -1,4 +1,0 @@
-LM 35: A0
-DHT 11: A2
-LDR: A5
-TRC 5000: D7
