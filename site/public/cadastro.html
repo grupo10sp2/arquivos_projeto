@@ -5,12 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoffeeTech | Cadastro</title>
-    <script type="text/javascript" src="js/script_cadastro.js"></script>
+    <!-- <script type="text/javascript" src="js/script_cadastro.js"></script> -->
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
+    <script src="./js/funcoes.js"></script>
+
+
 </head>
 <body>
     <main>
+        <!-- alerta erro -->
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+
+
         <section class="banner">
             <div class="container">
                 <div class="formulario">
@@ -22,7 +33,7 @@
                         <label for="input_nome">Nome</label>
                         <input type="text" onfocus="Focus(input_nome)" id="input_nome">
                     </div>
-                    <div class="campo">
+                    <div class="campo">                         
                         <label for="input_cpf">CPF</label>
                         <input type="number" onfocus="Focus(input_cpf)" id="input_cpf">
                     </div>
@@ -64,6 +75,118 @@
                 </div>
             </div>
         </section>
+
+          <!-- div_erros_login e div_aguardar -->
+
+        <div id="div_aguardar" class="loading-div">
+            <img src="./assets/circle-loading.gif" id="loading-gif">
+        </div>
+
+        <div id="div_erros_login">
+
+        </div>
+
+
     </main>
 </body>
 </html>
+<script>
+
+function cadastrar() {
+    aguardar();
+     
+    // cpf cnpj logradouro numero complemento
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var cpfVar = input_cpf.value;
+    var cnpjVar = input_cnpj.value;
+    var logradouroVar = input_logradouro.value;
+    var numeroVar = input_numero.value;
+    var complementoVar = input_complemento.value;
+
+    var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var confirmacaoSenhaVar = input_confirmacao_senha.value;
+
+    if (
+        nomeVar == "" || 
+        emailVar == "" || 
+        senhaVar == "" || 
+        confirmacaoSenhaVar == "" ||
+        cpfVar == "" ||
+        cnpjVar  == "" ||
+        logradouroVar  == "" ||
+        numeroVar  == "" ||
+        complementoVar  == ""
+
+
+         ) {
+
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+        var cor_erro = "#FF0000";
+
+        input_nome.style.borderColor = cor_erro;
+        input_email.style.borderColor =  cor_erro;
+        input_senha.style.borderColor =  cor_erro;
+        input_confirmacao_senha.style.borderColor =  cor_erro;
+        input_cpf.style.borderColor =  cor_erro;
+        input_cnpj.style.borderColor =  cor_erro;
+        input_logradouro.style.borderColor =  cor_erro;
+        input_numero.style.borderColor =  cor_erro;
+        input_complemento.style.borderColor =  cor_erro;
+
+        finalizarAguardar();
+        return false;
+    }
+    else {
+        setInterval(sumirMensagem, 5000)
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            cardErro.style.display = "block";
+
+            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+            setTimeout(() => {
+                window.location = "login.html";
+            }, "2000")
+            
+            limparFormulario();
+            finalizarAguardar();
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+    });
+
+    return false;
+}
+
+function sumirMensagem() {
+    cardErro.style.display = "none"
+}
+
+</script>

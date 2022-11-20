@@ -6,94 +6,81 @@
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
 
-CREATE DATABASE aquatech;
+create database CoffeeTech;
 
-USE aquatech;
+use CoffeeTech;
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50)
-);
-
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-);
-
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300)
-);
-
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+create table Fazenda (
+idFazenda int primary key auto_increment,
+nomeFazenda varchar(45),
+cnpj char(14),
+logradouro varchar(70),
+numero varchar(10),
+complemento varchar(50),
+cep char(8),
+tamanhoHectares int
 );
 
 
-/*
-comando para sql server - banco remoto - ambiente de produção
-*/
-
-CREATE TABLE usuario (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
+create table Usuario (
+idUsuario int primary key auto_increment,
+nome varchar(60),
+nomeUsuario varchar(50),
+cpf char(11),
+email varchar(50),
+senha varchar(20),
+fkAdmin int,
+foreign key (fkAdmin) references Usuario (idUsuario)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
+create table Fazenda_tem_Usuario (
+fkFazenda int,
+foreign key (fkFazenda) references Fazenda (idFazenda),
+fkUsuario int,
+foreign key (fkUsuario) references Usuario (idUsuario),
+primary key (fkFazenda, fkUsuario)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY IDENTITY(1,1),
-	descricao VARCHAR(300)
+
+create table Silo (
+idSilo int auto_increment,
+codigoSilo varchar(10),
+temperaturaMin decimal(3,1),
+temperaturaMax decimal(3,1),
+umidadeMin decimal(3,1),
+umidadeMax decimal(3,1),
+fkFazenda int,
+foreign key (fkFazenda) references Fazenda (idFazenda),
+primary key (idSilo, fkFazenda)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT FOREIGN KEY REFERENCES aquario(id)
+
+create table Sensor (
+idSensor int primary key auto_increment,
+TipoSensor varchar(10),
+fkSilo int,
+foreign key (fkSilo) references Silo (idSilo)
 );
 
-/*
-comandos para criar usuário em banco de dados azure, sqlserver,
-com permissão de insert + update + delete + select
-*/
 
-CREATE USER [usuarioParaAPIWebDataViz_datawriter_datareader]
-WITH PASSWORD = '#Gf_senhaParaAPIWebDataViz',
-DEFAULT_SCHEMA = dbo;
+create table HistoricoMedicoes (
+idHistorico int auto_increment,
+dataHora datetime,
+temperatura decimal(3,1),
+umidade decimal(3,1),
+fkSensor int,
+foreign key (fkSensor) references Sensor (idSensor),
+primary key (idHistorico, fkSensor)
+);
 
-EXEC sys.sp_addrolemember @rolename = N'db_datawriter',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
 
-EXEC sys.sp_addrolemember @rolename = N'db_datareader',
-@membername = N'usuarioParaAPIWebDataViz_datawriter_datareader';
+create table Contato (
+idContato int primary key auto_increment,
+nome varchar(45),
+email varchar(45),
+telefone char(10),
+assunto varchar(45),
+descricao varchar(130)
+);
+
