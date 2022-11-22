@@ -6,34 +6,32 @@
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
 
-create database CoffeeTech;
+create database coffeeTech;
 
-use CoffeeTech;
+use coffeeTech;
 
-create table Fazenda (
+create table fazenda (
 idFazenda int primary key auto_increment,
 nomeFazenda varchar(45),
 cnpj char(14),
 logradouro varchar(70),
 numero varchar(10),
 complemento varchar(50),
-cep char(8),
-tamanhoHectares int
+cep char(8)
 );
 
 
-create table Usuario (
+create table usuario (
 idUsuario int primary key auto_increment,
 nome varchar(60),
-nomeUsuario varchar(50),
 cpf char(11),
 email varchar(50),
 senha varchar(20),
 fkAdmin int,
-foreign key (fkAdmin) references Usuario (idUsuario)
+foreign key (fkAdmin) references usuario(idUsuario)
 );
 
-create table Fazenda_tem_Usuario (
+create table fazendaTemUsuario (
 fkFazenda int,
 foreign key (fkFazenda) references Fazenda (idFazenda),
 fkUsuario int,
@@ -42,7 +40,7 @@ primary key (fkFazenda, fkUsuario)
 );
 
 
-create table Silo (
+create table silo (
 idSilo int auto_increment,
 codigoSilo varchar(10),
 temperaturaMin decimal(3,1),
@@ -56,7 +54,7 @@ primary key (idSilo, fkFazenda)
 
 
 
-create table Sensor (
+create table sensor (
 idSensor int primary key auto_increment,
 TipoSensor varchar(10),
 fkSilo int,
@@ -64,7 +62,7 @@ foreign key (fkSilo) references Silo (idSilo)
 );
 
 
-create table HistoricoMedicoes (
+create table historicoMedicoes (
 idHistorico int auto_increment,
 dataHora datetime,
 temperatura decimal(3,1),
@@ -75,7 +73,7 @@ primary key (idHistorico, fkSensor)
 );
 
 
-create table Contato (
+create table contato (
 idContato int primary key auto_increment,
 nome varchar(45),
 email varchar(45),
