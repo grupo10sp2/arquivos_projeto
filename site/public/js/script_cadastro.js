@@ -2,7 +2,7 @@ function Focus(id_input){
     id_input.style.borderColor = "#000000"
 }
 
-function cadastrar(){
+function verificarCadastro(){
     var nome = input_nome.value;
     var cpf = input_cpf.value;
     var cnpj = input_cnpj.value;
@@ -57,9 +57,10 @@ function cadastrar(){
         cadastro_valido = false;
     }
 
-    if (cadastro_valido){
-        alert("Cadastro realizado com sucesso!")
-        location = "login.html";
+    if (!cadastro_valido){
+        return false;
+    } else {
+        return true
     }
 }
 
