@@ -182,3 +182,11 @@ header {
 .botao:hover{
   background: #814c0c;
 }
+
+.loading-div{
+  display: none;
+}
+
+.loading-div img{
+  width: 100px;
+}

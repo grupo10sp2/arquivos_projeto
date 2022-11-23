@@ -18,7 +18,7 @@
         <div>
           <img style="width: 100px; margin-bottom: 20px;" src="images/logo-2.png" alt="">
           <p>Bem vindo(a),</p>
-          <p class="nomeUsuario">Fernando Brandão</p>
+          <p class="nomeUsuario" id="nomeUsuario">Fernando Brandão</p>
         </div>
 
         <nav class="navegacao">
@@ -46,7 +46,7 @@
             </a>
           </li>
           <li>
-            <a href="index.html">
+            <a onclick="logout()">
               <img src="images/exit.png" alt="">
               <p>Exit</p>
             </a>
@@ -192,33 +192,26 @@
                 </div>
               </div>
             </div>
-           <!-- <div class="graficoVari">
-              <canvas id="myChart3" style="position: relative; height:15vh; width:15vw"></canvas>
-            </div>-->
           </div>
-
-
-
         </main>
-
-
-
-
-
-
       </div>
-
-
-
-
-
-
-
     </div>
   </div>
 </body>
 
 <script>
+  nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
+
+  function logout(){
+      sessionStorage.EMAIL_USUARIO = null;
+      sessionStorage.NOME_USUARIO = null;
+      sessionStorage.ID_USUARIO = null;
+      sessionStorage.FK_ADMIN = null;
+
+      location = "index.html"
+  }
+
+
   const labels = [
     '2',
     '4',
@@ -357,6 +350,8 @@
     document.getElementById('myChart3'),
     config3
   );
+
+  
 </script>
 
 

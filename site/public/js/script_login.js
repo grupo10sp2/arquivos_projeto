@@ -16,4 +16,10 @@ function login(){
     } else {
         mensagem_erro.innerHTML = `Usuário ou senha inválidos`
 	}
+
+    if(login_valido){
+        return true
+    }
+
+    return false
 }

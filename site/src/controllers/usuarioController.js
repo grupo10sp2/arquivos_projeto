@@ -93,9 +93,35 @@ function cadastrar(req, res) {
         );
 }
 
+function cadastrarFuncionario(req, res){
+    var nome = req.body.nomeServer
+    var cpf = req.body.cpfServer
+    var email = req.body.emailServer
+    var senha =  req.body.senhaServer
+    var fkAdmin = req.body.fkAdminServer
+
+    usuarioModel.cadastrarFuncionario(nome, cpf, email, senha, fkAdmin)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    cadastrarFuncionario
 }

@@ -10,6 +10,9 @@
     <title>CoffeTech | Registrar Funcionário</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/script_cadastro.js"></script>
+
+    <script src="./js/funcoes.js"></script>
+
 </head>
 
 <body>
@@ -85,10 +88,52 @@
                         <label for="input_confirmacao_senha">Confirmar senha</label>
                         <input type="password" id="input_confirmacao_senha">
                     </div>
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="./images/gifLoading.gif" id="loading-gif">
+                    </div>
                     <button onclick="cadastrarFuncionario()" class="botao">Cadastrar</button>
                 </div>
             </div>
             
         </div>
+
 </body>
 </html>
+<script>
+    function cadastrarFuncionario(){
+        aguardar();
+
+        var nomeVar = input_nome.value
+        var cpfVar = input_cpf.value
+        var emailVar = input_email.value
+        var senhaVar = input_senha.value
+        var fkAdminVar = sessionStorage.getItem("FK_ADMIN")
+
+        if(verificarCadastrarFuncionario()){
+            fetch("/usuarios/cadastrarFuncionario", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nomeServer: nomeVar,
+                    cpfServer: cpfVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+                    fkAdminServer: fkAdminVar
+                })
+            }).then(function (resposta){
+
+                if(resposta.ok){
+                    console.log('tudo certo!')
+                } else {
+                    console.log('algo errado no THEN()')
+                }
+                finalizarAguardar()
+            })
+        } else {
+            finalizarAguardar()
+        }
+
+    }
+</script>

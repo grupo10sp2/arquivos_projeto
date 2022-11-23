@@ -28,54 +28,59 @@
                     <img src="./images/user.png" alt="Ícone do usuário">
                     <h2 class="titulo">Bem Vindo!</h2>
                     <h2 class="subtitulo">Faça o seu cadastro</h2>
-
+                    
                     <div class="campo">
                         <label for="input_nome">Nome</label>
                         <input type="text" onfocus="Focus(input_nome)" id="input_nome">
                     </div>
-                    <div class="campo">
-                        <label for="input_nome_fazenda">Nome Fazenda</label>
-                        <input type="text" onfocus="Focus(input_nome_fazenda)" id="input_nome_fazenda">
-                    </div>
-                    <div class="campo">                         
-                        <label for="input_cpf">CPF</label>
-                        <input type="number" onfocus="Focus(input_cpf)" id="input_cpf">
-                    </div>
-                    <div class="campo">
-                        <label for="input_cnpj">CNPJ</label>
-                        <input type="number" onfocus="Focus(input_cnpj)" id="input_cnpj">
-                    </div>
-                    <div class="campo">
-                        <label for="input_cep">CEP</label>
-                        <input type="text" onfocus="Focus(input_cep)" id="input_cep">
-                    </div>
-                    <div class="campo">
-                        <label for="input_logradouro">Logradouro</label>
-                        <input type="text" onfocus="Focus(input_logradouro)" id="input_logradouro">
-                    </div>
-                    <div class="campo">
-                        <label for="input_numero">Número</label>
-                        <input type="number" onfocus="Focus(input_numero)" id="input_numero">
-                    </div>
-                    <div class="campo">
-                        <label for="input_cpf">Complemento</label>
-                        <input type="text" onfocus="Focus(input_complemento)" id="input_complemento">
-                    </div>
-                    <div class="campo">
-                        <label for="input_email">Email</label>
-                        <input type="email" onfocus="Focus(input_email)" id="input_email">
-                    </div>
-                    <div class="campo">
-                        <label for="input_senha">Senha</label>
-                        <input type="password" onfocus="Focus(input_senha)" id="input_senha">
-                    </div>
-                    <div class="campo">
-                        <label for="input_confirmacao_senha">Confirme sua Senha</label>
-                        <input type="password" onfocus="Focus(input_confirmacao_senha)" id="input_confirmacao_senha">
-                    </div><br>
-                    <a href="login.html">Já possui uma conta?</a>
+                        <div class="campo">
+                            <label for="input_nome_fazenda">Nome Fazenda</label>
+                            <input type="text" onfocus="Focus(input_nome_fazenda)" id="input_nome_fazenda">
+                        </div>
+                        <div class="campo">                         
+                            <label for="input_cpf">CPF</label>
+                            <input type="number" onfocus="Focus(input_cpf)" id="input_cpf">
+                        </div>
+                        <div class="campo">
+                            <label for="input_cnpj">CNPJ</label>
+                            <input type="number" onfocus="Focus(input_cnpj)" id="input_cnpj">
+                        </div>
+                        <div class="campo">
+                            <label for="input_cep">CEP</label>
+                            <input type="text" onfocus="Focus(input_cep)" id="input_cep">
+                        </div>
+                        <div class="campo">
+                            <label for="input_logradouro">Logradouro</label>
+                            <input type="text" onfocus="Focus(input_logradouro)" id="input_logradouro">
+                        </div>
+                        <div class="campo">
+                            <label for="input_numero">Número</label>
+                            <input type="number" onfocus="Focus(input_numero)" id="input_numero">
+                        </div>
+                        <div class="campo">
+                            <label for="input_cpf">Complemento</label>
+                            <input type="text" onfocus="Focus(input_complemento)" id="input_complemento">
+                        </div>
+                        <div class="campo">
+                            <label for="input_email">Email</label>
+                            <input type="email" onfocus="Focus(input_email)" id="input_email">
+                        </div>
+                        <div class="campo">
+                            <label for="input_senha">Senha</label>
+                            <input type="password" onfocus="Focus(input_senha)" id="input_senha">
+                        </div>
+                        <div class="campo">
+                            <label for="input_confirmacao_senha">Confirme sua Senha</label>
+                            <input type="password" onfocus="Focus(input_confirmacao_senha)" id="input_confirmacao_senha">
+                        </div><br>
+                        <div id="div_aguardar" class="loading-div">
+                            <img src="./images/gifLoading.gif" id="loading-gif">
+                        </div>
+
+                        <a href="login.html">Já possui uma conta?</a>
+                        
+                        <button onclick="cadastrar()">Cadastrar</button>
                     
-                    <button onclick="cadastrar()">Cadastrar</button>
                     <a href="index.html"> 
                         <img class="home" src="./images/home.png" alt="Ícone Ínicio">
                     </a>
@@ -86,10 +91,7 @@
 
           <!-- div_erros_login e div_aguardar -->
 
-        <div id="div_aguardar" class="loading-div">
-            <img src="./assets/circle-loading.gif" id="loading-gif">
-        </div>
-
+        
         <div id="div_erros_login">
 
         </div>
@@ -119,8 +121,7 @@ function cadastrar() {
     var numeroVar = input_numero.value;
     var complementoVar = input_complemento.value;
 
-    console.log(verificarCadastro())
-    
+
     // Enviando o valor da nova input
     if(verificarCadastro()){
         fetch("/usuarios/cadastrar", {
@@ -152,11 +153,11 @@ function cadastrar() {
             mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
             setTimeout(() => {
+                finalizarAguardar();
                 window.location = "login.html";
             }, "2000")
             
-            limparFormulario();
-            finalizarAguardar();
+            
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }
@@ -166,6 +167,8 @@ function cadastrar() {
     });
 
     return false;
+} else{
+    finalizarAguardar()
 }
     }
     

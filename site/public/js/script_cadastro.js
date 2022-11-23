@@ -70,7 +70,7 @@ function verificarCadastro(){
     return true
 }
 
-function cadastrarFuncionario(){
+function verificarCadastrarFuncionario(){
     var nome = input_nome.value;
     var cpf = input_cpf.value;
     var email = input_email.value;
@@ -105,7 +105,8 @@ function cadastrarFuncionario(){
     }
 
     if (cadastro_valido){
-        alert("Cadastro realizado com sucesso!")
-        location = "login.html";
+        return true
     }
+
+    return false
 }

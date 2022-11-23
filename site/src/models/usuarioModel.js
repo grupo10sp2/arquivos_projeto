@@ -38,8 +38,17 @@ function cadastrar2(nomeFazenda, cnpj, logradouro, cep, numero, complemento){
     return database.executar(instrucao);
 }
 
+function cadastrarFuncionario(nome, cpf, email, senha, fkAdmin){
+    var instrucao = `
+    INSERT INTO usuario(nome, cpf, email, senha, fkAdmin) VALUES ('${nome}', '${cpf}', '${email}', '${senha}', ${fkAdmin});
+    `
+
+    return database.executar(instrucao)
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    cadastrarFuncionario
 };

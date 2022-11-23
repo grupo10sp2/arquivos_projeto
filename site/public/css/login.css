@@ -127,6 +127,13 @@ img{
     cursor: pointer;
   }
 
+  .loading-div{
+    display: none;
+  }
+
+  .loading-div img{
+    width: 100px;
+  }
   
 
 

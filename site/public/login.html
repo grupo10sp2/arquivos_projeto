@@ -40,17 +40,14 @@
                     <input type="password" id="input_senha"> 
                     <div id="mensagem_erro"></div>
                 </div>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./images/gifLoading.gif" id="loading-gif">
+                </div>
                 <a href="#">Esqueceu sua senha?</a>
                 <a href="cadastro.html">Cadastrar</a>
-                <a class="entrar" onclick="login()">Entrar</a>
+                <a class="entrar" onclick="entrar()">Entrar</a>
                 <a href="index.html"><img class="home" src="images/home.png" alt=""></a>
             </div>
-        </div>
-
-        <!-- div_erros_login e div_aguardar -->
-
-        <div id="div_aguardar" class="loading-div">
-            <img src="./assets/circle-loading.gif" id="loading-gif">
         </div>
 
         <div id="div_erros_login">
@@ -66,26 +63,14 @@
 
 <script>
 
-
+    
     function entrar() {
         aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
 
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
+        if (login()){
         fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
@@ -107,11 +92,21 @@
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-
-                    setTimeout(function () {
-                        window.location = "./dashbord.html";
-                    }, 1000); // apenas para exibir o loading
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.FK_ADMIN = json.fkAdmin;
+                    
+                    /* Se tiver fk entra na dashbora normal, se não tiver fk entra na dashboard-admin */
+                    if (sessionStorage.getItem("FK_ADMIN") == 'null'){
+                        setTimeout(function () {
+                            
+                            window.location = "./dashboard-admin.html";
+                        }, 1000);
+                    } else {
+                        setTimeout(function () {
+                            
+                            window.location = "./dashboard.html";
+                        }, 1000);
+                    }
 
                 });
 
@@ -128,7 +123,9 @@
         }).catch(function (erro) {
             console.log(erro);
         })
-
+        } else{
+            finalizarAguardar()
+        }
         return false;
     }
 
@@ -137,3 +134,4 @@
     }
 
 </script>
+<script src="js/script_login.js"></script>
