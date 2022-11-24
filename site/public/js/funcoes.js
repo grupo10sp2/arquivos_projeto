@@ -41,6 +41,25 @@ function finalizarAguardar(texto) {
     }
 }
 
+// aguardar cadastro funcionario
+function aguardarCadastroFuncionario(){
+    var divAguardar = document.getElementById("div_aguardar");
+    var camposDiv = document.querySelector(".campos")
+
+    
+    divAguardar.style.display = "flex";
+    camposDiv.style.display = 'none'
+}
+
+function finalizarAguardarFuncionario(){
+    var divAguardar = document.getElementById("div_aguardar");
+    var camposDiv = document.querySelector(".campos")
+
+    
+    divAguardar.style.display = "none";
+    camposDiv.style.display = "block";
+}
+
 
 // modal
 function mostrarModal() {

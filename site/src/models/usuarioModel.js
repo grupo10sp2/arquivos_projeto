@@ -34,7 +34,6 @@ function cadastrar(nome, nomeFazenda, email, senha, cpf, cnpj, cep, logradouro, 
 function cadastrar2(nomeFazenda, cnpj, logradouro, cep, numero, complemento){
     var instrucao = `
     INSERT INTO fazenda(nomeFazenda, cnpj, logradouro, numero, complemento, cep) VALUES ('${nomeFazenda}', '${cnpj}', '${logradouro}', '${numero}', '${complemento}', '${cep}');`
-
     return database.executar(instrucao);
 }
 

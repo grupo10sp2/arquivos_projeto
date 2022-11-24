@@ -185,8 +185,22 @@ header {
 
 .loading-div{
   display: none;
+  margin-top: 110px;
+  margin-bottom: 150px;
 }
 
 .loading-div img{
   width: 100px;
+}
+
+.avisoCadastro{
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 20px;
+  background-color: white;
+  border: 3px solid #814c0c;
+  box-shadow: 2px 2px 5px #000;
+  font-weight: 700;
 }
