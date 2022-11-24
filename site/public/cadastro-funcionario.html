@@ -20,26 +20,33 @@
         <div class="dashboard">
             <div class="divLateral">
                 <div>
+                    <img style="width: 100px; margin-bottom: 20px;" src="images/logo-2.png" alt="">
                     <p>Bem vindo(a),</p>
                     <p class="nomeUsuario">Fernando Brandão</p>
                 </div>
 
                 <nav class="navegacao">
                     <ul>
-                        <a href="dashboard-admin.html">
-                            <li>
-                                <img src="images/signal-icon.png" alt="">
-                                <p>Painel</p>
-                            </li>
-                        </a>
-                        <a href="cadastro-funcionario.html">
-                            <li>
-                                <img src="images/add.png" alt="">
-                                <p>Registrar</p>
-                            </li>
-                        </a>
+                      <a href="#">
+                        <li>
+                          <img src="images/signal-icon.png" alt="">
+                          <p>Painel</p>
+                        </li>
+                      </a>
+                      <a href="cadastro-funcionario.html">
+                        <li>
+                          <img src="images/add.png" alt="">
+                          <p>Registrar</p>
+                        </li>
+                      </a>
+                      <a href="cadastro-funcionario.html">
+                        <li>
+                          <img src="images/barn.svg" alt="">
+                          <p>Adicionar Fazendas</p>
+                        </li>
+                      </a>
                     </ul>
-                </nav>
+                  </nav>
 
                 <ul class="saida">
                     <li>
@@ -69,6 +76,12 @@
                 <div class="cadastrar">
                     <h2 class="tituloCadastrar">Cadastrar Funcionário</h2>
                     <div class="campos">
+                        <div class="campo campoFazenda">
+                            <p>Fazenda:</p>
+                            <select name="fazendas" id="fazendas">
+                                <option value="">Aoba</option>
+                            </select>
+                        </div>
                         <div class="campo">
                             <label for="input_nome">Nome</label>
                             <input type="text" id="input_nome">
@@ -103,6 +116,11 @@
 </body>
 </html>
 <script>
+    /* Função para dar select nas fazendas cadastradas */
+    function mostrarFazendas(){
+        
+    }
+
     function cadastrarFuncionario(){
         aguardarCadastroFuncionario();
 

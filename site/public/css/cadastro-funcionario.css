@@ -30,7 +30,7 @@ a{
 /* Painel da esquerda */
 
  .divLateral{
-  background-color: #000000;
+  background-color: #130a00;
   padding: 40px 40px;
   color: white;
   border-top-left-radius: 18px;
@@ -147,8 +147,8 @@ header {
 
 .tituloCadastrar{
   font-size: 1.5rem;
-  margin-top: 30px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .campo{
@@ -203,4 +203,10 @@ header {
   border: 3px solid #814c0c;
   box-shadow: 2px 2px 5px #000;
   font-weight: 700;
+}
+
+.campoFazenda{
+  display: flex;
+  gap: 10px;
+  
 }
