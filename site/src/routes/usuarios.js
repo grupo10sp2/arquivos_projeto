@@ -24,5 +24,17 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.post("/cadastrarFazenda", function(req, res){
+    usuarioController.cadastrarFazenda(req, res)
+})
+
+router.get("/selectFazenda", function(req, res){
+    usuarioController.selectFazenda(req, res)
+})
+
+router.post("/insertTabelaAssociativa", function(req, res){
+    usuarioController.insertTabelaAssociativa(req, res)
+})
+
 
 module.exports = router;

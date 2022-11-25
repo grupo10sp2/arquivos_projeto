@@ -63,20 +63,14 @@ function entrar(req, res) {
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
-    var nomeFazenda = req.body.nomeFazendaServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var cpf = req.body.cpfServer;
-    var cnpj = req.body.cnpjServer;
-    var cep = req.body.cepServer;
-    var logradouro = req.body.logradouroServer;
-    var numero = req.body.numeroServer;
-    var complemento = req.body.complementoServer;
 
     // Faça as validações dos valores
         
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    usuarioModel.cadastrar(nome, nomeFazenda,email, senha, cpf, cnpj, cep, logradouro, numero, complemento)
+    usuarioModel.cadastrar(nome, email, senha, cpf)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -118,10 +112,68 @@ function cadastrarFuncionario(req, res){
 
 }
 
+function cadastrarFazenda(req, res){
+    var nomeFazenda = req.body.nomeFazendaServer
+    var cnpj = req.body.cnpjServer
+    var cep = req.body.cepServer
+    var logradouro =  req.body.logradouroServer
+    var numero = req.body.numeroServer
+    var complemento = req.body.complementoServer
+
+    usuarioModel.cadastrarFazenda(nomeFazenda, cnpj, logradouro, cep, numero, complemento)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
+function selectFazenda(req, res){
+    usuarioModel.selectFazenda()
+    .then(function (resultado) {
+        res.json(resultado)
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
+function insertTabelaAssociativa(req, res){
+    var idFazenda = req.body.idFazendaServer
+    var idUsuario = req.body.idUsuarioServer
+
+    usuarioModel.insertTabelaAssociativa(idFazenda, idUsuario)
+    .then(function (resultado) {
+        res.json(resultado)
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     testar,
-    cadastrarFuncionario
+    cadastrarFuncionario,
+    cadastrarFazenda,
+    selectFazenda,
+    insertTabelaAssociativa
 }

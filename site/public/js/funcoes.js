@@ -41,8 +41,8 @@ function finalizarAguardar(texto) {
     }
 }
 
-// aguardar cadastro funcionario
-function aguardarCadastroFuncionario(){
+// aguardar para cadastros dentro do site
+function aguardar2(){
     var divAguardar = document.getElementById("div_aguardar");
     var camposDiv = document.querySelector(".campos")
 
@@ -50,8 +50,8 @@ function aguardarCadastroFuncionario(){
     divAguardar.style.display = "flex";
     camposDiv.style.display = 'none'
 }
-
-function finalizarAguardarFuncionario(){
+// finalizar aguardar para cadastros dentro do site
+function finalizar2(){
     var divAguardar = document.getElementById("div_aguardar");
     var camposDiv = document.querySelector(".campos")
 

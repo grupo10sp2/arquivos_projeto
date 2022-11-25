@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/cadastro-funcionario.css">
+    <link rel="stylesheet" href="css/cadastro-fazenda.css">
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <title>CoffeTech | Registrar Funcionário</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -27,7 +27,7 @@
 
                 <nav class="navegacao">
                     <ul>
-                      <a href="#">
+                      <a href="dashboard.html">
                         <li>
                           <img src="images/signal-icon.png" alt="">
                           <p>Painel</p>
@@ -39,7 +39,7 @@
                           <p>Registrar</p>
                         </li>
                       </a>
-                      <a href="cadastro-fazenda.html">
+                      <a href="#">
                         <li>
                           <img src="images/barn.svg" alt="">
                           <p>Adicionar Fazendas</p>
@@ -69,44 +69,42 @@
             <div class="registrarFuncionario">
                 <div class="container">
                     <header>
-                        <h1 class="titulo">Registrar</h1>
+                        <h1 class="titulo">Fazendas</h1>
                     </header>
                 </div>
                 <span class="linha"></span>
                 <div class="cadastrar">
-                    <h2 class="tituloCadastrar">Cadastrar Funcionário</h2>
+                    <h2 class="tituloCadastrar">Adicionar Fazendas</h2>
                     <div class="campos">
-                        <div class="campo campoFazenda">
-                            <p>Fazenda:</p>
-                            <select name="fazendas" id="fazendas">
-                                <option value="">Aoba</option>
-                            </select>
+                        <div class="campo">
+                            <label for="input_nome_fazenda">Nome da Fazenda</label>
+                            <input type="text" id="input_nome_fazenda">
                         </div>
                         <div class="campo">
-                            <label for="input_nome">Nome</label>
-                            <input type="text" id="input_nome">
+                            <label for="input_cnpj">CNPJ</label>
+                            <input type="text" id="input_cnpj">
                         </div>
                         <div class="campo">
-                            <label for="input_cpf">CPF</label>
-                            <input type="text" id="input_cpf">
+                            <label for="input_cep">CEP</label>
+                            <input type="text" id="input_cep">
                         </div>
                         <div class="campo">
-                            <label for="input_email">Email Institucional</label>
-                            <input type="email" id="input_email">
+                            <label for="input_logradouro">Logradouro</label>
+                            <input type="email" id="input_logradouro">
                         </div>
                         <div class="campo">
-                            <label for="input_senha">Senha</label>
-                            <input type="password" id="input_senha">
+                            <label for="input_numero">Numero</label>
+                            <input type="text" id="input_numero">
                         </div>
                         <div class="campo">
-                            <label for="input_confirmacao_senha">Confirmar senha</label>
-                            <input type="password" id="input_confirmacao_senha">
+                            <label for="input_complemento">Complemento</label>
+                            <input type="text" id="input_complemento">
                         </div>
                     </div>
                     <div id="div_aguardar" class="loading-div">
                         <img src="./images/gifLoading.gif" id="loading-gif">
                     </div>
-                    <button onclick="cadastrarFuncionario()" class="botao">Cadastrar</button>
+                    <button onclick="cadastrarFazenda()" class="botao">Cadastrar</button>
                 </div>
             </div>
         </div>
@@ -116,50 +114,89 @@
 </body>
 </html>
 <script>
-    /* Função para dar select nas fazendas cadastradas */
-    function mostrarFazendas(){
-        
-    }
-
-    function cadastrarFuncionario(){
+    function cadastrarFazenda(){
         aguardar2();
 
-        var nomeVar = input_nome.value
-        var cpfVar = input_cpf.value
-        var emailVar = input_email.value
-        var senhaVar = input_senha.value
-        var fkAdminVar = sessionStorage.getItem("FK_ADMIN")
+        var nomeFazendaVar = input_nome_fazenda.value
+        var cnpjVar = input_cnpj.value
+        var cepVar = input_cep.value
+        var logradouroVar = input_logradouro.value
+        var numeroVar = input_numero.value
+        var complementoVar = input_complemento.value
 
-        if(verificarCadastrarFuncionario()){
-            fetch("/usuarios/cadastrarFuncionario", {
+       // if(verificarCadastrarFuncionario()){
+            fetch("/usuarios/cadastrarFazenda", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    nomeServer: nomeVar,
-                    cpfServer: cpfVar,
-                    emailServer: emailVar,
-                    senhaServer: senhaVar,
-                    fkAdminServer: fkAdminVar
+                    nomeFazendaServer: nomeFazendaVar,
+                    cnpjServer: cnpjVar,
+                    cepServer: cepVar,
+                    logradouroServer: logradouroVar,
+                    numeroServer: numeroVar,
+                    complementoServer: complementoVar
                 })
             }).then(function (resposta){
 
                 if(resposta.ok){
-
                     avisoCadastro.style.display = 'block'
+                    input_nome_fazenda.value = ''
+                    input_cnpj.value = ''
+                    input_cep.value = ''
+                    input_logradouro.value = ''
+                    input_numero.value = ''
+                    input_complemento.value = ''
+
                     setTimeout(() => {
                         avisoCadastro.style.display = 'none'
                     }, 4000)
-                    
+                    // da um select na fazenda que acabou de ser cadastrada para pegar o id dela e dar um insert na tabela associativa
+                    selectFazenda()
                 } else {
                     console.log('algo errado no THEN()')
+
                 }
                 finalizar2()
             })
-        } else {
-            finalizar2()
-        }
+        //} else {
+            //finalizar2()
+        //}
 
     }
+
+    function selectFazenda(){
+        fetch("/usuarios/selectFazenda")
+            .then(function (resposta){
+                if(resposta.ok){
+                    resposta.json().then(function (response){
+                        var respostaJSON = JSON.parse(JSON.stringify(response))
+                        var idFazenda = respostaJSON[0].idFazenda
+
+                        insertTabelaAssociativa(idFazenda)
+                    })
+                }
+            })
+    }
+
+   function insertTabelaAssociativa(idFazenda){
+    var idUsuarioVar = Number(sessionStorage.getItem("ID_USUARIO"))
+    var idFazendaVar = Number(idFazenda)
+
+    fetch('/usuarios/insertTabelaAssociativa', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idFazendaServer: idFazendaVar,
+            idUsuarioServer: idUsuarioVar 
+        })
+    }).then(function(resposta){
+        if(resposta.ok){
+            console.log('insert na tabela associativa feita com sucesso')
+        }
+    })
+   }
 </script>

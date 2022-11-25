@@ -19,7 +19,7 @@ function entrar(email, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-function cadastrar(nome, nomeFazenda, email, senha, cpf, cnpj, cep, logradouro, numero, complemento) {
+function cadastrar(nome, email, senha, cpf) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
@@ -27,11 +27,10 @@ function cadastrar(nome, nomeFazenda, email, senha, cpf, cnpj, cep, logradouro, 
     var instrucao = `
         INSERT INTO usuario(nome, cpf, email, senha) VALUES ('${nome}', '${cpf}', '${email}', '${senha}');
     `;
-    cadastrar2(nomeFazenda, cnpj, logradouro, cep, numero, complemento)
     return database.executar(instrucao);
 }
 
-function cadastrar2(nomeFazenda, cnpj, logradouro, cep, numero, complemento){
+function cadastrarFazenda(nomeFazenda, cnpj, logradouro, cep, numero, complemento){
     var instrucao = `
     INSERT INTO fazenda(nomeFazenda, cnpj, logradouro, numero, complemento, cep) VALUES ('${nomeFazenda}', '${cnpj}', '${logradouro}', '${numero}', '${complemento}', '${cep}');`
     return database.executar(instrucao);
@@ -45,9 +44,26 @@ function cadastrarFuncionario(nome, cpf, email, senha, fkAdmin){
     return database.executar(instrucao)
 }
 
+function selectFazenda(){
+    var instrucao = `select idFazenda from fazenda order by idFazenda desc limit 1;`
+
+    return database.executar(instrucao)
+}
+
+function insertTabelaAssociativa(idFazenda, idUsuario){
+    var instrucao = `
+    INSERT INTO fazenda_tem_usuario VALUES (${idFazenda}, ${idUsuario})
+    `
+    return database.executar(instrucao)
+}
+
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    cadastrarFuncionario
+    cadastrarFuncionario,
+    cadastrarFazenda,
+    selectFazenda,
+    insertTabelaAssociativa
 };
