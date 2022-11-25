@@ -3,10 +3,10 @@ var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
-    server: "SEU_SERVIDOR",
-    database: "SEU_BANCO_DE_DADOS",
-    user: "SEU_USUARIO",
-    password: "SUA_SENHA",
+    server: "servercoffeetech.database.windows.net",
+    database: "bd-coffeetech",
+    user: "admincoffeetech",
+    password: "#GfGrupo10",
     pool: {
         max: 10,
         min: 0,
@@ -18,12 +18,12 @@ var sqlServerConfig = {
 }
 
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
-var mySqlConfig = {
-    host: "localhost",
-    database: "coffeeTech",
-    user: "root",
-    password: "Eduardo1@3",
-};
+//var mySqlConfig = {
+//  host: "localhost",
+//  database: "coffeeTech",
+//  user: "root",
+//  password: "Eduardo1@3",
+//};
 // user: "insert_select",
 // password: "12345",
 

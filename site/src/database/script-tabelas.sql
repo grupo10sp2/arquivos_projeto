@@ -82,3 +82,76 @@ assunto varchar(45),
 descricao varchar(130)
 );
 
+
+-- script ambiente de produção
+
+
+
+create table fazenda (
+idFazenda int primary key IDENTITY(1,1),
+nomeFazenda varchar(45),
+cnpj char(14),
+logradouro varchar(70),
+numero varchar(10),
+complemento varchar(50),
+cep char(8)
+);
+
+
+create table usuario (
+idUsuario int primary key IDENTITY(1,1),
+nome varchar(60),
+cpf char(11),
+email varchar(50),
+senha varchar(20),
+fkAdmin INT FOREIGN KEY REFERENCES usuario(idUsuario),
+
+);
+
+create table fazendaTemUsuario (
+fkFazenda INT FOREIGN KEY REFERENCES fazenda(idFazenda),
+fkUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario),
+primary key (fkFazenda, fkUsuario)
+);
+
+
+create table silo (
+idSilo int IDENTITY(1,1),
+codigoSilo varchar(10),
+temperaturaMin decimal(3,1),
+temperaturaMax decimal(3,1),
+umidadeMin decimal(3,1),
+umidadeMax decimal(3,1),
+fkFazenda INT FOREIGN KEY REFERENCES Fazenda(idFazenda),
+primary key (idSilo, fkFazenda)
+);
+
+
+
+create table sensor (
+idSensor int primary key IDENTITY(1,1),
+TipoSensor varchar(10),
+fkSilo INT FOREIGN KEY REFERENCES silo(idSilo),
+);
+
+
+create table historicoMedicoes (
+idHistorico int  IDENTITY(1,1),
+dataHora datetime,
+temperatura decimal(3,1),
+umidade decimal(3,1),
+fkSensor INT FOREIGN KEY REFERENCES fkSensor(idSensor),
+primary key (idHistorico, fkSensor)
+);
+
+
+create table contato (
+idContato int primary key IDENTITY(1,1),
+nome varchar(45),
+email varchar(45),
+telefone char(10),
+assunto varchar(45),
+descricao varchar(130)
+);
+
+
