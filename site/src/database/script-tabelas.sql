@@ -43,10 +43,10 @@ primary key (fkFazenda, fkUsuario)
 create table silo (
 idSilo int auto_increment,
 codigoSilo varchar(10),
-temperaturaMin decimal(3,1),
-temperaturaMax decimal(3,1),
-umidadeMin decimal(3,1),
-umidadeMax decimal(3,1),
+temperaturaMin double,
+temperaturaMax double,
+umidadeMin double,
+umidadeMax double,
 fkFazenda int,
 foreign key (fkFazenda) references Fazenda (idFazenda),
 primary key (idSilo, fkFazenda)
@@ -65,8 +65,8 @@ foreign key (fkSilo) references Silo (idSilo)
 create table historicoMedicoes (
 idHistorico int auto_increment,
 dataHora datetime,
-temperatura decimal(3,1),
-umidade decimal(3,1),
+temperatura double,
+umidade double,
 fkSensor int,
 foreign key (fkSensor) references Sensor (idSensor),
 primary key (idHistorico, fkSensor)
@@ -118,10 +118,10 @@ primary key (fkFazenda, fkUsuario)
 create table silo (
 idSilo int IDENTITY(1,1),
 codigoSilo varchar(10),
-temperaturaMin decimal(3,1),
-temperaturaMax decimal(3,1),
-umidadeMin decimal(3,1),
-umidadeMax decimal(3,1),
+temperaturaMin double,
+temperaturaMax double,
+umidadeMin double,
+umidadeMax double,
 fkFazenda INT FOREIGN KEY REFERENCES Fazenda(idFazenda),
 primary key (idSilo, fkFazenda)
 );
@@ -138,8 +138,8 @@ fkSilo INT FOREIGN KEY REFERENCES silo(idSilo),
 create table historicoMedicoes (
 idHistorico int  IDENTITY(1,1),
 dataHora datetime,
-temperatura decimal(3,1),
-umidade decimal(3,1),
+temperatura double,
+umidade double,
 fkSensor INT FOREIGN KEY REFERENCES fkSensor(idSensor),
 primary key (idHistorico, fkSensor)
 );
