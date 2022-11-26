@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/fazendas.css">
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <title>CoffeTech | Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="banner">
+    <div class="dashboard">
+      <div class="divLateral">
+        <div>
+          <img style="width: 100px; margin-bottom: 20px;" src="images/logo-2.png" alt="">
+          <p>Bem vindo(a),</p>
+          <p class="nomeUsuario" id="nomeUsuario">Fernando Brandão</p>
+        </div>
+
+        <nav class="navegacao">
+          <ul>
+            <a href="#">
+              <li>
+                <img src="images/signal-icon.png" alt="">
+                <p>Painel</p>
+              </li>
+            </a>
+            <a href="cadastro-funcionario.html">
+              <li>
+                <img src="images/add.png" alt="">
+                <p>Registrar</p>
+              </li>
+            </a>
+            <a href="cadastro-fazenda.html">
+              <li>
+                <img src="images/barn.svg" alt="">
+                <p>Adicionar Fazendas</p>
+              </li>
+            </a>
+          </ul>
+        </nav>
+
+        <ul class="saida">
+          <li>
+            <a href="index.html">
+              <img src="images/home-branco.png" alt="">
+              <p>Home</p>
+            </a>
+          </li>
+          <li>
+            <a onclick="logout()">
+              <img src="images/exit.png" alt="">
+              <p>Exit</p>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="registrarFuncionario">
+        <div class="container">
+            <header>
+                <h1 class="titulo">Fazendas</h1>
+            </header>
+        </div>
+        <span class="linha"></span>
+        <h2 class="subtitulo-fazendas">Escolha a fazenda que deseja</h2>
+        <div class="fazendas">
+          <div class="fazenda">
+            <img src="images/barn.svg" alt="">
+            <h2>FazendaFeliz</h2>
+          </div>
+          <div class="fazenda">
+            <img src="images/barn.svg" alt="">
+            <h2>FazendaFeliz</h2>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</body>
+<script>
+  var idUsuario = sessionStorage.getItem("ID_USUARIO")
+  //continuar a funcionalidade de escolher a fazenda
+  function exibirFazendas(){
+    fetch(`/usuarios/exibirFazendas/${idUsuario}` )
+            .then(function (resposta){
+                if(resposta.ok){
+                    resposta.json().then(function (response){
+                        var respostaJSON = JSON.parse(JSON.stringify(response))
+                        var idUsuarioFuncionario = respostaJSON[0].idUsuario
+                        
+                        
+                    })
+                }
+            })
+  }
+
+</script>

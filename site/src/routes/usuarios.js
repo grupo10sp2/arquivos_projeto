@@ -36,5 +36,24 @@ router.post("/insertTabelaAssociativa", function(req, res){
     usuarioController.insertTabelaAssociativa(req, res)
 })
 
+router.get("/mostrarFazendas/:idUsuario", function(req, res){
+    usuarioController.mostrarFazendas(req, res)
+})
+
+router.get("/selectIdUsuario", function(req, res){
+    usuarioController.selectIdUsuario(req, res)
+})
+
+router.post("/insertTabelaAssociativaFuncionario", function(req, res){
+    usuarioController.insertTabelaAssociativaFuncionario(req, res)
+})
+
+router.get("/exibirTempMedia", function(req, res){
+    usuarioController.exibirTempMedia(req, res)
+})
+router.get("/exibirFazendas/:", function(req, res){
+    usuarioController.exibirFazendas(req, res)
+})
+
 
 module.exports = router;

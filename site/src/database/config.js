@@ -2,7 +2,7 @@ var mysql = require("mysql2");
 var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
-var sqlServerConfig = {
+/* var sqlServerConfig = {
     server: "servercoffeetech.database.windows.net",
     database: "bd-coffeetech",
     user: "admincoffeetech",
@@ -15,15 +15,15 @@ var sqlServerConfig = {
     options: {
         encrypt: true, // for azure
     }
-}
+} */
 
-// CONEXÃO DO MYSQL WORKBENCH (LOCAL)
-//var mySqlConfig = {
-//  host: "localhost",
-//  database: "coffeeTech",
-//  user: "root",
-//  password: "Eduardo1@3",
-//};
+//CONEXÃO DO MYSQL WORKBENCH (LOCAL)
+var mySqlConfig = {
+  host: "localhost",
+  database: "coffeeTech",
+  user: "root",
+  password: "Eduardo1@3",
+};
 // user: "insert_select",
 // password: "12345",
 

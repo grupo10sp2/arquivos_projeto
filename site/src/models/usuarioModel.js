@@ -57,6 +57,43 @@ function insertTabelaAssociativa(idFazenda, idUsuario){
     return database.executar(instrucao)
 }
 
+function mostrarFazendas(idUsuario){
+    var instrucao = `
+    SELECT * FROM fazenda JOIN fazenda_tem_usuario ON fazenda_tem_usuario.fkFazenda = fazenda.idFazenda JOIN usuario ON fazenda_tem_usuario.fkUsuario = usuario.idUsuario WHERE usuario.idUsuario = ${idUsuario};
+    `
+
+    return database.executar(instrucao)
+}
+
+function selectIdUsuario(){
+    var instrucao = `
+        SELECT idUsuario FROM usuario ORDER BY idUsuario DESC LIMIT 1;
+    `
+    return database.executar(instrucao)
+}
+
+function insertTabelaAssociativaFuncionario(idUsuarioFuncionario, idFazenda){
+    var instrucao = `
+        INSERT INTO fazenda_tem_usuario VALUES (${idFazenda}, ${idUsuarioFuncionario})
+    `
+
+    return database.executar(instrucao)
+}
+
+function exibirTempMedia(){
+    var instrucao = `
+        SELECT AVG(temperatura) as tempMedia FROM historicoMedicoes;
+    `
+
+    return database.executar(instrucao)
+}
+
+function mostrarFazendas(){
+    var instrucao = `
+     SELECT 
+    `
+
+}
 
 module.exports = {
     entrar,
@@ -65,5 +102,9 @@ module.exports = {
     cadastrarFuncionario,
     cadastrarFazenda,
     selectFazenda,
-    insertTabelaAssociativa
+    insertTabelaAssociativa,
+    insertTabelaAssociativaFuncionario,
+    mostrarFazendas,
+    exibirTempMedia,
+    selectIdUsuario
 };

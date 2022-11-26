@@ -173,6 +173,7 @@
                     resposta.json().then(function (response){
                         var respostaJSON = JSON.parse(JSON.stringify(response))
                         var idFazenda = respostaJSON[0].idFazenda
+                        
 
                         insertTabelaAssociativa(idFazenda)
                     })

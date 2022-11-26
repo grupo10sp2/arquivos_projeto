@@ -137,88 +137,24 @@ header {
 
 /* Cadastrar Inputs */
 
-.cadastrar{
+.fazendas{
   width: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  height: 60%;
   align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.tituloCadastrar{
-  font-size: 1.5rem;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-.campo{
-  margin-bottom: 20px;
-}
-
-.campo label , .campo input{
-  display: block;
-}
-
-.campo input {
-  border: none;
-  border-bottom: 1px solid #000;
-  width: 300px;
-  padding: 10px 0 0 2px;
-  outline: none;
-  font-size: 1.1rem;
-}
-
-.botao{
-    color: #fff;
-    background-color: #301C04;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: 0.5s;
-}
-
-.botao:hover{
-  background: #814c0c;
-}
-
-.loading-div{
-  display: none;
-  margin-top: 110px;
-  margin-bottom: 150px;
-}
-
-.loading-div img{
-  width: 100px;
-}
-
-.avisoCadastro{
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
+.fazenda{
+  background-color: #130a00;
+  border-radius: 20px;
   padding: 20px;
-  background-color: white;
-  border: 3px solid #814c0c;
-  box-shadow: 2px 2px 5px #000;
-  font-weight: 700;
+  color: white;
 }
 
-.campoFazenda{
-  display: flex;
-  gap: 10px;
-}
-
-.avisoFazenda{
-  display: none;
-  position: fixed;
-  top: 40%;
-  right: 20%;
-  padding: 20px;
-  color: red;
-  background-color: white;
-  border: 3px solid #814c0c;
-  box-shadow: 2px 2px 5px #000;
-  font-weight: 700;
+.subtitulo-fazendas{
+  margin: 20px 0;
+  text-align: center;
 }

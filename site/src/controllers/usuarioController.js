@@ -167,6 +167,76 @@ function insertTabelaAssociativa(req, res){
     );
 }
 
+function mostrarFazendas(req, res){
+    var idUsuario = req.params.idUsuario
+
+    usuarioModel.mostrarFazendas(idUsuario)
+    .then(function (resultado) {
+        res.json(resultado)
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
+function selectIdUsuario(req, res){
+    usuarioModel.selectIdUsuario()
+    .then(function (resultado) {
+        res.json(resultado)
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
+function insertTabelaAssociativaFuncionario(req, res){
+    var idUsuarioFuncionario = req.body.idUsuarioFuncionarioServer
+    var idFazenda = req.body.idFazendaServer
+
+    usuarioModel.insertTabelaAssociativaFuncionario(idUsuarioFuncionario, idFazenda)
+    .then(function (resultado) {
+        res.json(resultado)
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
+function exibirTempMedia(req, res){
+    usuarioModel.exibirTempMedia()
+    .then(function (resultado) {
+        res.json(resultado)
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
+function exibirFazendas(){
+    usuarioModel.exibirFazendas()
+    .then(function (resultado) {
+        res.json(resultado)
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -175,5 +245,10 @@ module.exports = {
     cadastrarFuncionario,
     cadastrarFazenda,
     selectFazenda,
-    insertTabelaAssociativa
+    insertTabelaAssociativa,
+    insertTabelaAssociativaFuncionario,
+    mostrarFazendas,
+    exibirTempMedia,
+    exibirFazendas,
+    selectIdUsuario
 }
