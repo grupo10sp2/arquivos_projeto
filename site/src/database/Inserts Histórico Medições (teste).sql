@@ -1,3 +1,5 @@
+USE coffeeTech;
+
 INSERT INTO historicoMedicoes VALUES
     (NULL, '2022-01-01 09:27:00', 22.50, 49.20, NULL),
     (NULL, '2022-01-01 11:35:00', 19.00, 55.90, NULL),
