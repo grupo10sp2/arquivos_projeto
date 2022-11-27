@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pr-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,123 +8,133 @@
     <title>CoffeeTech | Home</title>
     <!-- <script type="text/javascript" src="js/script_login.js"></script> -->
     <link rel="stylesheet" href="./css/login.css">
-    <link rel="icon" type="image/png" href="images/favicon.png" /> 
+    <link rel="stylesheet" href="./css/general-style-site.css">
+    <link rel="icon" type="image/png" href="images/favicon.png" />
 
     <script src="./js/funcoes.js"></script>
 </head>
 
 <body>
-<!--Conteúdo da Página-->
-<main>
- <!-- alerta erro -->
-    <div class="alerta_erro">
-        <div class="card_erro" id="cardErro">
-            <span id="mensagem_erro"></span>
-        </div>
-    </div>
-
-    <!-- as estilizações de "alerta_erro" e "loading-div"
-    estão em ./general-style.css -->
-
-
-    <section class="banner">
-        <div class="container">
-            <div class="formulario">
-                <img src="./images/user.png" alt="Icone Usuario">
-                <h2>Faça seu Login</h2>
-                <div class="campo">
-                    <label for="input_email">E-mail</label>
-                    <input type="email" id="input_email">
-                </div>
-                <div class="campo">
-                    <label for="input_senha">Senha</label>
-                    <input type="password" id="input_senha"> 
-                    <div id="mensagem_erro"></div>
-                </div>
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./images/gifLoading.gif" id="loading-gif">
-                </div>
-                <a href="#">Esqueceu sua senha?</a>
-                <a href="cadastro.html">Cadastrar</a>
-                <a class="entrar" onclick="entrar()">Entrar</a>
-                <a href="index.html"><img class="home" src="images/home.png" alt=""></a>
+    <!--Conteúdo da Página-->
+    <main>
+        <!-- alerta erro -->
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
             </div>
         </div>
 
-        <div id="div_erros_login">
+        <!-- as estilizações de "alerta_erro" e "loading-div"
+    estão em ./general-style.css -->
 
+
+        <section class="banner">
+            <div class="container">
+                <div class="formulario">
+                    <img src="./images/user.png" alt="Icone Usuario">
+                    <h2>Faça seu Login</h2>
+                    <div class="campo">
+                        <label for="input_email">E-mail</label>
+                        <input type="email" id="input_email">
+                    </div>
+                    <div class="campo">
+                        <label for="input_senha">Senha</label>
+                        <input type="password" id="input_senha">
+                        <div id="mensagem_erro"></div>
+                    </div>
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="./images/gifLoading.gif" id="loading-gif">
+                    </div>
+                    <a href="#">Esqueceu sua senha?</a>
+                    <a href="cadastro.html">Cadastrar</a>
+                    <a class="entrar" onclick="entrar()">Entrar</a>
+                    <a href="index.html"><img class="home" src="images/home.png" alt=""></a>
+                </div>
+            </div>
+
+            <div id="div_erros_login">
+
+            </div>
+
+
+        </section>
+    </main>
+
+    <!-- Botão central de suporte -->
+    <div class="fab-helpdesk">
+        <div class="button-helpdesk" id="divHelpdesk" onmouseover="aparecerTexto()" onmouseout="reset()">
+            <a href="#"> <img src="./images/logo-help-desk-removebg-preview.png"></a>
         </div>
-
-
-    </section>
-</main>
+    </div>
+    <div id="boxHelpdesk">
 </body>
+
 </html>
 
 
 <script>
 
-    
+
     function entrar() {
         aguardar();
 
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
 
-        if (login()){
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
+        if (login()) {
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.idUsuario;
+                        sessionStorage.FK_ADMIN = json.fkAdmin;
+
+                        /* Se tiver fk entra na dashbora normal, se não tiver fk entra na dashboard-admin */
+                        if (sessionStorage.getItem("FK_ADMIN") == 'null') {
+                            setTimeout(function () {
+
+                                window.location = "./dashboard-admin.html";
+                            }, 1000);
+                        } else {
+                            setTimeout(function () {
+
+                                window.location = "./dashboard.html";
+                            }, 1000);
+                        }
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        finalizarAguardar(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
             })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
-                    sessionStorage.FK_ADMIN = json.fkAdmin;
-                    
-                    /* Se tiver fk entra na dashbora normal, se não tiver fk entra na dashboard-admin */
-                    if (sessionStorage.getItem("FK_ADMIN") == 'null'){
-                        setTimeout(function () {
-                            
-                            window.location = "./dashboard-admin.html";
-                        }, 1000);
-                    } else {
-                        setTimeout(function () {
-                            
-                            window.location = "./dashboard.html";
-                        }, 1000);
-                    }
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-        } else{
+        } else {
             finalizarAguardar()
         }
         return false;
@@ -131,6 +142,24 @@
 
     function sumirMensagem() {
         cardErro.style.display = "none"
+    }
+
+    function aparecerTexto() {
+        boxHelpdesk.innerHTML = `Clique e acesse nossa <b>central de suporte!</b>`;
+        boxHelpdesk.style.backgroundColor = "#fff";
+        boxHelpdesk.style.boxShadow = "0 1px 5px rgba(0,0,0,.4)";
+        boxHelpdesk.style.padding = "15px";
+        boxHelpdesk.style.border = "2px solid  #603808";
+        boxHelpdesk.style.borderRadius = "4px";
+
+
+    }
+
+    function reset() {
+        boxHelpdesk.innerHTML = ""
+        boxHelpdesk.style.backgroundColor = "";
+        boxHelpdesk.style.border = "";
+        boxHelpdesk.style.boxShadow = "";
     }
 
 </script>

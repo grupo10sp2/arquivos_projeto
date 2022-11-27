@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/general-style-site.css">
   <link rel="stylesheet" href="css/nossa-solucao.css">
   <link rel="icon" type="image/png" href="images/favicon.png" />
@@ -86,7 +86,7 @@
 
         <div class="home subtitulo2">
           <p>
-            A Coffee Thermal Solution 
+            A Coffee Thermal Solution
             tem por princípio a utilização dos sensores de temperatura e de umidade
             DHT11, que a cada período de 60 segundos seja feita
             uma análise das condições no ambiente e registre apenas a variação das
@@ -96,7 +96,7 @@
           </p>
         </div>
       </div>
-      
+
     </div>
   </main>
 
@@ -121,6 +121,37 @@
       </div>
     </div>
   </footer>
+
+  <!-- Botão central de suporte -->
+  <div class="fab-helpdesk">
+    <div class="button-helpdesk" id="divHelpdesk" onmouseover="aparecerTexto()" onmouseout="reset()">
+      <a href="#"> <img src="./images/logo-help-desk-removebg-preview.png"></a>
+    </div>
+  </div>
+  <div id="boxHelpdesk">
+
+  </div>
 </body>
 
 </html>
+<script>
+  function aparecerTexto() {
+    boxHelpdesk.innerHTML = `Clique e acesse nossa <b>central de suporte!</b>`;
+    boxHelpdesk.style.backgroundColor = "#fff";
+    boxHelpdesk.style.boxShadow = "0 1px 5px rgba(0,0,0,.4)";
+    boxHelpdesk.style.padding = "15px";
+    boxHelpdesk.style.border = "2px solid  #603808";
+    boxHelpdesk.style.borderRadius = "4px";
+
+
+  }
+
+  function reset() {
+    boxHelpdesk.innerHTML = ""
+    boxHelpdesk.style.backgroundColor = "";
+    boxHelpdesk.style.border = "";
+    boxHelpdesk.style.boxShadow = "";
+  }
+
+
+</script>

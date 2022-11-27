@@ -166,6 +166,19 @@
       </div>
     </footer>
 
+
+<!-- Botão central de suporte -->
+<div class="fab-helpdesk">
+  <div class="button-helpdesk" id="divHelpdesk" onmouseover="aparecerTexto()" onmouseout="reset()">
+    <a href="#"> <img src="./images/logo-help-desk-removebg-preview.png"></a>
+  </div> 
+</div>
+<div id="boxHelpdesk">
+  
+</div> 
+
+
+
   </main>
 </body>
 
@@ -188,6 +201,24 @@
         divExplicacao.style.width = '550px'
         
 
+      }
+
+      function aparecerTexto(){
+        boxHelpdesk.innerHTML=`Clique e acesse nossa <b>central de suporte!</b>`;
+        boxHelpdesk.style.backgroundColor="#fff";
+        boxHelpdesk.style.boxShadow="0 1px 5px rgba(0,0,0,.4)";
+        boxHelpdesk.style.padding="15px";
+        boxHelpdesk.style.border="2px solid  #603808";
+        boxHelpdesk.style.borderRadius="4px";
+
+
+      }
+
+      function reset(){
+        boxHelpdesk.innerHTML=""
+        boxHelpdesk.style.backgroundColor="";
+        boxHelpdesk.style.border="";
+        boxHelpdesk.style.boxShadow="";
       }
 
       

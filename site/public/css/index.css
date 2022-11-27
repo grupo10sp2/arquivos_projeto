@@ -135,8 +135,12 @@
   .nossa-solucao img{
     width: 468px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: transform .5s linear;
   }
   
+  .nossa-solucao img:hover{
+    transform: scale(1.2);
+  }
   .nossa-solucao .texto{
     border-right: 6px solid#583101;
     padding: 60px 40px;
@@ -179,7 +183,12 @@
     width: 468px;
      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
      
-  }
+     transition: transform .5s linear;
+    }
+    
+    .nossa-empresa img:hover{
+      transform: scale(1.2);
+    }
   
   .nossa-empresa .texto{
     border-left: 6px solid#583101;

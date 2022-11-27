@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,42 @@
     <title>CoffeeTech | Cadastro</title>
     <!-- <script type="text/javascript" src="js/script_cadastro.js"></script> -->
     <link rel="stylesheet" href="css/cadastro.css">
+    
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
     <script src="./js/funcoes.js"></script>
 
+    <style>
+        /* botão fixo para helpdesk */
+  .fab-helpdesk{
+    position: fixed;
+    bottom:10px;
+    right:20px;
+  }
+
+  .button-helpdesk img{
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 1px 5px rgba(0,0,0,.4);
+    font-size: 24px;
+    
+  }
+
+  #boxHelpdesk{
+    position: fixed;
+    bottom:20px;
+    right:5em;
+  
+  
+  }
+    </style>
+
 
 </head>
+
 <body>
     <main>
         <!-- alerta erro -->
@@ -22,18 +53,18 @@
             </div>
 
 
-        <section class="banner">
-            <div class="container">
-                <div class="formulario">
-                    <img src="./images/user.png" alt="Ícone do usuário">
-                    <h2 class="titulo">Bem Vindo!</h2>
-                    <h2 class="subtitulo">Faça o seu cadastro</h2>
-                    
-                    <div class="campo">
-                        <label for="input_nome">Nome</label>
-                        <input type="text" onfocus="Focus(input_nome)" id="input_nome">
-                    </div>
-                        <div class="campo">                         
+            <section class="banner">
+                <div class="container">
+                    <div class="formulario">
+                        <img src="./images/user.png" alt="Ícone do usuário">
+                        <h2 class="titulo">Bem Vindo!</h2>
+                        <h2 class="subtitulo">Faça o seu cadastro</h2>
+
+                        <div class="campo">
+                            <label for="input_nome">Nome</label>
+                            <input type="text" onfocus="Focus(input_nome)" id="input_nome">
+                        </div>
+                        <div class="campo">
                             <label for="input_cpf">CPF</label>
                             <input type="number" onfocus="Focus(input_cpf)" id="input_cpf">
                         </div>
@@ -47,96 +78,127 @@
                         </div>
                         <div class="campo">
                             <label for="input_confirmacao_senha">Confirme sua Senha</label>
-                            <input type="password" onfocus="Focus(input_confirmacao_senha)" id="input_confirmacao_senha">
+                            <input type="password" onfocus="Focus(input_confirmacao_senha)"
+                                id="input_confirmacao_senha">
                         </div><br>
                         <div id="div_aguardar" class="loading-div">
                             <img src="./images/gifLoading.gif" id="loading-gif">
                         </div>
 
                         <a href="login.html">Já possui uma conta?</a>
-                        
+
                         <button onclick="cadastrar()">Cadastrar</button>
-                    
-                    <a href="index.html"> 
-                        <img class="home" src="./images/home.png" alt="Ícone Ínicio">
-                    </a>
 
+                        <a href="index.html">
+                            <img class="home" src="./images/home.png" alt="Ícone Ínicio">
+                        </a>
+
+                    </div>
                 </div>
+            </section>
+
+            <!-- div_erros_login e div_aguardar -->
+
+
+            <div id="div_erros_login">
+
             </div>
-        </section>
-
-          <!-- div_erros_login e div_aguardar -->
-
-        
-        <div id="div_erros_login">
-
-        </div>
 
 
     </main>
+
+    <!-- Botão central de suporte -->
+    <div class="fab-helpdesk">
+        <div class="button-helpdesk" id="divHelpdesk" onmouseover="aparecerTexto()" onmouseout="reset()">
+            <a href="#"> <img src="./images/logo-help-desk-removebg-preview.png"></a>
+        </div>
+    </div>
+    <div id="boxHelpdesk">
+
+    </div>
+
 </body>
+
 </html>
 <script>
 
-function cadastrar() {
-    aguardar();
-     
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = input_nome.value;
-    var emailVar = input_email.value;
-    var senhaVar = input_senha.value;
-    var confirmacaoSenhaVar = input_confirmacao_senha.value;
-    var cpfVar = input_cpf.value;
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = input_nome.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+        var confirmacaoSenhaVar = input_confirmacao_senha.value;
+        var cpfVar = input_cpf.value;
 
 
-    // Enviando o valor da nova input
-    if(verificarCadastro()){
-        fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
-            nomeServer: nomeVar,
-            emailServer: emailVar,
-            senhaServer: senhaVar,
-            cpfServer: cpfVar,
-        })
-    }).then(function (resposta) {
+        // Enviando o valor da nova input
+        if (verificarCadastro()) {
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+                    cpfServer: cpfVar,
+                })
+            }).then(function (resposta) {
 
-        console.log("resposta: ", resposta);
+                console.log("resposta: ", resposta);
 
-        if (resposta.ok) {
-            cardErro.style.display = "block";
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
 
-            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-            setTimeout(() => {
+                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                    setTimeout(() => {
+                        finalizarAguardar();
+                        window.location = "login.html";
+                    }, "2000")
+
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
                 finalizarAguardar();
-                window.location = "login.html";
-            }, "2000")
-            
-            
+            });
+
+            return false;
         } else {
-            throw ("Houve um erro ao tentar realizar o cadastro!");
+            finalizarAguardar()
         }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-    });
+    }
 
-    return false;
-} else{
-    finalizarAguardar()
-}
-}
-    
 
-function sumirMensagem() {
-    cardErro.style.display = "none"
-}
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+    function aparecerTexto() {
+        boxHelpdesk.innerHTML = `Clique e acesse nossa <b>central de suporte!</b>`;
+        boxHelpdesk.style.backgroundColor = "#fff";
+        boxHelpdesk.style.boxShadow = "0 1px 5px rgba(0,0,0,.4)";
+        boxHelpdesk.style.padding = "15px";
+        boxHelpdesk.style.border = "2px solid  #603808";
+        boxHelpdesk.style.borderRadius = "4px";
+
+
+    }
+
+    function reset() {
+        boxHelpdesk.innerHTML = ""
+        boxHelpdesk.style.backgroundColor = "";
+        boxHelpdesk.style.border = "";
+        boxHelpdesk.style.boxShadow = "";
+    }
 
 </script>
 <script src="js/script_cadastro.js"></script>

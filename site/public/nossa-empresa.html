@@ -38,8 +38,10 @@
         <div class="texto">
           <h1>Nossa Empresa</h1>
           <p>
-            Somos uma empresa de tecnologia que oferece soluções através do uso de sensores aplicados no agronegócio, especificamente na armazenagem e transporte do café!
-            Nosso time é formado por desenvolvedores do curso de análise e desenvolvimento de sistemas na faculdade SPTech.
+            Somos uma empresa de tecnologia que oferece soluções através do uso de sensores aplicados no agronegócio,
+            especificamente na armazenagem e transporte do café!
+            Nosso time é formado por desenvolvedores do curso de análise e desenvolvimento de sistemas na faculdade
+            SPTech.
           </p>
         </div>
 
@@ -56,7 +58,8 @@
           <div class="cards-caixa">
             <div class="cards-caixa-texto">
               <h2>Missão</h2>
-              <p>Garantir a venda do café com maior <b>qualidade</b> e <b>assertividade</b>, sabendo as datas de quando irá validar.</p>
+              <p>Garantir a venda do café com maior <b>qualidade</b> e <b>assertividade</b>, sabendo as datas de quando
+                irá validar.</p>
             </div>
             <img src="images/alvo.png" alt="Alvo">
           </div>
@@ -64,21 +67,24 @@
           <div class="cards-caixa">
             <div class="cards-caixa-texto">
               <h2>Solução</h2>
-              <p>Controlar a qualidade do café através do <b>monitoramento</b> de temperatura e umidade, <b>evitando pragas e apodrecimento</b>.</p>
+              <p>Controlar a qualidade do café através do <b>monitoramento</b> de temperatura e umidade, <b>evitando
+                  pragas e apodrecimento</b>.</p>
             </div>
             <img src="images/temperatura.png" alt="Alvo">
           </div>
           <div class="cards-caixa">
             <div class="cards-caixa-texto">
               <h2>Renda</h2>
-              <p>Garantindo a venda do café com a <b>qualidade controlada</b> através do monitoramento conseguimos gerar <b>mais renda</b> ao nosso cliente.</p>
+              <p>Garantindo a venda do café com a <b>qualidade controlada</b> através do monitoramento conseguimos gerar
+                <b>mais renda</b> ao nosso cliente.</p>
             </div>
             <img src="images/lucros 1.png" alt="Alvo">
           </div>
           <div class="cards-caixa">
             <div class="cards-caixa-texto">
               <h2>Cliente</h2>
-              <p>Nossa empresa pensa exclusivamente em <b>solucionar os problemas</b> da temperatura e umidade na armazenagem do cliente <b>trazendo facilidade</b> para que ele se preocupe apenas com a venda.</p>
+              <p>Nossa empresa pensa exclusivamente em <b>solucionar os problemas</b> da temperatura e umidade na
+                armazenagem do cliente <b>trazendo facilidade</b> para que ele se preocupe apenas com a venda.</p>
             </div>
             <img src="images/user.png" alt="Alvo">
           </div>
@@ -105,7 +111,38 @@
       </div>
     </footer>
 
+    <!-- Botão central de suporte -->
+    <div class="fab-helpdesk">
+      <div class="button-helpdesk" id="divHelpdesk" onmouseover="aparecerTexto()" onmouseout="reset()">
+        <a href="#"> <img src="./images/logo-help-desk-removebg-preview.png"></a>
+      </div>
+    </div>
+    <div id="boxHelpdesk">
+
+    </div>
+
   </main>
 </body>
 
 </html>
+<script>
+   function aparecerTexto(){
+        boxHelpdesk.innerHTML=`Clique e acesse nossa <b>central de suporte!</b>`;
+        boxHelpdesk.style.backgroundColor="#fff";
+        boxHelpdesk.style.boxShadow="0 1px 5px rgba(0,0,0,.4)";
+        boxHelpdesk.style.padding="15px";
+        boxHelpdesk.style.border="2px solid  #603808";
+        boxHelpdesk.style.borderRadius="4px";
+
+
+      }
+
+      function reset(){
+        boxHelpdesk.innerHTML=""
+        boxHelpdesk.style.backgroundColor="";
+        boxHelpdesk.style.border="";
+        boxHelpdesk.style.boxShadow="";
+      }
+
+      
+</script>
