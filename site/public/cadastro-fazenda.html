@@ -22,7 +22,7 @@
                 <div>
                     <img style="width: 100px; margin-bottom: 20px;" src="images/logo-2.png" alt="">
                     <p>Bem vindo(a),</p>
-                    <p class="nomeUsuario">Fernando Brandão</p>
+                    <p class="nomeUsuario" id="nomeUsuario">Fernando Brandão</p>
                 </div>
 
                 <nav class="navegacao">
@@ -114,6 +114,7 @@
 </body>
 </html>
 <script>
+    nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
     function cadastrarFazenda(){
         aguardar2();
 

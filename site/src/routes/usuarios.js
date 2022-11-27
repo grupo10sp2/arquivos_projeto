@@ -51,8 +51,8 @@ router.post("/insertTabelaAssociativaFuncionario", function(req, res){
 router.get("/exibirTempMedia", function(req, res){
     usuarioController.exibirTempMedia(req, res)
 })
-router.get("/exibirFazendas/:", function(req, res){
-    usuarioController.exibirFazendas(req, res)
+router.get("/exibirFazendasDoUsuario/:idUsuario", function(req, res){
+    usuarioController.exibirFazendasDoUsuario(req, res)
 })
 
 

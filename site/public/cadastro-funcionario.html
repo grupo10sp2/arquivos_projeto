@@ -22,7 +22,7 @@
                 <div>
                     <img style="width: 100px; margin-bottom: 20px;" src="images/logo-2.png" alt="">
                     <p>Bem vindo(a),</p>
-                    <p class="nomeUsuario">Fernando Brandão</p>
+                    <p class="nomeUsuario" id="nomeUsuario">Fernando Brandão</p>
                 </div>
 
                 <nav class="navegacao">
@@ -119,6 +119,8 @@
 </body>
 </html>
 <script>
+    nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
+
     /* Função para dar select nas fazendas cadastradas */
     function mostrarFazendas(){
         var idUsuario = sessionStorage.getItem("ID_USUARIO")
@@ -154,7 +156,7 @@
         var cpfVar = input_cpf.value
         var emailVar = input_email.value
         var senhaVar = input_senha.value
-        var fkAdminVar = sessionStorage.getItem("FK_ADMIN")
+        var fkAdminVar = sessionStorage.getItem("ID_USUARIO")
 
         var idFazenda = fazendas.value
 

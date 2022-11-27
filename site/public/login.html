@@ -107,17 +107,11 @@
                         sessionStorage.FK_ADMIN = json.fkAdmin;
 
                         /* Se tiver fk entra na dashbora normal, se não tiver fk entra na dashboard-admin */
-                        if (sessionStorage.getItem("FK_ADMIN") == 'null') {
                             setTimeout(function () {
 
-                                window.location = "./dashboard-admin.html";
+                                window.location = "./fazendas.html";
                             }, 1000);
-                        } else {
-                            setTimeout(function () {
-
-                                window.location = "./dashboard.html";
-                            }, 1000);
-                        }
+                        
 
                     });
 

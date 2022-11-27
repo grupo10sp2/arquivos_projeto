@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="css/fazendas.css">
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <title>CoffeTech | Dashboard</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -20,29 +19,6 @@
           <p>Bem vindo(a),</p>
           <p class="nomeUsuario" id="nomeUsuario">Fernando Brandão</p>
         </div>
-
-        <nav class="navegacao">
-          <ul>
-            <a href="#">
-              <li>
-                <img src="images/signal-icon.png" alt="">
-                <p>Painel</p>
-              </li>
-            </a>
-            <a href="cadastro-funcionario.html">
-              <li>
-                <img src="images/add.png" alt="">
-                <p>Registrar</p>
-              </li>
-            </a>
-            <a href="cadastro-fazenda.html">
-              <li>
-                <img src="images/barn.svg" alt="">
-                <p>Adicionar Fazendas</p>
-              </li>
-            </a>
-          </ul>
-        </nav>
 
         <ul class="saida">
           <li>
@@ -69,35 +45,63 @@
         </div>
         <span class="linha"></span>
         <h2 class="subtitulo-fazendas">Escolha a fazenda que deseja</h2>
-        <div class="fazendas">
-          <div class="fazenda">
-            <img src="images/barn.svg" alt="">
-            <h2>FazendaFeliz</h2>
-          </div>
-          <div class="fazenda">
-            <img src="images/barn.svg" alt="">
-            <h2>FazendaFeliz</h2>
-          </div>
+        <div class="fazendas" id="fazendas">
+          
         </div>
     </div>
     </div>
   </div>
 </body>
 <script>
-  var idUsuario = sessionStorage.getItem("ID_USUARIO")
+  nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
+
+  const idUsuario = sessionStorage.getItem("ID_USUARIO")
   //continuar a funcionalidade de escolher a fazenda
-  function exibirFazendas(){
-    fetch(`/usuarios/exibirFazendas/${idUsuario}` )
+  function exibirFazendasDoUsuario(){
+    fetch(`/usuarios/exibirFazendasDoUsuario/${idUsuario}`)
             .then(function (resposta){
                 if(resposta.ok){
                     resposta.json().then(function (response){
-                        var respostaJSON = JSON.parse(JSON.stringify(response))
-                        var idUsuarioFuncionario = respostaJSON[0].idUsuario
-                        
-                        
+                        const respostaJSON = JSON.parse(JSON.stringify(response))
+                        if(respostaJSON.length <= 0){
+                          window.location = "cadastro-fazenda.html"
+                        } else {
+                          for(var i = 0; i < respostaJSON.length; i++){
+                            fazendas.innerHTML += `
+                            <div class="fazenda">
+                              <img src="images/barn.svg" alt="">
+                              <h3>${respostaJSON[i].nomeFazenda}</h3>
+                              <span style="display: none">${respostaJSON[i].idFazenda}</span>
+                            </div>  
+                            `
+                          }
+                        }
                     })
                 }
             })
   }
+exibirFazendasDoUsuario()
 
+  /* Timeout para pegar as divs que viram do banco */
+  setTimeout(function adicionarEventoNasDivsFazenda(){
+  const divFazendasArray = document.querySelectorAll(".fazenda")
+  for(var i = 0; i < divFazendasArray.length; i++){
+    divFazendasArray[i].addEventListener("click", selecionarFazenda)
+  }
+    
+  }, 50)
+
+  function selecionarFazenda(evento){
+    const divSelecionada = evento.currentTarget
+    const idFazenda = divSelecionada.children[2].innerHTML
+    
+    /* Redirecionando para a página de dashboard dependendo se ele for Admin ou não */
+    if(sessionStorage.getItem("FK_ADMIN") == 'null'){
+      window.location = "./dashboard-admin.html"
+    } else {
+      window.location = "./dashboard.html"
+    }
+  }
+
+  
 </script>

@@ -88,11 +88,13 @@ function exibirTempMedia(){
     return database.executar(instrucao)
 }
 
-function mostrarFazendas(){
+function exibirFazendasDoUsuario(idUsuario){
     var instrucao = `
-     SELECT 
+    SELECT * FROM usuario JOIN fazenda_tem_usuario ON usuario.idUsuario = fazenda_tem_usuario.fkUsuario
+    JOIN fazenda ON fazenda_tem_usuario.fkFazenda = fazenda.idFazenda WHERE usuario.idUsuario = ${idUsuario};
     `
 
+    return database.executar(instrucao)
 }
 
 module.exports = {
@@ -106,5 +108,6 @@ module.exports = {
     insertTabelaAssociativaFuncionario,
     mostrarFazendas,
     exibirTempMedia,
+    exibirFazendasDoUsuario,
     selectIdUsuario
 };
