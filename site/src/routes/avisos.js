@@ -11,6 +11,22 @@ router.get("/listar", function (req, res) {
     avisoController.listar(req, res);
 });
 
+router.get("/select_ano", function (req, res) {
+    avisoController.selectAno(req, res);
+});
+
+router.get("/select_mes/:ano", function (req, res) {
+    avisoController.selectMes(req, res);
+});
+
+router.get("/media", function (req, res) {
+    avisoController.media(req, res);
+});
+
+router.get("/atual", function (req, res) {
+    avisoController.atual(req, res);
+});
+
 router.get("/listar/:idUsuario", function (req, res) {
     avisoController.listarPorUsuario(req, res);
 });

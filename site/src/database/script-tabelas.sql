@@ -33,9 +33,9 @@ foreign key (fkAdmin) references usuario(idUsuario)
 
 create table fazendaTemUsuario (
 fkFazenda int,
-foreign key (fkFazenda) references Fazenda (idFazenda),
+foreign key (fkFazenda) references fazenda (idFazenda),
 fkUsuario int,
-foreign key (fkUsuario) references Usuario (idUsuario),
+foreign key (fkUsuario) references usuario (idUsuario),
 primary key (fkFazenda, fkUsuario)
 );
 
@@ -48,7 +48,7 @@ temperaturaMax double,
 umidadeMin double,
 umidadeMax double,
 fkFazenda int,
-foreign key (fkFazenda) references Fazenda (idFazenda),
+foreign key (fkFazenda) references fazenda (idFazenda),
 primary key (idSilo, fkFazenda)
 );
 
@@ -58,7 +58,7 @@ create table sensor (
 idSensor int primary key auto_increment,
 TipoSensor varchar(10),
 fkSilo int,
-foreign key (fkSilo) references Silo (idSilo)
+foreign key (fkSilo) references silo (idSilo)
 );
 
 
@@ -68,7 +68,7 @@ dataHora datetime,
 temperatura double,
 umidade double,
 fkSensor int,
-foreign key (fkSensor) references Sensor (idSensor),
+foreign key (fkSensor) references sensor (idSensor),
 primary key (idHistorico, fkSensor)
 );
 
