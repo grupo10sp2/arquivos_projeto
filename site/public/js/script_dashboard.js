@@ -224,7 +224,7 @@ function loadKpisData(by_interval = false) { //Informa a função se ela foi cha
   const mes_select = select_meses.value;
   const ano_select = select_anos.value;
 
-  if (!by_interval) { // Caso não tenha sido chamada pelo intervalor
+  if (!by_interval) { // Caso não tenha sido chamada pelo intervalo
     clearInterval(interval);//Limpando intervalo para começar do 0 após a troca de ano ou mês
     interval = setInterval(()=>{loadKpisData(true)}, periodo_intervalo); //Definindo novo intervalo após a troca
     loadChartsData();
