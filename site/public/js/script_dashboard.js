@@ -1,4 +1,4 @@
-const user = sessionStorage.USER;
+const user = sessionStorage.NOME_USUARIO;
 
 /*if (user == null) {
     location = "index.html";
