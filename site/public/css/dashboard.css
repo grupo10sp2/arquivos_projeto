@@ -337,3 +337,25 @@ span main {
 .kpi_secundaria .kpi3 {
  background: #C20202;
 }
+
+.fab-helpdesk{
+  position: fixed;
+  bottom:10px;
+  right:20px;
+}
+
+.button-helpdesk img{
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0 1px 5px rgba(0,0,0,.4);
+  font-size: 24px;
+}
+
+#boxHelpdesk{
+  position: fixed;
+  bottom:20px;
+  right:5em;
+}

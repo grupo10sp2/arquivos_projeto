@@ -1,3 +1,14 @@
+const user = sessionStorage.USER;
+
+/*if (user == null) {
+    location = "index.html";
+}*/
+
+function logout(){
+    sessionStorage.clear();
+    location = 'index.html'
+}
+
 var periodo_intervalo = 10; //Quantidade de segundos para atualização de dados
 
 periodo_intervalo *= 1000;
@@ -333,4 +344,20 @@ function chartsGenerator(){
     document.getElementById('canvas_chart_2'),
     config2
   );
-}  
+}
+
+function aparecerTexto(){
+  boxHelpdesk.innerHTML=`Clique e acesse nossa <b>central de suporte!</b>`;
+  boxHelpdesk.style.backgroundColor="#fff";
+  boxHelpdesk.style.boxShadow="0 1px 5px rgba(0,0,0,.4)";
+  boxHelpdesk.style.padding="15px";
+  boxHelpdesk.style.border="2px solid  #603808";
+  boxHelpdesk.style.borderRadius="4px";
+}
+
+function reset(){
+  boxHelpdesk.innerHTML=""
+  boxHelpdesk.style.backgroundColor="";
+  boxHelpdesk.style.border="";
+  boxHelpdesk.style.boxShadow="";
+}
