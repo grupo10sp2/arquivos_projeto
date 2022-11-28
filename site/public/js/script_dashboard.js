@@ -29,6 +29,47 @@ function loadYearsData(){
     });
 }
 
+function monthName(mes){ // Função para mostrar nome dos meses
+  switch (mes) {
+    case 1:
+      return "Janeiro";
+      break;
+    case 2:
+      return "Fevereiro";
+      break;
+    case 3:
+      return "Março";
+      break;
+    case 4:
+      return "Abril";
+      break;
+    case 5:
+      return "Maio";
+      break;
+    case 6:
+      return "Junho";
+      break;
+    case 7:
+      return "Julho";
+      break;
+    case 8:
+      return "Agosto";
+      break;
+    case 9:
+      return "Setembro";
+      break;
+    case 10:
+      return "Outubro";
+      break;
+    case 11:
+      return "Novembro";
+      break;
+    default:
+      return "Dezembro";
+      break;
+  }
+}
+
 //Função para buscar meses do select_ano registrados no banco de dados
 function loadMonthsData(){
     const ano = select_anos.value;
@@ -38,7 +79,7 @@ function loadMonthsData(){
           console.log("Dados recebidos: ", JSON.stringify(resposta));
               select_meses.innerHTML = null;
               for (let index = 0; index < resposta.length; index++) {
-                  select_meses.innerHTML += `<option value="${resposta[index].mes}">${resposta[index].mes}</option>`;
+                  select_meses.innerHTML += `<option value="${resposta[index].mes}">${monthName(resposta[index].mes)}</option>`;
               }  
               loadKpisData()//Chamando a função para buscar dadaos para as Kpis
           });
@@ -133,8 +174,7 @@ function loadKpisData(by_interval = false) { //Informa a função se ela foi cha
     if (mes_select == mes_atual && ano_select == ano_atual) {
       loadChartsData();
     }    
-  }
-  
+  }  
 }
 
 //Função para buscar os dados para o gráfico conforme o mes e ano dos selects
