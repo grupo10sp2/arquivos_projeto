@@ -12,7 +12,7 @@ function listar(mes,ano) {
 function media(mes,ano) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-    SELECT ROUND(AVG(temperatura),1) as avg_temp, ROUND(AVG(umidade),1) as avg_umidade FROM historicoMedicoes WHERE MONTH(dataHora) = ${mes} AND YEAR(dataHora) = ${ano};
+    SELECT ROUND(AVG(temperatura),1) as avg_temp, ROUND(AVG(umidade),1) as avg_umidade, MAX(temperatura) as max_temp, MIN(temperatura) as min_temp, MAX(umidade) as max_umidade, MIN(umidade) as min_umidade FROM historicoMedicoes WHERE MONTH(dataHora) = ${mes} AND YEAR(dataHora) = ${ano};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

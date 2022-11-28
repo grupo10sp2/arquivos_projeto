@@ -106,6 +106,25 @@ function loadKpisData(by_interval = false) { //Informa a função se ela foi cha
           const dados = resposta[0];
           media_temp.innerHTML = dados.avg_temp + "°C";
           media_umidade.innerHTML = dados.avg_umidade + "%";
+          const discrepancia_de_temperatura_maxima = dados.max_temp - 30;
+          const discrepancia_de_temperatura_minima = 25 - dados.min_temp;
+          const discrepancia_de_umidade_maxima = dados.max_umidade - 12;
+          const discrepancia_de_umidade_minima = 10 - dados.min_umidade;
+          var temperatura_discrepante = 0;
+          var umidade_discrepante = 0;
+          if (discrepancia_de_temperatura_minima > discrepancia_de_temperatura_maxima) {
+            temperatura_discrepante = dados.min_temp;
+          } else {
+            temperatura_discrepante = dados.max_temp;
+          }
+          if (discrepancia_de_umidade_minima > discrepancia_de_umidade_maxima) {
+            umidade_discrepante = dados.min_umidade;
+          } else {
+            umidade_discrepante = dados.max_umidade;
+          }
+          discrepancia_temp.innerHTML = temperatura_discrepante + "°C";
+          discrepancia_umidade.innerHTML = umidade_discrepante + "%";
+
           if (dados.avg_temp >= 25 && dados.avg_temp <= 30) {
             box_media_temp.style.backgroundColor = "#02C252"; // Verde
           } else if(dados.avg_temp < 19 || dados.avg_temp > 34) {
@@ -115,6 +134,7 @@ function loadKpisData(by_interval = false) { //Informa a função se ela foi cha
           } else if(dados.avg_temp < 23 || dados.avg_temp > 30) {
             box_media_temp.style.backgroundColor = "#ECD400"; //Amarelo
           }
+
           if (dados.avg_umidade >= 10 && dados.avg_umidade <= 12) {
             box_media_umidade.style.backgroundColor = "#02C252"; // Verde
           } else if(dados.avg_umidade < 7 || dados.avg_umidade > 14) {
@@ -123,6 +143,26 @@ function loadKpisData(by_interval = false) { //Informa a função se ela foi cha
             box_media_umidade.style.backgroundColor = "#EC8E00"; // Laranja
           } else if(dados.avg_umidade < 10 || dados.avg_umidade > 12) {
             box_media_umidade.style.backgroundColor = "#ECD400"; //Amarelo
+          }
+          
+          if (temperatura_discrepante >= 25 && temperatura_discrepante <= 30) {
+            box_discrepancia_temp.style.backgroundColor = "#02C252"; // Verde
+          } else if(temperatura_discrepante < 19 || temperatura_discrepante > 34) {
+            box_discrepancia_temp.style.backgroundColor = "#C20202"; //Vermelho
+          } else if(temperatura_discrepante < 21 || temperatura_discrepante > 32) {
+            box_discrepancia_temp.style.backgroundColor = "#EC8E00"; // Laranja
+          } else if(temperatura_discrepante < 23 || temperatura_discrepante > 30) {
+            box_discrepancia_temp.style.backgroundColor = "#ECD400"; //Amarelo
+          }
+
+          if (umidade_discrepante >= 25 && umidade_discrepante <= 30) {
+            box_discrepancia_umidade.style.backgroundColor = "#02C252"; // Verde
+          } else if(umidade_discrepante < 19 || umidade_discrepante > 34) {
+            box_discrepancia_umidade.style.backgroundColor = "#C20202"; //Vermelho
+          } else if(umidade_discrepante < 21 || umidade_discrepante > 32) {
+            box_discrepancia_umidade.style.backgroundColor = "#EC8E00"; // Laranja
+          } else if(umidade_discrepante < 23 || umidade_discrepante > 30) {
+            box_discrepancia_umidade.style.backgroundColor = "#ECD400"; //Amarelo
           }
         });
     } else {
@@ -139,6 +179,7 @@ function loadKpisData(by_interval = false) { //Informa a função se ela foi cha
           const dados = resposta[0];
           atual_temp.innerHTML = dados.atual_temp + "°C";
           atual_umidade.innerHTML = dados.atual_umidade + "%";
+
           if (dados.atual_temp >= 25 && dados.atual_temp <= 30) {
             box_atual_temp.style.backgroundColor = "#02C252"; // Verde
           } else if(dados.atual_temp < 19 || dados.atual_temp > 34) {
@@ -148,6 +189,7 @@ function loadKpisData(by_interval = false) { //Informa a função se ela foi cha
           } else if(dados.atual_temp < 23 || dados.atual_temp > 30) {
             box_atual_temp.style.backgroundColor = "#ECD400"; //Amarelo
           }
+
           if (dados.atual_umidade >= 10 && dados.atual_umidade <= 12) {
             box_atual_umidade.style.backgroundColor = "#02C252"; // Verde
           } else if(dados.atual_umidade < 7 || dados.atual_umidade > 14) {
@@ -170,6 +212,7 @@ function loadKpisData(by_interval = false) { //Informa a função se ela foi cha
   const ano_atual = date.getFullYear();
   const mes_select = select_meses.value;
   const ano_select = select_anos.value;
+
   if (!by_interval) { // Caso não tenha sido chamada pelo intervalor
     clearInterval(interval);//Limpando intervalo para começar do 0 após a troca de ano ou mês
     interval = setInterval(()=>{loadKpisData(true)}, periodo_intervalo); //Definindo novo intervalo após a troca
