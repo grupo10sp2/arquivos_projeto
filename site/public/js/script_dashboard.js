@@ -1,5 +1,5 @@
-//Configurando intervalo de atualização de busca de dados no banco
-var interval = setInterval(loadKpisData, 10000);
+//Atribuindo intervalo a variável interval
+var interval = setInterval(() => {}, 10000);
 
 //Definindo vetores que terão valores para o gráfico
 var dias = [];
@@ -50,7 +50,7 @@ function loadMonthsData(){
   });
 }
 
-function loadKpisData() {
+function loadKpisData(by_interval = false) { //Informa a função se ela foi chamada pelo setInterval(). Parâmetro iniciando com false
   const mes = select_meses.value;
   const ano = select_anos.value;
 
@@ -118,14 +118,27 @@ function loadKpisData() {
     }
   }).catch(function (resposta) {
     console.error(resposta);
-  });  
-  loadChartsData();//Chamando a função para criar os gráficos com os dados recebidos
+  });
+  //Chamando a função para criar os gráficos com os dados recebidos
+  const date = new Date();
+  const mes_atual = date.getMonth() + 1;
+  const ano_atual = date.getFullYear();
+  const mes_select = select_meses.value;
+  const ano_select = select_anos.value;
+  if (!by_interval) { // Caso não tenha sido chamada pelo intervalor
+    clearInterval(interval);//Limpando intervalo para começar do 0 após a troca de ano ou mês
+    interval = setInterval(()=>{loadKpisData(true)}, 10000); //Definindo novo intervalo após a troca
+    loadChartsData();
+  } else {
+    if (mes_select == mes_atual && ano_select == ano_atual) {
+      loadChartsData();
+    }    
+  }
+  
 }
 
 //Função para buscar os dados para o gráfico conforme o mes e ano dos selects
-function loadChartsData() {
-    clearInterval(interval);//Limpando intervalo para começar do 0 após a troca de ano ou mês
-    interval = setInterval(loadChartsData, 10000); //Definindo novo intervalo após a troca  
+function loadChartsData() {    
     dias = [];
     temperaturas_minimas = [];
     temperaturas_medias = [];
