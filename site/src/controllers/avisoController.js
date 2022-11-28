@@ -67,9 +67,7 @@ function media(req, res) {
 }
 
 function atual(req, res) {
-    const mes = req.query.mes;
-    const ano = req.query.ano;
-    avisoModel.atual(mes,ano).then(function (resultado) {
+    avisoModel.atual().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

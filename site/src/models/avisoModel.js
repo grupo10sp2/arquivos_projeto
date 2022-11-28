@@ -18,10 +18,10 @@ function media(mes,ano) {
     return database.executar(instrucao);
 }
 
-function atual(mes,ano) {
+function atual() {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-    SELECT temperatura as atual_temp, umidade as atual_umidade FROM historicoMedicoes WHERE MONTH(dataHora) = ${mes} AND YEAR(dataHora) = ${ano} ORDER BY idHistorico DESC LIMIT 1;
+    SELECT temperatura as atual_temp, umidade as atual_umidade FROM historicoMedicoes ORDER BY idHistorico DESC LIMIT 1;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

@@ -57,10 +57,28 @@ function loadKpisData() {
   fetch(`/avisos/media/?mes=${mes}&ano=${ano}`).then(function (resposta) {
     if (resposta.ok) {
         resposta.json().then(function (resposta) {
-        console.log("Dados recebidos: ", JSON.stringify(resposta));
-            const dados = resposta[0];
-            media_temp.innerHTML = dados.avg_temp + "°C";
-            media_umidade.innerHTML = dados.avg_umidade + "%";
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+          const dados = resposta[0];
+          media_temp.innerHTML = dados.avg_temp + "°C";
+          media_umidade.innerHTML = dados.avg_umidade + "%";
+          if (dados.avg_temp >= 25 && dados.avg_temp <= 30) {
+            box_media_temp.style.backgroundColor = "#02C252"; // Verde
+          } else if(dados.avg_temp < 19 || dados.avg_temp > 34) {
+            box_media_temp.style.backgroundColor = "#C20202"; //Vermelho
+          } else if(dados.avg_temp < 21 || dados.avg_temp > 32) {
+            box_media_temp.style.backgroundColor = "#EC8E00"; // Laranja
+          } else if(dados.avg_temp < 23 || dados.avg_temp > 30) {
+            box_media_temp.style.backgroundColor = "#ECD400"; //Amarelo
+          }
+          if (dados.avg_umidade >= 10 && dados.avg_umidade <= 12) {
+            box_media_umidade.style.backgroundColor = "#02C252"; // Verde
+          } else if(dados.avg_umidade < 7 || dados.avg_umidade > 14) {
+            box_media_umidade.style.backgroundColor = "#C20202"; //Vermelho
+          } else if(dados.avg_umidade < 8 || dados.avg_umidade > 13) {
+            box_media_umidade.style.backgroundColor = "#EC8E00"; // Laranja
+          } else if(dados.avg_umidade < 10 || dados.avg_umidade > 12) {
+            box_media_umidade.style.backgroundColor = "#ECD400"; //Amarelo
+          }
         });
     } else {
         throw ('Houve um erro na API!');
@@ -69,13 +87,31 @@ function loadKpisData() {
     console.error(resposta);
   });
 
-  fetch(`/avisos/atual/?mes=${mes}&ano=${ano}`).then(function (resposta) {
+  fetch(`/avisos/atual`).then(function (resposta) {
     if (resposta.ok) {
         resposta.json().then(function (resposta) {
-        console.log("Dados recebidos: ", JSON.stringify(resposta));
-            const dados = resposta[0];
-            atual_temp.innerHTML = dados.atual_temp + "°C";
-            atual_umidade.innerHTML = dados.atual_umidade + "%";
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+          const dados = resposta[0];
+          atual_temp.innerHTML = dados.atual_temp + "°C";
+          atual_umidade.innerHTML = dados.atual_umidade + "%";
+          if (dados.atual_temp >= 25 && dados.atual_temp <= 30) {
+            box_atual_temp.style.backgroundColor = "#02C252"; // Verde
+          } else if(dados.atual_temp < 19 || dados.atual_temp > 34) {
+            box_atual_temp.style.backgroundColor = "#C20202"; //Vermelho
+          } else if(dados.atual_temp < 21 || dados.atual_temp > 32) {
+            box_atual_temp.style.backgroundColor = "#EC8E00"; // Laranja
+          } else if(dados.atual_temp < 23 || dados.atual_temp > 30) {
+            box_atual_temp.style.backgroundColor = "#ECD400"; //Amarelo
+          }
+          if (dados.atual_umidade >= 10 && dados.atual_umidade <= 12) {
+            box_atual_umidade.style.backgroundColor = "#02C252"; // Verde
+          } else if(dados.atual_umidade < 7 || dados.atual_umidade > 14) {
+            box_atual_umidade.style.backgroundColor = "#C20202"; //Vermelho
+          } else if(dados.atual_umidade < 8 || dados.atual_umidade > 13) {
+            box_atual_umidade.style.backgroundColor = "#EC8E00"; // Laranja
+          } else if(dados.atual_umidade < 10 || dados.atual_umidade > 12) {
+            box_atual_umidade.style.backgroundColor = "#ECD400"; //Amarelo
+          }
         });
     } else {
         throw ('Houve um erro na API!');

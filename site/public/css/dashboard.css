@@ -198,7 +198,7 @@ span main {
   border-radius: 5px;
   margin-top: 5px;
   margin-right: 2px;
-  width: 36vw;
+  width: 37vw;
   text-align: center;
 }
 
@@ -325,8 +325,7 @@ span main {
 
 
 
-.kpi_secundaria .kpi1 {
-  
+.kpi_secundaria .kpi1 {  
   background: #02C252;
   
 }
@@ -338,5 +337,3 @@ span main {
 .kpi_secundaria .kpi3 {
  background: #C20202;
 }
-
-
