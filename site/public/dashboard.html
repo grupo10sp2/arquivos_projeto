@@ -177,13 +177,9 @@
 </body>
 
 <script>
-   nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
+   nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO");
    function logout(){
-      sessionStorage.EMAIL_USUARIO = null;
-      sessionStorage.NOME_USUARIO = null;
-      sessionStorage.ID_USUARIO = null;
-      sessionStorage.FK_ADMIN = null;
-
+      sessionStorage.clear();
       location = "index.html"
   } 
 </script>

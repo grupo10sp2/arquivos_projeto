@@ -1,9 +1,9 @@
-var periodo_intervalo = 3; //Quantidade de segundos para atualização de dados
+var periodo_intervalo = 10; //Quantidade de segundos para atualização de dados
 
-periodo *= 1000;
+periodo_intervalo *= 1000;
 
 //Atribuindo intervalo a variável interval
-var interval = setInterval(() => {}, periodo);
+var interval = setInterval(() => {}, periodo_intervalo);
 
 //Definindo vetores que terão valores para o gráfico
 var dias = [];
@@ -172,7 +172,7 @@ function loadKpisData(by_interval = false) { //Informa a função se ela foi cha
   const ano_select = select_anos.value;
   if (!by_interval) { // Caso não tenha sido chamada pelo intervalor
     clearInterval(interval);//Limpando intervalo para começar do 0 após a troca de ano ou mês
-    interval = setInterval(()=>{loadKpisData(true)}, periodo); //Definindo novo intervalo após a troca
+    interval = setInterval(()=>{loadKpisData(true)}, periodo_intervalo); //Definindo novo intervalo após a troca
     loadChartsData();
   } else {
     if (mes_select == mes_atual && ano_select == ano_atual) {

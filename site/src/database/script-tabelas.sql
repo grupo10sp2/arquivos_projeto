@@ -6,6 +6,8 @@
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
 
+-- Script ambiente de desenvolvimento
+
 create database coffeeTech;
 
 use coffeeTech;
@@ -52,15 +54,12 @@ foreign key (fkFazenda) references fazenda (idFazenda),
 primary key (idSilo, fkFazenda)
 );
 
-
-
 create table sensor (
 idSensor int primary key auto_increment,
 TipoSensor varchar(10),
 fkSilo int,
 foreign key (fkSilo) references silo (idSilo)
 );
-
 
 create table historicoMedicoes (
 idHistorico int auto_increment,
@@ -72,7 +71,6 @@ foreign key (fkSensor) references sensor (idSensor),
 primary key (idHistorico, fkSensor)
 );
 
-
 create table contato (
 idContato int primary key auto_increment,
 nome varchar(45),
@@ -82,10 +80,7 @@ assunto varchar(45),
 descricao varchar(130)
 );
 
-
--- script ambiente de produção
-
-
+-- Script ambiente de produção
 
 create table fazenda (
 idFazenda int primary key IDENTITY(1,1),
@@ -97,15 +92,13 @@ complemento varchar(50),
 cep char(8)
 );
 
-
 create table usuario (
 idUsuario int primary key IDENTITY(1,1),
 nome varchar(60),
 cpf char(11),
 email varchar(50),
 senha varchar(20),
-fkAdmin INT FOREIGN KEY REFERENCES usuario(idUsuario),
-
+fkAdmin INT FOREIGN KEY REFERENCES usuario(idUsuario)
 );
 
 create table fazendaTemUsuario (
@@ -113,7 +106,6 @@ fkFazenda INT FOREIGN KEY REFERENCES fazenda(idFazenda),
 fkUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario),
 primary key (fkFazenda, fkUsuario)
 );
-
 
 create table silo (
 idSilo int IDENTITY(1,1),
@@ -126,14 +118,13 @@ fkFazenda INT FOREIGN KEY REFERENCES Fazenda(idFazenda),
 primary key (idSilo, fkFazenda)
 );
 
-
-
 create table sensor (
 idSensor int primary key IDENTITY(1,1),
 TipoSensor varchar(10),
-fkSilo INT FOREIGN KEY REFERENCES silo(idSilo),
+fkSilo INT,
+fkFazenda INT,
+FOREIGN KEY (fkSilo,fkFazenda) REFERENCES silo(idSilo,fkFazenda)
 );
-
 
 create table historicoMedicoes (
 idHistorico int IDENTITY(1,1),
@@ -144,7 +135,6 @@ fkSensor INT FOREIGN KEY REFERENCES sensor(idSensor),
 primary key (idHistorico, fkSensor)
 );
 
-
 create table contato (
 idContato int primary key IDENTITY(1,1),
 nome varchar(45),
@@ -154,4 +144,13 @@ assunto varchar(45),
 descricao varchar(130)
 );
 
+-- DROP TABLES
+
+DROP TABLE contato;
+DROP TABLE fazendaTemUsuario;
+DROP TABLE historicoMedicoes;
+DROP TABLE sensor;
+DROP TABLE silo;
+DROP TABLE fazenda;
+DROP TABLE usuario;
 
