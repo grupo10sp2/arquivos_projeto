@@ -182,14 +182,11 @@
     </div>
   </div>
 </body>
-
-<script>
-   nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO");
-   function logout(){
-      sessionStorage.clear();
-      location = "index.html"
-  } 
-</script>
-
-
 </html>
+<script>
+  nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO");
+  function logout(){
+     sessionStorage.clear();
+     location = "index.html"
+ } 
+</script>

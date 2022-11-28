@@ -52,14 +52,14 @@ function selectFazenda(){
 
 function insertTabelaAssociativa(idFazenda, idUsuario){
     var instrucao = `
-    INSERT INTO fazenda_tem_usuario VALUES (${idFazenda}, ${idUsuario})
+    INSERT INTO fazendaTemUsuario VALUES (${idFazenda}, ${idUsuario})
     `
     return database.executar(instrucao)
 }
 
 function mostrarFazendas(idUsuario){
     var instrucao = `
-    SELECT * FROM fazenda JOIN fazenda_tem_usuario ON fazenda_tem_usuario.fkFazenda = fazenda.idFazenda JOIN usuario ON fazenda_tem_usuario.fkUsuario = usuario.idUsuario WHERE usuario.idUsuario = ${idUsuario};
+    SELECT * FROM fazenda JOIN fazendaTemUsuario ON fazendaTemUsuario.fkFazenda = fazenda.idFazenda JOIN usuario ON fazendaTemUsuario.fkUsuario = usuario.idUsuario WHERE usuario.idUsuario = ${idUsuario};
     `
 
     return database.executar(instrucao)
@@ -74,7 +74,7 @@ function selectIdUsuario(){
 
 function insertTabelaAssociativaFuncionario(idUsuarioFuncionario, idFazenda){
     var instrucao = `
-        INSERT INTO fazenda_tem_usuario VALUES (${idFazenda}, ${idUsuarioFuncionario})
+        INSERT INTO fazendaTemUsuario VALUES (${idFazenda}, ${idUsuarioFuncionario})
     `
 
     return database.executar(instrucao)
@@ -90,8 +90,8 @@ function exibirTempMedia(){
 
 function exibirFazendasDoUsuario(idUsuario){
     var instrucao = `
-    SELECT * FROM usuario JOIN fazenda_tem_usuario ON usuario.idUsuario = fazenda_tem_usuario.fkUsuario
-    JOIN fazenda ON fazenda_tem_usuario.fkFazenda = fazenda.idFazenda WHERE usuario.idUsuario = ${idUsuario};
+    SELECT * FROM usuario JOIN fazendaTemUsuario ON usuario.idUsuario = fazendaTemUsuario.fkUsuario
+    JOIN fazenda ON fazendaTemUsuario.fkFazenda = fazenda.idFazenda WHERE usuario.idUsuario = ${idUsuario};
     `
 
     return database.executar(instrucao)
