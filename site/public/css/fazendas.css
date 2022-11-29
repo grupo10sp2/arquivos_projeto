@@ -152,6 +152,7 @@ header {
   border-radius: 20px;
   padding: 20px;
   color: white;
+  width: 17vw;
 }
 
 .subtitulo-fazendas{
@@ -179,4 +180,14 @@ header {
   position: fixed;
   bottom:20px;
   right:5em;
+}
+
+.adicionarFazenda{
+  width: 17vw;
+  text-align: center;
+  background-color: white;
+  border: 5px solid #130a00;
+  border-radius: 20px;
+  padding: 20px;
+  color: #130a00;
 }

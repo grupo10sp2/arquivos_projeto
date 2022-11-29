@@ -46,7 +46,9 @@
         <span class="linha"></span>
         <h2 class="subtitulo-fazendas">Escolha a fazenda que deseja</h2>
         <div class="fazendas" id="fazendas">
+            
           
+          </div>
         </div>
     </div>
     </div>
@@ -70,9 +72,7 @@
                 if(resposta.ok){
                     resposta.json().then(function (response){
                         const respostaJSON = JSON.parse(JSON.stringify(response))
-                        if(respostaJSON.length <= 0){
-                          window.location = "cadastro-fazenda.html"
-                        } else {
+                        
                           for(var i = 0; i < respostaJSON.length; i++){
                             fazendas.innerHTML += `
                             <div class="fazenda">
@@ -82,8 +82,20 @@
                             </div>  
                             `
                           }
-                        }
+                        fazendas.innerHTML += `
+                        <div class="adicionarFazenda">
+                          <img src="images/barn.svg" alt="">
+                          <h3>Adicionar Fazenda</h3>
+                        </div>
+                        `
                     })
+                } else {
+                  fazendas.innerHTML = `
+                  <a href="cadastro-fazenda.html" class="adicionarFazenda">
+                    <img src="images/barn.svg" alt="">
+                    <h3>Adicionar Fazenda</h3>
+                  </a>
+                  `
                 }
             })
   }
