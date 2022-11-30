@@ -24,7 +24,7 @@ function listar(req, res) {
         );
         }
 
-function cadastrar(req, res) {
+function cadastrar(req, res) { 
     //nome, email, telefone, assunto, descrição
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
