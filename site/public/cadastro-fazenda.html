@@ -79,31 +79,43 @@
                         <div class="campo">
                             <label for="input_nome_fazenda">Nome da Fazenda</label>
                             <input type="text" id="input_nome_fazenda">
+                            <span id="nome_fazenda"> </span>
                         </div>
+
                         <div class="campo">
                             <label for="input_cnpj">CNPJ</label>
                             <input type="text" id="input_cnpj">
                         </div>
+                        <span id="cpnj_fazenda"> </span>
+                        
                         <div class="campo">
                             <label for="input_cep">CEP</label>
                             <input type="text" id="input_cep">
                         </div>
+                        <span id="cep_fazenda"> </span>
+
                         <div class="campo">
                             <label for="input_logradouro">Logradouro</label>
-                            <input type="email" id="input_logradouro">
+                            <input type="text" id="input_logradouro">
                         </div>
+                        <span id="logradouro_fazenda"> </span>
+
                         <div class="campo">
                             <label for="input_numero">Numero</label>
                             <input type="text" id="input_numero">
                         </div>
+                        <span id="numero_fazenda"> </span>
+
                         <div class="campo">
                             <label for="input_complemento">Complemento</label>
                             <input type="text" id="input_complemento">
                         </div>
+                        <span id="complemento_fazenda"> </span>
+
                     </div>
-                    <div id="div_aguardar" class="loading-div">
+                    <!-- <div id="div_aguardar" class="loading-div">
                         <img src="./images/gifLoading.gif" id="loading-gif">
-                    </div>
+                    </div> -->
                     <button onclick="cadastrarFazenda()" class="botao">Cadastrar</button>
                 </div>
             </div>
@@ -122,7 +134,7 @@
 <script>
     nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
     function cadastrarFazenda(){
-        aguardar2();
+        // aguardar2();
 
         var nomeFazendaVar = input_nome_fazenda.value
         var cnpjVar = input_cnpj.value
@@ -131,7 +143,7 @@
         var numeroVar = input_numero.value
         var complementoVar = input_complemento.value
 
-       // if(verificarCadastrarFuncionario()){
+       if( verificarFazenda()){
             fetch("/usuarios/cadastrarFazenda", {
                 method: "POST",
                 headers: {
@@ -206,5 +218,6 @@
             console.log('insert na tabela associativa feita com sucesso')
         }
     })
-   }
+   }}
 </script>
+<script src="./js/script_fazenda.js"></script>
