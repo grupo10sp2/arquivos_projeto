@@ -107,7 +107,7 @@
 <script>
 
   function cadastrar() {
-      aguardar();
+      //aguardar();
 
       //Recupere o valor da nova input pelo nome do id
       // Agora vá para o método fetch logo abaixo
@@ -139,11 +139,11 @@
               console.log("resposta: ", resposta);
 
               if (resposta.ok) {
-                  cardErro.style.display = "block";
+                 // cardErro.style.display = "block";
 
                   alert('Sua solicitação de contato foi aprovada!')
                   setTimeout(() => {
-                      finalizarAguardar();
+                      // finalizarAguardar();
                       window.location = "contatoAprovado.html";
                   }, "2000")
 
@@ -153,12 +153,12 @@
               }
           }).catch(function (resposta) {
               console.log(`#ERRO: ${resposta}`);
-              finalizarAguardar();
+              // finalizarAguardar();
           });
 
           return false;
       } else {
-          finalizarAguardar()
+          // finalizarAguardar()
       }
   }
 
@@ -188,4 +188,4 @@
   }
 
 </script>
-<script src="js/script_cadastro.js"></script>
+ <script src="./js/script_contato.js"></script>

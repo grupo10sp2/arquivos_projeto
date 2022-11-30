@@ -22,7 +22,7 @@ var mySqlConfig = {
   host: "localhost",
   database: "coffeeTech",
   user: "root",
-  password: "root",
+  password: "Isabela@180204",
 };
 // user: "insert_select",
 // password: "12345",

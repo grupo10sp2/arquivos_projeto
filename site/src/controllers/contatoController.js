@@ -30,7 +30,7 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var telefone = req.body.telefoneServer;
-    var assunto = req.body.telefoneServer;
+    var assunto = req.body.assuntoServer;
     var descricao = req.body.descricaoServer;
 
     // Faça as validações dos valores
