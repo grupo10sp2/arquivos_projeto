@@ -1,12 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/general-style-site.css">
+  <link rel="stylesheet" href="./css/contatoAprovado.css">
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <title>Solicitação aceita! </title>
 </head>
-<body>
-    <p>Se da certo, eu fico feliz</p>
+
+<body
+  style="background-image: url(./images/close-up-of-roasted-coffee-beans.png); background-size: cover; min-height: 100vh;">
+  <!-- header -->
+  <div class="banner">
+    <header class="header">
+      <div class="container">
+        <img src="images/logo-1.png" alt="CoffeTech">
+
+        <nav class="navegacao">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="nossa-empresa.html">Nossa empresa</a></li>
+            <li><a href="nossa-solucao.html">Nossa solução</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+          <a class="botaoClaro" href="login.html">Login</a>
+          <a class="botaoEscuro" href="cadastro.html">Registrar-se</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container-forms">
+        <div class="forms-contato">
+
+          <h2>Obrigado pelo contato!</h2>
+          <p class="texto-contato">
+            
+            Olá, Sua solicitação de contato foi encaminhada para nossa empresa. Em breve
+            retornaremos. <br><br>
+            Equipe coffeetech.
+          </p>
+         
+          <button onclick="cadastrar()">Cadastrar</button>
+
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Rodapé  -->
+
+    <footer>
+      <div class="container">
+        <img src="images/logo-1.png" alt="CoffeTech">
+        <div class="navegacao-footer">
+          <ul>
+            <li><a href="index.html">Home<a></li>
+            <li><a href="nossa-empresa.html">Nossa empresa</a></li>
+            <li><a href="nossa-solucao.html">Nossa solução</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+          <p>© Alguns direitos reservados.</p>
+        </div>
+        <div class="redes-footer">
+          <img src="images/linkedin 3.png" alt="icone linkedin">
+          <img src="images/instagram 1.png" alt="icone instagram">
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botão central de suporte -->
+    <div class="fab-helpdesk">
+      <div class="button-helpdesk" id="divHelpdesk" onmouseover="aparecerTexto()" onmouseout="reset()">
+        <a target="_blank" href="https://coffeetech.auvo.com.br"> <img src="./images/logo-help-desk-removebg-preview.png"></a>
+      </div>
+    </div>
+    <div id="boxHelpdesk">
+
+    </div>
 </body>
+
 </html>
+
+
+ 
