@@ -55,5 +55,9 @@ router.get("/exibirFazendasDoUsuario/:idUsuario", function(req, res){
     usuarioController.exibirFazendasDoUsuario(req, res)
 })
 
+router.get("/verificarSilo/:idFazenda",  function(req, res){
+    usuarioController.verificarSilo(req, res)
+})
+
 
 module.exports = router;

@@ -153,6 +153,8 @@ header {
   padding: 20px;
   color: white;
   width: 17vw;
+  cursor: pointer;
+  text-align: center;
 }
 
 .subtitulo-fazendas{
@@ -190,4 +192,5 @@ header {
   border-radius: 20px;
   padding: 20px;
   color: #130a00;
+  cursor: pointer;
 }
