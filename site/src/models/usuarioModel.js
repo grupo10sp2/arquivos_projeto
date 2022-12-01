@@ -111,6 +111,13 @@ function exibirFazendasDoUsuario(idUsuario){
     return database.executar(instrucao)
 }
 
+function verificarSilo(idFazenda){
+    var instrucao = `
+    SELECT * FROM fazenda JOIN silo ON fazenda.idFazenda = silo.fkFazenda WHERE fazenda.idFazenda = ${idFazenda}; 
+    `
+    return database.executar(instrucao)
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -123,5 +130,6 @@ module.exports = {
     mostrarFazendas,
     exibirTempMedia,
     exibirFazendasDoUsuario,
-    selectIdUsuario
+    selectIdUsuario,
+    verificarSilo
 };

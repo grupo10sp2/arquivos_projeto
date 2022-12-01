@@ -46,7 +46,8 @@
         <span class="linha"></span>
         <h2 class="subtitulo-fazendas">Escolha a fazenda que deseja</h2>
         <div class="fazendas" id="fazendas">
-          
+          <!-- Html adicionado pelo JS -->
+          </div>
         </div>
     </div>
     </div>
@@ -59,6 +60,7 @@
 </div>
 <div id="boxHelpdesk"></div>
 </body>
+<script src="js/script_dashboard.js"></script>
 <script>
   nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
 
@@ -70,9 +72,7 @@
                 if(resposta.ok){
                     resposta.json().then(function (response){
                         const respostaJSON = JSON.parse(JSON.stringify(response))
-                        if(respostaJSON.length <= 0){
-                          window.location = "cadastro-fazenda.html"
-                        } else {
+                        
                           for(var i = 0; i < respostaJSON.length; i++){
                             fazendas.innerHTML += `
                             <div class="fazenda">
@@ -82,8 +82,20 @@
                             </div>  
                             `
                           }
-                        }
+                        fazendas.innerHTML += `
+                        <a href="cadastro-fazenda.html" class="adicionarFazenda">
+                          <img src="images/plus.svg" alt="">
+                          <h3>Adicionar Fazenda</h3>
+                        </a>
+                        `
                     })
+                } else {
+                  fazendas.innerHTML = `
+                  <a href="cadastro-fazenda.html" class="adicionarFazenda">
+                    <img src="images/plus.svg" alt="">
+                    <h3>Adicionar Fazenda</h3>
+                  </a>
+                  `
                 }
             })
   }
@@ -96,11 +108,12 @@ exibirFazendasDoUsuario()
     divFazendasArray[i].addEventListener("click", selecionarFazenda)
   }
     
-  }, 50)
+  }, 100)
 
   function selecionarFazenda(evento){
     const divSelecionada = evento.currentTarget
-    const idFazenda = divSelecionada.children[2].innerHTML
+    const idFazenda = Number(divSelecionada.children[2].innerHTML)
+    sessionStorage.ID_FAZENDA = idFazenda;
     
     /* Redirecionando para a página de dashboard dependendo se ele for Admin ou não */
     if(sessionStorage.getItem("FK_ADMIN") == 'null'){
@@ -108,6 +121,7 @@ exibirFazendasDoUsuario()
     } else {
       window.location = "./dashboard.html"
     }
+
   }
 
   

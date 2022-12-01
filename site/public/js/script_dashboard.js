@@ -224,14 +224,12 @@ function loadKpisData(by_interval = false) { //Informa a função se ela foi cha
   const mes_select = select_meses.value;
   const ano_select = select_anos.value;
 
-  if (!by_interval) { // Caso não tenha sido chamada pelo intervalor
+  if (!by_interval) { // Caso não tenha sido chamada pelo intervalo
     clearInterval(interval);//Limpando intervalo para começar do 0 após a troca de ano ou mês
-    interval = setInterval(()=>{loadKpisData(true)}, periodo_intervalo); //Definindo novo intervalo após a troca
+    interval = setInterval(() => loadKpisData(true), periodo_intervalo); //Definindo novo intervalo após a troca
     loadChartsData();
-  } else {
-    if (mes_select == mes_atual && ano_select == ano_atual) {
+  } else if (by_interval && mes_select == mes_atual && ano_select == ano_atual) {    
       loadChartsData();
-    }    
   }  
 }
 

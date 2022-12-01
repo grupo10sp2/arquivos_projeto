@@ -5,7 +5,7 @@ var ambiente = "desenvolvimento"
 function listar(mes,ano) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
-    SELECT DATE_FORMAT(dataHora, '%d/%m') as dia, MIN(temperatura) as min_temp, ROUND(AVG(temperatura),1) as avg_temp, MAX(temperatura) as max_temp, MIN(umidade) as min_umidade, ROUND(AVG(umidade),1) as avg_umidade, MAX(umidade) as max_umidade FROM historicoMedicoes WHERE MONTH(dataHora) = ${mes} AND YEAR(dataHora) = ${ano} GROUP BY DAY(dataHora);
+    SELECT DATE_FORMAT(dataHora, '%d/%m') as dia, MIN(temperatura) as min_temp, ROUND(AVG(temperatura),1) as avg_temp, MAX(temperatura) as max_temp, MIN(umidade) as min_umidade, ROUND(AVG(umidade),1) as avg_umidade, MAX(umidade) as max_umidade FROM historicoMedicoes WHERE MONTH(dataHora) = ${mes} AND YEAR(dataHora) = ${ano} GROUP BY DATE_FORMAT(dataHora, '%d');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

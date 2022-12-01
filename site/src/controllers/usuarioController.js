@@ -252,6 +252,23 @@ function exibirFazendasDoUsuario(req, res){
     );
 }
 
+function verificarSilo(req, res){
+    var idFazenda = req.params.idFazenda
+
+
+    usuarioModel.verificarSilo(idFazenda)
+    .then(function (resultado) {
+        res.json(resultado)
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -266,5 +283,6 @@ module.exports = {
     exibirTempMedia,
     exibirFazendas,
     exibirFazendasDoUsuario,
-    selectIdUsuario
+    selectIdUsuario,
+    verificarSilo
 }

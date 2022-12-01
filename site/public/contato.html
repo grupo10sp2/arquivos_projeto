@@ -63,7 +63,7 @@
             <textarea id="Textarea" rows="3"></textarea>
           </div>
 
-          <button>Enviar</button>
+          <button onclick="cadastrar()">Cadastrar</button>
 
         </div>
       </div>
@@ -103,23 +103,89 @@
 </body>
 
 </html>
+
 <script>
-function aparecerTexto(){
-        boxHelpdesk.innerHTML=`Clique e acesse nossa <b>central de suporte!</b>`;
-        boxHelpdesk.style.backgroundColor="#fff";
-        boxHelpdesk.style.boxShadow="0 1px 5px rgba(0,0,0,.4)";
-        boxHelpdesk.style.padding="15px";
-        boxHelpdesk.style.border="2px solid  #603808";
-        boxHelpdesk.style.borderRadius="4px";
+
+  function cadastrar() {
+      //aguardar();
+
+      //Recupere o valor da nova input pelo nome do id
+      // Agora vá para o método fetch logo abaixo
+      var nomeVar = input_nome.value;
+      var emailVar = input_email.value;
+      var telefoneVar = input_telefone.value;
+      var assuntoVar = input_assunto.value;
+      var descricaoVar = Textarea.value;
 
 
+      // Enviando o valor da nova input
+      if (verificarContato()) {
+          fetch("/contato/cadastrar", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                  // crie um atributo que recebe o valor recuperado aqui
+                  // Agora vá para o arquivo routes/usuario.js
+                  nomeServer: nomeVar,
+                  emailServer: emailVar,
+                  telefoneServer: telefoneVar,
+                  assuntoServer: assuntoVar,
+                  descricaoServer: descricaoVar,
+              })
+          }).then(function (resposta) {
+
+              console.log("resposta: ", resposta);
+
+              if (resposta.ok) {
+                 // cardErro.style.display = "block";
+
+                  alert('Sua solicitação de contato foi aprovada!')
+                  setTimeout(() => {
+                      // finalizarAguardar();
+                      window.location = "contatoAprovado.html";
+                  }, "2000")
+
+
+              } else {
+                  throw ("Houve um erro ao tentar realizar o cadastro!");
+              }
+          }).catch(function (resposta) {
+              console.log(`#ERRO: ${resposta}`);
+              // finalizarAguardar();
+          });
+
+          return false;
+      } else {
+          // finalizarAguardar()
       }
+  }
 
-      function reset(){
-        boxHelpdesk.innerHTML=""
-        boxHelpdesk.style.backgroundColor="";
-        boxHelpdesk.style.border="";
-        boxHelpdesk.style.boxShadow="";
-      }
+
+  function sumirMensagem() {
+      cardErro.style.display = "none"
+  }
+
+  //Funções botão de help desk
+
+  function aparecerTexto() {
+      boxHelpdesk.innerHTML = `Clique e acesse nossa <b>central de suporte!</b>`;
+      boxHelpdesk.style.backgroundColor = "#fff";
+      boxHelpdesk.style.boxShadow = "0 1px 5px rgba(0,0,0,.4)";
+      boxHelpdesk.style.padding = "15px";
+      boxHelpdesk.style.border = "2px solid  #603808";
+      boxHelpdesk.style.borderRadius = "4px";
+
+
+  }
+
+  function reset() {
+      boxHelpdesk.innerHTML = ""
+      boxHelpdesk.style.backgroundColor = "";
+      boxHelpdesk.style.border = "";
+      boxHelpdesk.style.boxShadow = "";
+  }
 
 </script>
+ <script src="./js/script_contato.js"></script>

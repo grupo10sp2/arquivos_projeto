@@ -354,6 +354,24 @@ span main {
   font-size: 24px;
 }
 
+.avisoSilo{
+  display: none;
+  position: fixed;
+  top: 45%;
+  right: 16%;
+  padding: 20px;
+  background-color: white;
+  border: 3px solid #814c0c;
+  box-shadow: 2px 2px 5px #000;
+  font-size: 1.3rem;
+}
+
+.avisoSilo a{
+  color: black; 
+  text-decoration: underline 
+  
+}
+
 #boxHelpdesk{
   position: fixed;
   bottom:20px;

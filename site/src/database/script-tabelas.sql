@@ -123,7 +123,7 @@ idSensor int primary key IDENTITY(1,1),
 TipoSensor varchar(10),
 fkSilo INT,
 fkFazenda INT,
-FOREIGN KEY (fkSilo,fkFazenda) REFERENCES silo(idSilo,fkFazenda)
+FOREIGN KEY (fkSilo, fkFazenda) REFERENCES silo(idSilo, fkFazenda)
 );
 
 create table historicoMedicoes (

@@ -152,11 +152,6 @@ header {
   border-radius: 20px;
   padding: 20px;
   color: white;
-  cursor: pointer;
-}
-
-.fazenda:hover{
-  background-color: #251400;
 }
 
 .subtitulo-fazendas{
@@ -184,4 +179,15 @@ header {
   position: fixed;
   bottom:20px;
   right:5em;
+}
+
+.adicionarFazenda{
+  width: 17vw;
+  text-align: center;
+  background-color: white;
+  border: 5px solid #130a00;
+  border-radius: 20px;
+  padding: 20px;
+  color: #130a00;
+  cursor: pointer;
 }
