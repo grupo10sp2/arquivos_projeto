@@ -2,9 +2,16 @@ var database = require("../database/config");
 
 function listar(mes,ano) {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
-    var instrucao = `
-    SELECT DATE_FORMAT(dataHora, '%d/%m') as dia, MIN(temperatura) as min_temp, ROUND(AVG(temperatura),1) as avg_temp, MAX(temperatura) as max_temp, MIN(umidade) as min_umidade, ROUND(AVG(umidade),1) as avg_umidade, MAX(umidade) as max_umidade FROM historicoMedicoes WHERE MONTH(dataHora) = ${mes} AND YEAR(dataHora) = ${ano} GROUP BY DATE_FORMAT(dataHora, '%d');
-    `;
+    var instrucao = "";
+    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento"){
+        instrucao = `
+        SELECT DATE_FORMAT(dataHora, '%d/%m') as dia, MIN(temperatura) as min_temp, ROUND(AVG(temperatura),1) as avg_temp, MAX(temperatura) as max_temp, MIN(umidade) as min_umidade, ROUND(AVG(umidade),1) as avg_umidade, MAX(umidade) as max_umidade FROM historicoMedicoes WHERE MONTH(dataHora) = ${mes} AND YEAR(dataHora) = ${ano} GROUP BY DATE_FORMAT(dataHora, '%d') ORDER BY DATE_FORMAT(dataHora, '%d') ASC;
+        `;
+    } else {
+        instrucao = `
+        SELECT DAY(dataHora), CONCAT(DAY(dataHora), '/', MONTH(dataHora)) as dia, MIN(temperatura) as min_temp, ROUND(AVG(temperatura),1) as avg_temp, MAX(temperatura) as max_temp, MIN(umidade) as min_umidade, ROUND(AVG(umidade),1) as avg_umidade, MAX(umidade) as max_umidade FROM historicoMedicoes WHERE MONTH(dataHora) = ${mes} AND YEAR(dataHora) = ${ano} GROUP BY CONCAT(DAY(dataHora), '/', MONTH(dataHora)), DAY(dataHora) ORDER BY DAY(dataHora);
+        `;
+    }    
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
@@ -20,12 +27,13 @@ function media(mes,ano) {
 
 function atual() {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
-    if (process.env.AMBIENTE_PROCESSO == 'desenvolvimento'){
-        var instrucao = `
+    var instrucao = "";
+    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento"){
+        instrucao = `
         SELECT temperatura as atual_temp, umidade as atual_umidade FROM historicoMedicoes ORDER BY idHistorico DESC LIMIT 1;
         `;
     } else {
-        var instrucao = `
+        instrucao = `
         SELECT TOP 1 temperatura as atual_temp, umidade as atual_umidade FROM historicoMedicoes ORDER BY idHistorico DESC;
         `;
     }
