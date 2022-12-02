@@ -45,11 +45,11 @@ function cadastrarFuncionario(nome, cpf, email, senha, fkAdmin){
 }
 
 function selectFazenda(){
-
+    var instrucao = "";
     if (process.env.AMBIENTE_PROCESSO == "desenvolvimento"){
-        var instrucao = `SELECT idFazenda from fazenda order by idFazenda desc limit 1;`
+        instrucao = `SELECT idFazenda from fazenda order by idFazenda desc limit 1;`
     } else {
-        var instrucao = `SELECT TOP 1 idFazenda FROM fazenda ORDER BY idFazenda DESC;`
+        instrucao = `SELECT TOP 1 idFazenda FROM fazenda ORDER BY idFazenda DESC;`
 
     }
 
@@ -72,12 +72,13 @@ function mostrarFazendas(idUsuario){
 }
 
 function selectIdUsuario(){
+    var instrucao = "";
     if (process.env.AMBIENTE_PROCESSO == "desenvolvimento"){
-        var instrucao = `
+        instrucao = `
             SELECT idUsuario FROM usuario ORDER BY idUsuario DESC LIMIT 1;
         `
     } else {
-        var instrucao = `
+        instrucao = `
             SELECT TOP 1 idUsuario FROM usuario ORDER BY idUsuario DESC;
         `
     }
