@@ -167,13 +167,38 @@
     </footer>
 
 
-<!-- Botão central de suporte -->
+    <div class="fab"  ontouchstart="">
+      <button class="main" >
+      </button>
+      <ul>
+        <li>
+          <label for="opcao1">Manual</label>
+          <button id="opcao1" class="opcao1">
+            <a href="./document/Manual_de_Instalacao.docx"><img src="./images/icone-de-engrenagem-de-configuracoes.png"></a>
+          </button>
+        </li>
+        <li>
+          <label for="opcao2">Suporte</label>
+          <button id="opcao2"  class="opcao2">
+            <a><img src="./images/suporte-tecnico.png"></a>
+          </button>
+        </li>
+        <!-- <li>
+          <label for="opcao3">Opção 3</label>
+          <button id="opcao3">
+          ☏
+          </button>
+        </li> -->
+      </ul>
+    </div>
+
+<!-- Botão central de suporte
 <div class="fab-helpdesk">
   <div class="button-helpdesk" id="divHelpdesk" onmouseover="aparecerTexto()" onmouseout="reset()">
     <a target="_blank" href="https://coffeetech.auvo.com.br"> <img src="./images/logo-help-desk-removebg-preview.png"></a>
   </div> 
 </div>
-<div id="boxHelpdesk"></div>
+<div id="boxHelpdesk"></div> -->
 
 
 
@@ -201,21 +226,21 @@
 
       }
 
-      function aparecerTexto(){
-        boxHelpdesk.innerHTML=`Clique e acesse nossa <b>central de suporte!</b>`;
-        boxHelpdesk.style.backgroundColor="#fff";
-        boxHelpdesk.style.boxShadow="0 1px 5px rgba(0,0,0,.4)";
-        boxHelpdesk.style.padding="15px";
-        boxHelpdesk.style.border="2px solid  #603808";
-        boxHelpdesk.style.borderRadius="4px";
-      }
+      // function aparecerTexto(){
+      //   boxHelpdesk.innerHTML=`Clique e acesse nossa <b>central de suporte!</b>`;
+      //   boxHelpdesk.style.backgroundColor="#fff";
+      //   boxHelpdesk.style.boxShadow="0 1px 5px rgba(0,0,0,.4)";
+      //   boxHelpdesk.style.padding="15px";
+      //   boxHelpdesk.style.border="2px solid  #603808";
+      //   boxHelpdesk.style.borderRadius="4px";
+      // }
 
-      function reset(){
-        boxHelpdesk.innerHTML=""
-        boxHelpdesk.style.backgroundColor="";
-        boxHelpdesk.style.border="";
-        boxHelpdesk.style.boxShadow="";
-      }
+      // function reset(){
+      //   boxHelpdesk.innerHTML=""
+      //   boxHelpdesk.style.backgroundColor="";
+      //   boxHelpdesk.style.border="";
+      //   boxHelpdesk.style.boxShadow="";
+      // }
 
       
 </script>
