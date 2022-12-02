@@ -1,6 +1,4 @@
-var database = require("../database/config")
-/* var ambiente = "producao" */
-var ambiente = "desenvolvimento"
+var database = require("../database/config");
 
 function listar() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
@@ -48,7 +46,7 @@ function cadastrarFuncionario(nome, cpf, email, senha, fkAdmin){
 
 function selectFazenda(){
 
-    if (ambiente == "desenvolvimento"){
+    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento"){
         var instrucao = `SELECT idFazenda from fazenda order by idFazenda desc limit 1;`
     } else {
         var instrucao = `SELECT TOP 1 idFazenda FROM fazenda ORDER BY idFazenda DESC;`
@@ -74,7 +72,7 @@ function mostrarFazendas(idUsuario){
 }
 
 function selectIdUsuario(){
-    if (ambiente == 'desenvolvimento'){
+    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento"){
         var instrucao = `
             SELECT idUsuario FROM usuario ORDER BY idUsuario DESC LIMIT 1;
         `
