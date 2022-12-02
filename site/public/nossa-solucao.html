@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/general-style-site.css">
   <link rel="stylesheet" href="css/nossa-solucao.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <title>CoffeeTech | Nossa solução</title>
 </head>
@@ -122,13 +123,34 @@
     </div>
   </footer>
 
-  <!-- Botão central de suporte -->
-  <div class="fab-helpdesk">
-    <div class="button-helpdesk" id="divHelpdesk" onmouseover="aparecerTexto()" onmouseout="reset()">
-      <a target="_blank" href="https://coffeetech.auvo.com.br"> <img src="./images/logo-help-desk-removebg-preview.png"></a>
-    </div>
+  <div class="fab">
+    <button class="main">
+    </button>
+    <ul>
+      <li>
+        <label for="opcao1">Manual</label>
+        <button id="opcao1">
+          <a> <i class="uil uil-setting"></i></a>
+         
+        </button>
+      </li>
+      <li>
+        <label for="opcao2">suporte</label>
+        <button id="opcao2">
+          <a><i class="uil uil-comment-info"></i></a>
+          
+        </button>
+      </li>
+      <!-- <li>
+        <label for="opcao3">Opção 3</label>
+        <button id="opcao3">
+        ☏
+        </button>
+      </li> -->
+    </ul>
   </div>
-  <div id="boxHelpdesk">
+    </ul>
+    </div>
 
   </div>
 </body>
@@ -152,6 +174,24 @@
     boxHelpdesk.style.border = "";
     boxHelpdesk.style.boxShadow = "";
   }
+
+  function toggleFAB(fab) {
+    if (document.querySelector(fab).classList.contains('show')) {
+      document.querySelector(fab).classList.remove('show');
+    } else {
+      document.querySelector(fab).classList.add('show');
+    }
+  }
+
+  document.querySelector('.fab .main').addEventListener('click', function () {
+    toggleFAB('.fab');
+  });
+
+  document.querySelectorAll('.fab ul li button').forEach((item) => {
+    item.addEventListener('click', function () {
+      toggleFAB('.fab');
+    });
+  });
 
 
 </script>

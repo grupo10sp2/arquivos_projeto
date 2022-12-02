@@ -7,192 +7,201 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/general-style-site.css">
   <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <title>CoffeeTech | Home</title>
 </head>
 
 <body>
-<!-- header -->
-<div class="banner">
-  <header class="header">
-    <div class="container">
-      <img src="images/logo-1.png" alt="CoffeTech">
-
-      <nav class="navegacao">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="nossa-empresa.html">Nossa empresa</a></li>
-          <li><a href="nossa-solucao.html">Nossa solução</a></li>
-          <li><a href="contato.html">Contato</a></li>
-          
-        </ul>
-        <a class="botaoClaro" href="login.html">Login</a>
-        <a class="botaoEscuro" href="cadastro.html">Registrar-se</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- Imagem Inicial -->
-        <div class="container home">
-            <div class="texto-b">
-                <div class="titulo">
-                <h1>Somos a </h1><img src="images/logo-2.png" alt=""><h1>!</h1>
-                </div>
-                <p>Trazemos uma solução para o seu armazenamento de café em silos, para que ela dure em bom estado por mais tempo, evitando pragas, bactérias, fungos.</p>
-                <a class="botaoHome" href="#simuladorFinanceiro">Simule conosco!</a>
-            </div>
-          
-        </div>
-      </div>
-
-<!-- Cards -->
-
-     <div class="social">
-        <div class="container">
-          <div class="caixas">
-            <div class="caixa">
-              <img
-                src="./images/planta-de-cafe-1.png"
-                alt="Ícone da missão da CoffeeTech"
-              />
-              <h4>A terra do café</h4>
-              <p>Devido à diversidade de regiões ocupadas pela cultura do café, a variedade de climas, relevos, altitudes e latitudes, o País produz tipos variados de grãos, o que possibilita atender às diferentes demandas de paladar e preços dos consumidores brasileiros e estrangeiros.</p>
-            </div>
-
-            <div class="caixa">
-              <img
-                src="./images/grao-de-cafe-1.png"
-                alt="Ícone da visão da CoffeeTech"
-              >
-              <h4>Liderança mundial</h4>
-              <p>O País é o maior produtor e exportador de café e segundo maior consumidor da bebida no mundo. É o 5º produto na pauta de exportação brasileira, movimentando US$ 5,2 bilhões em 2017.</p>
-            </div>
-
-            <div class="caixa">
-              <img
-                src="./images/xicara-de-cafe.png"
-                alt="Ícone dos valores da CoffeeTech"
-              />
-              <h4>Armazenamento de grãos em silos</h4>
-              <p>Manter a qualidade do produto pós-colheita é essencial para não perder o rendimento conquistado na lavoura.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-<!-- Nossa solução  -->
-      <div class="nossa-solucao">
-        <div class="container">
-         <img src="./images/coffee-beans-close-up.png" alt="Café">
-          <div class="texto">
-            <h1>Nossa Solução</h1>
-            <p>
-              O nosso produto Coffee Thermal Solution tem como objetivo fornecer auditoria independente e constante das condições de temperatura e umidade de ambientes de armazenamento de grãos de café.
-            </p>
-            <a class="botaoHome" href="./nossa-solucao.html">Saiba mais!</a>
-          </div>
-  
-         
-        </div>
-      </div>
-  
-
-<!-- nossa empresa  -->
-    <div class="nossa-empresa">
-      <div class="container">
-        <div class="texto">
-          <h1>Nossa Empresa</h1>
-          <p>
-            Somos uma empresa de tecnologia que oferece soluções através do uso de sensores aplicados no agronegócio, especificamente na armazenagem e transporte do café!
-            Nosso time é formado por desenvolvedores do curso de análise e desenvolvimento de sistemas na faculdade SPTech.
-          </p>
-          <a class="botaoHome" href="./nossa-empresa.html">Saiba mais!</a>
-        </div>
-
-        <img src="./images/top-view-coffee-cup-and-coffee-beans-on-dark-table 1.png" alt="Café">,
-      </div>
-    </div>
-
-  <!-- bunner2 -->
-    <div class="banner02">
-        <img class="img-b2" src="./images/white-cup-on-coffee-beans.png">   
-    </div>
-
-  <!-- Simulador Financeiro -->
-    <div class="simuladorFinanceiro" id="simuladorFinanceiro">
-      <div class="container">
-        <div class="simule">
-          <h1>Simulador Financeiro</h1>
-          <p>Através do nosso simulador financeiro sua empresa pode calcular o quanto de perda pode evitar utilizando nosso projeto.</p>
-          <p>Insira a quantidade em quilos (Kg) de café armazenados em seu estoque:</p>
-          <div>
-            <input class="input" id="inputQtdGraos" type="number">
-            <a onclick="calcularPerda()">Simule!</a>
-          </div>
-        </div>
-        <div class="containerCards">
-          <div class="card">
-            <h1>Por que contratar nossa empresa?</h1>
-            <p id="pResultado">Faça a simulação para ver o resultado do cálculo!</p>
-          </div>
-          <div class="card divExplicacao" id="divExplicacao">
-            <h1>Explicação do Calculo:</h1>
-            <p>Segundo o Embrapa o armazenamento inadequado de grãos pode provocar 15% de perdas fazendo com que o café saia do padrão de comercialização, constando mudança na cor, mudança no gosto, maior probabilidade de infestação por insetos, colonização por fungos e deterioração do produto.</p>
-            <p>Através dessas informações fizemos um simulador para mostrar a diferença com e sem a nossa solução comparando-os.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Rodapé  -->
-    
-    <footer>
+  <!-- header -->
+  <div class="banner">
+    <header class="header">
       <div class="container">
         <img src="images/logo-1.png" alt="CoffeTech">
-        <div class="navegacao-footer">
+
+        <nav class="navegacao">
           <ul>
-            <li><a href="index.html">Home<a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="nossa-empresa.html">Nossa empresa</a></li>
             <li><a href="nossa-solucao.html">Nossa solução</a></li>
             <li><a href="contato.html">Contato</a></li>
+
           </ul>
-          <p>© Alguns direitos reservados.</p>
+          <a class="botaoClaro" href="login.html">Login</a>
+          <a class="botaoEscuro" href="cadastro.html">Registrar-se</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Imagem Inicial -->
+      <div class="container home">
+        <div class="texto-b">
+          <div class="titulo">
+            <h1>Somos a </h1><img src="images/logo-2.png" alt="">
+            <h1>!</h1>
+          </div>
+          <p>Trazemos uma solução para o seu armazenamento de café em silos, para que ela dure em bom estado por mais
+            tempo, evitando pragas, bactérias, fungos.</p>
+          <a class="botaoHome" href="#simuladorFinanceiro">Simule conosco!</a>
         </div>
-        <div class="redes-footer">
-          <img src="images/linkedin 3.png" alt="icone linkedin">
-          <img src="images/instagram 1.png" alt="icone instagram">
+
+      </div>
+  </div>
+
+  <!-- Cards -->
+
+  <div class="social">
+    <div class="container">
+      <div class="caixas">
+        <div class="caixa">
+          <img src="./images/planta-de-cafe-1.png" alt="Ícone da missão da CoffeeTech" />
+          <h4>A terra do café</h4>
+          <p>Devido à diversidade de regiões ocupadas pela cultura do café, a variedade de climas, relevos, altitudes e
+            latitudes, o País produz tipos variados de grãos, o que possibilita atender às diferentes demandas de
+            paladar e preços dos consumidores brasileiros e estrangeiros.</p>
+        </div>
+
+        <div class="caixa">
+          <img src="./images/grao-de-cafe-1.png" alt="Ícone da visão da CoffeeTech">
+          <h4>Liderança mundial</h4>
+          <p>O País é o maior produtor e exportador de café e segundo maior consumidor da bebida no mundo. É o 5º
+            produto na pauta de exportação brasileira, movimentando US$ 5,2 bilhões em 2017.</p>
+        </div>
+
+        <div class="caixa">
+          <img src="./images/xicara-de-cafe.png" alt="Ícone dos valores da CoffeeTech" />
+          <h4>Armazenamento de grãos em silos</h4>
+          <p>Manter a qualidade do produto pós-colheita é essencial para não perder o rendimento conquistado na lavoura.
+          </p>
         </div>
       </div>
-    </footer>
-
-
-    <div class="fab"  ontouchstart="">
-      <button class="main" >
-      </button>
-      <ul>
-        <li>
-          <label for="opcao1">Manual</label>
-          <button id="opcao1" class="opcao1">
-            <a href="./document/Manual_de_Instalacao.docx"><img src="./images/icone-de-engrenagem-de-configuracoes.png"></a>
-          </button>
-        </li>
-        <li>
-          <label for="opcao2">Suporte</label>
-          <button id="opcao2"  class="opcao2">
-            <a><img src="./images/suporte-tecnico.png"></a>
-          </button>
-        </li>
-        <!-- <li>
-          <label for="opcao3">Opção 3</label>
-          <button id="opcao3">
-          ☏
-          </button>
-        </li> -->
-      </ul>
     </div>
+  </div>
 
-<!-- Botão central de suporte
+  <!-- Nossa solução  -->
+  <div class="nossa-solucao">
+    <div class="container">
+      <img src="./images/coffee-beans-close-up.png" alt="Café">
+      <div class="texto">
+        <h1>Nossa Solução</h1>
+        <p>
+          O nosso produto Coffee Thermal Solution tem como objetivo fornecer auditoria independente e constante das
+          condições de temperatura e umidade de ambientes de armazenamento de grãos de café.
+        </p>
+        <a class="botaoHome" href="./nossa-solucao.html">Saiba mais!</a>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <!-- nossa empresa  -->
+  <div class="nossa-empresa">
+    <div class="container">
+      <div class="texto">
+        <h1>Nossa Empresa</h1>
+        <p>
+          Somos uma empresa de tecnologia que oferece soluções através do uso de sensores aplicados no agronegócio,
+          especificamente na armazenagem e transporte do café!
+          Nosso time é formado por desenvolvedores do curso de análise e desenvolvimento de sistemas na faculdade
+          SPTech.
+        </p>
+        <a class="botaoHome" href="./nossa-empresa.html">Saiba mais!</a>
+      </div>
+
+      <img src="./images/top-view-coffee-cup-and-coffee-beans-on-dark-table 1.png" alt="Café">,
+    </div>
+  </div>
+
+  <!-- bunner2 -->
+  <div class="banner02">
+    <img class="img-b2" src="./images/white-cup-on-coffee-beans.png">
+  </div>
+
+  <!-- Simulador Financeiro -->
+  <div class="simuladorFinanceiro" id="simuladorFinanceiro">
+    <div class="container">
+      <div class="simule">
+        <h1>Simulador Financeiro</h1>
+        <p>Através do nosso simulador financeiro sua empresa pode calcular o quanto de perda pode evitar utilizando
+          nosso projeto.</p>
+        <p>Insira a quantidade em quilos (Kg) de café armazenados em seu estoque:</p>
+        <div>
+          <input class="input" id="inputQtdGraos" type="number">
+          <a onclick="calcularPerda()">Simule!</a>
+        </div>
+      </div>
+      <div class="containerCards">
+        <div class="card">
+          <h1>Por que contratar nossa empresa?</h1>
+          <p id="pResultado">Faça a simulação para ver o resultado do cálculo!</p>
+        </div>
+        <div class="card divExplicacao" id="divExplicacao">
+          <h1>Explicação do Calculo:</h1>
+          <p>Segundo o Embrapa o armazenamento inadequado de grãos pode provocar 15% de perdas fazendo com que o café
+            saia do padrão de comercialização, constando mudança na cor, mudança no gosto, maior probabilidade de
+            infestação por insetos, colonização por fungos e deterioração do produto.</p>
+          <p>Através dessas informações fizemos um simulador para mostrar a diferença com e sem a nossa solução
+            comparando-os.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rodapé  -->
+
+  <footer>
+    <div class="container">
+      <img src="images/logo-1.png" alt="CoffeTech">
+      <div class="navegacao-footer">
+        <ul>
+          <li><a href="index.html">Home<a></li>
+          <li><a href="nossa-empresa.html">Nossa empresa</a></li>
+          <li><a href="nossa-solucao.html">Nossa solução</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+        <p>© Alguns direitos reservados.</p>
+      </div>
+      <div class="redes-footer">
+        <img src="images/linkedin 3.png" alt="icone linkedin">
+        <img src="images/instagram 1.png" alt="icone instagram">
+      </div>
+    </div>
+  </footer>
+
+  
+<div class="fab">
+  <button class="main">
+  </button>
+  <ul>
+    <li>
+      <label for="opcao1">Manual</label>
+      <button id="opcao1">
+        <a> <i class="uil uil-setting"></i></a>
+       
+      </button>
+    </li>
+    <li>
+      <label for="opcao2">suporte</label>
+      <button id="opcao2">
+        <a><i class="uil uil-comment-info"></i></a>
+        
+      </button>
+    </li>
+    <!-- <li>
+      <label for="opcao3">Opção 3</label>
+      <button id="opcao3">
+      ☏
+      </button>
+    </li> -->
+  </ul>
+</div>
+  </ul>
+  </div>
+
+  <!-- Botão central de suporte
 <div class="fab-helpdesk">
   <div class="button-helpdesk" id="divHelpdesk" onmouseover="aparecerTexto()" onmouseout="reset()">
     <a target="_blank" href="https://coffeetech.auvo.com.br"> <img src="./images/logo-help-desk-removebg-preview.png"></a>
@@ -207,24 +216,42 @@
 
 </html>
 <script>
-    function calcularPerda(){
-        var perda = (Number(inputQtdGraos.value) * 0.15) * 25
-        var perdaComCoffeTech = perda * 0.66
-        var exibicaoPerda = Number(perda.toFixed(1)).toLocaleString('pt-br' ,{ minimumFractionDigits: 2 , style: 'currency', currency: 'BRL'})
-        var exibicaoPerdaComCoffeTech = Number(perdaComCoffeTech.toFixed(1)).toLocaleString('pt-br' ,{ minimumFractionDigits: 2 , style: 'currency', currency: 'BRL'})
-        
-        pResultado.innerHTML = `
+  function calcularPerda() {
+    var perda = (Number(inputQtdGraos.value) * 0.15) * 25
+    var perdaComCoffeTech = perda * 0.66
+    var exibicaoPerda = Number(perda.toFixed(1)).toLocaleString('pt-br', { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })
+    var exibicaoPerdaComCoffeTech = Number(perdaComCoffeTech.toFixed(1)).toLocaleString('pt-br', { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })
+
+    pResultado.innerHTML = `
         Levando em consideração que em média um quilo de café custa R$ 25, e a perda é de <b class="bPerdaDeCafe" onclick="destaqueExplicacao()">15%</b>, sem a nossa solução Coffee Thermal Solution você perderá <b class= "vermelho"> ${exibicaoPerda} (15%)</b>, mas com a Coffee Thermal Solution você economizará <b class = "verde"> ${exibicaoPerdaComCoffeTech} (66%)</b> do valor perdido, perdendo apenas 5% e não 15%.
         `
+  }
+
+  function destaqueExplicacao() {
+
+    divExplicacao.style.backgroundColor = '#CFB388'
+    divExplicacao.style.width = '550px'
+
+
+  }
+
+  function toggleFAB(fab) {
+    if (document.querySelector(fab).classList.contains('show')) {
+      document.querySelector(fab).classList.remove('show');
+    } else {
+      document.querySelector(fab).classList.add('show');
     }
+  }
 
-      function destaqueExplicacao(){
-        
-        divExplicacao.style.backgroundColor = '#CFB388'
-        divExplicacao.style.width = '550px'
-        
+  document.querySelector('.fab .main').addEventListener('click', function () {
+    toggleFAB('.fab');
+  });
 
-      }
+  document.querySelectorAll('.fab ul li button').forEach((item) => {
+    item.addEventListener('click', function () {
+      toggleFAB('.fab');
+    });
+  });
 
       // function aparecerTexto(){
       //   boxHelpdesk.innerHTML=`Clique e acesse nossa <b>central de suporte!</b>`;
@@ -242,5 +269,5 @@
       //   boxHelpdesk.style.boxShadow="";
       // }
 
-      
+
 </script>

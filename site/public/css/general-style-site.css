@@ -216,6 +216,7 @@
     right:5em;
   } */
 
+  
   .fab{
     position: fixed;
     bottom:10px;
@@ -224,10 +225,10 @@
   
   .fab button{
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border-radius: 30px;
-    background-color:  #8b5e34;
+    background-color: #8b5e34;
     border: none;
     box-shadow: 0 1px 5px rgba(0,0,0,.4);
     font-size: 24px;
@@ -238,21 +239,23 @@
     transition: .2s ease-out;
   }
   
+  .fab button:focus{
+    outline: none;
+  }
+  
   .fab button.main{
     position: absolute;
     width: 60px;
     height: 60px;
     border-radius: 30px;
-    background-color:  #603808;
+    background-color: #603808;
     right: 0;
     bottom: 0;
     z-index: 20;
   }
-   
-
-
+  
   .fab button.main:before{
-    content: '⌃';
+    content: '⏚';
   }
   
   .fab ul{
@@ -287,7 +290,7 @@
     white-space: nowrap;
     display: block;
     margin-top: 10px;
-    padding: 6px 10px;
+    padding: 5px 8px;
     background-color: white;
     box-shadow: 0 1px 3px rgba(0,0,0,.2);
     border-radius:3px;
@@ -301,42 +304,30 @@
     transition: .2s ease-out;
   }
   
-  .fab button.main:active,
-  .fab button.main:focus{
+  .fab.show button.main,
+  .fab.show button.main{
     outline: none;
     background-color: #603808;
     box-shadow: 0 3px 8px rgba(0,0,0,.5);
    }
    
-  .fab button.main:active:before,
-  .fab button.main:focus:before{
-    content: '⌄';
+  .fab.show button.main:before,
+  .fab.show button.main:before{
+    content: '↑';
   }
   
-  .fab button.main:active + ul,
-  .fab button.main:focus + ul{
+  .fab.show button.main + ul,
+  .fab.show button.main + ul{
     bottom: 70px;
   }
   
-  .fab button.main:active + ul li,
-  .fab button.main:focus + ul li{
+  .fab.show button.main + ul li,
+  .fab.show button.main + ul li{
     margin-bottom: 10px;
     opacity: 1;
   }
   
-  .fab button.main:active + ul li:hover label,
-  .fab button.main:focus + ul li:hover label{
+  .fab.show button.main + ul li:hover label,
+  .fab.show button.main + ul li:hover label{
     opacity: 1;
-  }
-
-  .opcao1 img{
-    width: 30px;
-    height: 30px;
-    color: #fff;
-    
-  }
-
-  .opcao2 img{
-    width: 30px;
-    height: 30px;
   }
