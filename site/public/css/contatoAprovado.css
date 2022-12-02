@@ -30,7 +30,7 @@
   }
 
 
-  button{
+  .btn-home-contatoAprovado{
     font-size: 15px;
     padding: 10px 30px;
     margin-top: 35px;
@@ -43,7 +43,7 @@
     transition: 0.5s;
   }
 
-  button:hover{
+  .btn-home-contatoAprovado:hover{
     cursor: pointer;
     background: #814c0c;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);

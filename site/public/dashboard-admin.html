@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <title>CoffeTech | Dashboard</title>
   <script src="js/chart.js"></script>
   <script src="js/script_dashboard.js"></script>
@@ -64,15 +65,15 @@
 
 
 
-       <div class="unificacao_grafico">
+      <div class="unificacao_grafico">
         <header>
           <div class="container_header">
             <h4 class="titulo">Painel</h4>
             <div class="select">
-              <div class="selectMes">             
+              <div class="selectMes">
                 <label for="select_meses">Mês</label><br>
                 <select id="select_meses" onchange="loadKpisData()">
-                </select> 
+                </select>
               </div>
               <div class="selectAno" onchange="loadMonthsData()">
                 <label for="select_anos">Ano</label>
@@ -110,7 +111,7 @@
                   </div>
                 </div>
               </div>
-              <div id="chart_1"></div>              
+              <div id="chart_1"></div>
             </div>
             <div class="graficoUmi">
               <div class="kpi_secundaria">
@@ -136,7 +137,7 @@
                   </div>
                 </div>
               </div>
-              <div id="chart_2"></div> 
+              <div id="chart_2"></div>
             </div>
 
             <div class="legendaTemp">
@@ -183,44 +184,202 @@
             </div>
           </div>
           <!-- Botão central de suporte -->
-          <div class="fab-helpdesk">
-            <div class="button-helpdesk" id="divHelpdesk" onmouseover="aparecerTexto()" onmouseout="reset()">
-              <a target="_blank" href="https://coffeetech.auvo.com.br"> <img src="./images/logo-help-desk-removebg-preview.png"></a>
-            </div> 
+
+          <div class="fab">
+            <button class="main">
+            </button>
+            <ul>
+              <li>
+                <label for="opcao1">Manual</label>
+                <button id="opcao1">
+                  <a> <i class="uil uil-setting"></i></a>
+
+                </button>
+              </li>
+              <li>
+                <label for="opcao2">suporte</label>
+                <button id="opcao2">
+                  <a><i class="uil uil-comment-info"></i></a>
+
+                </button>
+              </li>
+              <!-- <li>
+      <label for="opcao3">Opção 3</label>
+      <button id="opcao3">
+      ☏
+      </button>
+    </li> -->
+            </ul>
           </div>
-          
           <!-- Div alerta que não tem sensor -->
           <div class="avisoSilo" id="avisoSilo">
-            <p>Não há silo cadastrado na sua fazenda, contate o <a href="https://coffeetech.auvo.com.br/Login#signin"><b>nosso suporte</b></a></p> 
+            <p>Não há silo cadastrado na sua fazenda, contate o <a
+                href="https://coffeetech.auvo.com.br/Login#signin"><b>nosso suporte</b></a></p>
           </div>
 
-<div id="boxHelpdesk"></div>
+          <div id="boxHelpdesk"></div>
         </main>
       </div>
     </div>
   </div>
 </body>
+
 </html>
 <script>
   nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
 
-  function verificarSilo(){
+  function verificarSilo() {
 
     const idFazenda = sessionStorage.getItem("ID_FAZENDA")
 
     fetch(`/usuarios/verificarSilo/${idFazenda}`)
-    .then(function (resposta){
-                if(resposta.ok){
-                    resposta.json().then(function (response){
-                        const respostaJSON = JSON.parse(JSON.stringify(response))
-                        console.log(respostaJSON)
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (response) {
+            const respostaJSON = JSON.parse(JSON.stringify(response))
+            console.log(respostaJSON)
 
-                        if(respostaJSON.length <= 0){
-                          avisoSilo.style.display = 'block'
-                        }
-                    })
-                }
-            })
+            if (respostaJSON.length <= 0) {
+              avisoSilo.style.display = 'block'
+            }
+          })
+        }
+      })
   }
   verificarSilo()
+
+  function toggleFAB(fab) {
+    if (document.querySelector(fab).classList.contains('show')) {
+      document.querySelector(fab).classList.remove('show');
+    } else {
+      document.querySelector(fab).classList.add('show');
+    }
+  }
+
+  document.querySelector('.fab .main').addEventListener('click', function () {
+    toggleFAB('.fab');
+  });
+
+  document.querySelectorAll('.fab ul li button').forEach((item) => {
+    item.addEventListener('click', function () {
+      toggleFAB('.fab');
+    });
+  });
 </script>
+<style>
+    
+  .fab{
+    position: fixed;
+    bottom:10px;
+    right:10px;
+  }
+  
+  .fab button{
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 30px;
+    background-color: #8b5e34;
+    border: none;
+    box-shadow: 0 1px 5px rgba(0,0,0,.4);
+    font-size: 24px;
+    color: white;
+      
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    transition: .2s ease-out;
+  }
+  
+  .fab button:focus{
+    outline: none;
+  }
+  
+  .fab button.main{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #603808;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+  }
+  
+  .fab button.main:before{
+    content: '⏚';
+  }
+  
+  .fab ul{
+    position:absolute;
+    bottom: 0;
+    right: 0;
+    padding:0;
+    padding-right:5px;
+    margin:0;
+    list-style:none;
+    z-index:10;
+    
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    transition: .2s ease-out;
+  }
+  
+  .fab ul li{
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    margin-bottom: -10%;
+    opacity: 0;
+    
+    -webkit-transition: .3s ease-out;
+    -moz-transition: .3s ease-out;
+    transition: .3s ease-out;
+  }
+  
+  .fab ul li label{
+    margin-right:10px;
+    white-space: nowrap;
+    display: block;
+    margin-top: 10px;
+    padding: 5px 8px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    border-radius:3px;
+    height: 25px;
+    font-size: 16px;
+    pointer-events: none;
+    opacity:0;
+    
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    transition: .2s ease-out;
+  }
+  
+  .fab.show button.main,
+  .fab.show button.main{
+    outline: none;
+    background-color: #603808;
+    box-shadow: 0 3px 8px rgba(0,0,0,.5);
+   }
+   
+  .fab.show button.main:before,
+  .fab.show button.main:before{
+    content: '↑';
+  }
+  
+  .fab.show button.main + ul,
+  .fab.show button.main + ul{
+    bottom: 70px;
+  }
+  
+  .fab.show button.main + ul li,
+  .fab.show button.main + ul li{
+    margin-bottom: 10px;
+    opacity: 1;
+  }
+  
+  .fab.show button.main + ul li:hover label,
+  .fab.show button.main + ul li:hover label{
+    opacity: 1;
+  }
+</style>

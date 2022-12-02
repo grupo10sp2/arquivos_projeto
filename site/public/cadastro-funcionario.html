@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro-funcionario.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <title>CoffeTech | Registrar Funcionário</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -27,26 +28,26 @@
 
                 <nav class="navegacao">
                     <ul>
-                      <a href="dashboard-admin.html">
-                        <li>
-                          <img src="images/signal-icon.png" alt="">
-                          <p>Painel</p>
-                        </li>
-                      </a>
-                      <a href="cadastro-funcionario.html">
-                        <li>
-                          <img src="images/add.png" alt="">
-                          <p>Registrar</p>
-                        </li>
-                      </a>
-                      <a href="fazendas.html">
-                        <li>
-                          <img src="images/barn.svg" alt="">
-                          <p>Fazendas</p>
-                        </li>
-                      </a>
+                        <a href="dashboard-admin.html">
+                            <li>
+                                <img src="images/signal-icon.png" alt="">
+                                <p>Painel</p>
+                            </li>
+                        </a>
+                        <a href="cadastro-funcionario.html">
+                            <li>
+                                <img src="images/add.png" alt="">
+                                <p>Registrar</p>
+                            </li>
+                        </a>
+                        <a href="fazendas.html">
+                            <li>
+                                <img src="images/barn.svg" alt="">
+                                <p>Fazendas</p>
+                            </li>
+                        </a>
                     </ul>
-                  </nav>
+                </nav>
 
                 <ul class="saida">
                     <li>
@@ -63,7 +64,7 @@
                     </li>
                 </ul>
 
-                
+
             </div>
 
             <div class="registrarFuncionario">
@@ -115,122 +116,276 @@
             Cadastre uma fazenda antes de cadastrar um funcionário!<br>
             Redirecionando para registrar uma fazenda...
         </div>
-<!-- Botão central de suporte -->
-<div class="fab-helpdesk">
-    <div class="button-helpdesk" id="divHelpdesk" onmouseover="aparecerTexto()" onmouseout="reset()">
-      <a target="_blank" href="https://coffeetech.auvo.com.br"> <img src="./images/logo-help-desk-removebg-preview.png"></a>
-    </div> 
-  </div>
-  <div id="boxHelpdesk"></div>
-</body>
-</html>
-<script>
-    nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
+        <!-- Botão central de suporte -->
+        <div class="fab">
+            <button class="main">
+            </button>
+            <ul>
+                <li>
+                    <label for="opcao1">Manual</label>
+                    <button id="opcao1">
+                        <a> <i class="uil uil-setting"></i></a>
 
-    /* Função para dar select nas fazendas cadastradas */
-    function mostrarFazendas(){
-        var idUsuario = sessionStorage.getItem("ID_USUARIO")
+                    </button>
+                </li>
+                <li>
+                    <label for="opcao2">suporte</label>
+                    <button id="opcao2">
+                        <a><i class="uil uil-comment-info"></i></a>
 
-        fetch(`/usuarios/mostrarFazendas/${idUsuario}`)
-            .then(function (resposta){
-                if(resposta.ok){
-                    resposta.json().then(function (response){
-                        var respostaJSON = JSON.parse(JSON.stringify(response))
+                    </button>
+                </li>
+                <!-- <li>
+        <label for="opcao3">Opção 3</label>
+        <button id="opcao3">
+        ☏
+        </button>
+      </li> -->
+            </ul>
+        </div>
+        <script>
+            nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
 
-                        if(respostaJSON.length <= 0){
-                            avisoFazenda.style.display = "block"
-                            setTimeout(function(){
-                                window.location = "cadastro-fazenda.html"
-                            }, 4000)
-                        } else {
-                           for(var i = 0; i < respostaJSON.length; i++){
-                            fazendas.innerHTML += `
+            /* Função para dar select nas fazendas cadastradas */
+            function mostrarFazendas() {
+                var idUsuario = sessionStorage.getItem("ID_USUARIO")
+
+                fetch(`/usuarios/mostrarFazendas/${idUsuario}`)
+                    .then(function (resposta) {
+                        if (resposta.ok) {
+                            resposta.json().then(function (response) {
+                                var respostaJSON = JSON.parse(JSON.stringify(response))
+
+                                if (respostaJSON.length <= 0) {
+                                    avisoFazenda.style.display = "block"
+                                    setTimeout(function () {
+                                        window.location = "cadastro-fazenda.html"
+                                    }, 4000)
+                                } else {
+                                    for (var i = 0; i < respostaJSON.length; i++) {
+                                        fazendas.innerHTML += `
                                 <option value="${respostaJSON[i].idFazenda}">${respostaJSON[i].nomeFazenda}</option>
                             `
-                        } 
+                                    }
+                                }
+                            })
                         }
                     })
-                }
-            })
-    }
-    mostrarFazendas()
-
-    function cadastrarFuncionario(){
-        aguardar2();
-
-        var nomeVar = input_nome.value
-        var cpfVar = input_cpf.value
-        var emailVar = input_email.value
-        var senhaVar = input_senha.value
-        var fkAdminVar = sessionStorage.getItem("ID_USUARIO")
-
-        var idFazenda = fazendas.value
-
-        if(verificarCadastrarFuncionario()){
-            fetch("/usuarios/cadastrarFuncionario", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    nomeServer: nomeVar,
-                    cpfServer: cpfVar,
-                    emailServer: emailVar,
-                    senhaServer: senhaVar,
-                    fkAdminServer: fkAdminVar
-                })
-            }).then(function (resposta){
-
-                if(resposta.ok){
-
-                    avisoCadastro.style.display = 'block'
-                    selectIdUsuario(idFazenda)
-                    setTimeout(() => {
-                        avisoCadastro.style.display = 'none'
-                    }, 4000)
-                    
-                } else {
-                    console.log('algo errado no THEN()')
-                }
-                finalizar2()
-            })
-        } else {
-            finalizar2()
-        }
-
-    }
-
-    function selectIdUsuario(idFazenda){
-        fetch("/usuarios/selectIdUsuario")
-            .then(function (resposta){
-                if(resposta.ok){
-                    resposta.json().then(function (response){
-                        var respostaJSON = JSON.parse(JSON.stringify(response))
-                        var idUsuarioFuncionario = respostaJSON[0].idUsuario
-                        
-                        insertTabelaAssociativaFuncionario(idUsuarioFuncionario, idFazenda)
-                    })
-                }
-            })
-    }
-
-    function insertTabelaAssociativaFuncionario(idUsuarioFuncionario, idFazenda){
-        var idFazendaVar = Number(idFazenda)
-        console.log(idFazendaVar, idUsuarioFuncionario)
-
-        fetch('/usuarios/insertTabelaAssociativaFuncionario', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                idFazendaServer: idFazendaVar,
-                idUsuarioFuncionarioServer: idUsuarioFuncionario
-            })
-        }).then(function(resposta){
-            if(resposta.ok){
-                console.log('insert na tabela associativa feita com sucesso')
             }
-        })
-   }
-</script>
+            mostrarFazendas()
+
+            function cadastrarFuncionario() {
+                aguardar2();
+
+                var nomeVar = input_nome.value
+                var cpfVar = input_cpf.value
+                var emailVar = input_email.value
+                var senhaVar = input_senha.value
+                var fkAdminVar = sessionStorage.getItem("ID_USUARIO")
+
+                var idFazenda = fazendas.value
+
+                if (verificarCadastrarFuncionario()) {
+                    fetch("/usuarios/cadastrarFuncionario", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            nomeServer: nomeVar,
+                            cpfServer: cpfVar,
+                            emailServer: emailVar,
+                            senhaServer: senhaVar,
+                            fkAdminServer: fkAdminVar
+                        })
+                    }).then(function (resposta) {
+
+                        if (resposta.ok) {
+
+                            avisoCadastro.style.display = 'block'
+                            selectIdUsuario(idFazenda)
+                            setTimeout(() => {
+                                avisoCadastro.style.display = 'none'
+                            }, 4000)
+
+                        } else {
+                            console.log('algo errado no THEN()')
+                        }
+                        finalizar2()
+                    })
+                } else {
+                    finalizar2()
+                }
+
+            }
+
+            function selectIdUsuario(idFazenda) {
+                fetch("/usuarios/selectIdUsuario")
+                    .then(function (resposta) {
+                        if (resposta.ok) {
+                            resposta.json().then(function (response) {
+                                var respostaJSON = JSON.parse(JSON.stringify(response))
+                                var idUsuarioFuncionario = respostaJSON[0].idUsuario
+
+                                insertTabelaAssociativaFuncionario(idUsuarioFuncionario, idFazenda)
+                            })
+                        }
+                    })
+            }
+
+            function insertTabelaAssociativaFuncionario(idUsuarioFuncionario, idFazenda) {
+                var idFazendaVar = Number(idFazenda)
+                console.log(idFazendaVar, idUsuarioFuncionario)
+
+                fetch('/usuarios/insertTabelaAssociativaFuncionario', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        idFazendaServer: idFazendaVar,
+                        idUsuarioFuncionarioServer: idUsuarioFuncionario
+                    })
+                }).then(function (resposta) {
+                    if (resposta.ok) {
+                        console.log('insert na tabela associativa feita com sucesso')
+                    }
+                })
+            }
+
+
+            function toggleFAB(fab) {
+                if (document.querySelector(fab).classList.contains('show')) {
+                    document.querySelector(fab).classList.remove('show');
+                } else {
+                    document.querySelector(fab).classList.add('show');
+                }
+            }
+
+            document.querySelector('.fab .main').addEventListener('click', function () {
+                toggleFAB('.fab');
+            });
+
+            document.querySelectorAll('.fab ul li button').forEach((item) => {
+                item.addEventListener('click', function () {
+                    toggleFAB('.fab');
+                });
+            });
+
+        </script>
+        <style>
+            .fab {
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .fab button {
+                cursor: pointer;
+                width: 48px;
+                height: 48px;
+                border-radius: 30px;
+                background-color: #8b5e34;
+                border: none;
+                box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
+                font-size: 24px;
+                color: white;
+
+                -webkit-transition: .2s ease-out;
+                -moz-transition: .2s ease-out;
+                transition: .2s ease-out;
+            }
+
+            .fab button:focus {
+                outline: none;
+            }
+
+            .fab button.main {
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                background-color: #603808;
+                right: 0;
+                bottom: 0;
+                z-index: 20;
+            }
+
+            .fab button.main:before {
+                content: '⏚';
+            }
+
+            .fab ul {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                padding: 0;
+                padding-right: 5px;
+                margin: 0;
+                list-style: none;
+                z-index: 10;
+
+                -webkit-transition: .2s ease-out;
+                -moz-transition: .2s ease-out;
+                transition: .2s ease-out;
+            }
+
+            .fab ul li {
+                display: flex;
+                justify-content: flex-start;
+                position: relative;
+                margin-bottom: -10%;
+                opacity: 0;
+
+                -webkit-transition: .3s ease-out;
+                -moz-transition: .3s ease-out;
+                transition: .3s ease-out;
+            }
+
+            .fab ul li label {
+                margin-right: 10px;
+                white-space: nowrap;
+                display: block;
+                margin-top: 10px;
+                padding: 5px 8px;
+                background-color: white;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+                border-radius: 3px;
+                height: 25px;
+                font-size: 16px;
+                pointer-events: none;
+                opacity: 0;
+
+                -webkit-transition: .2s ease-out;
+                -moz-transition: .2s ease-out;
+                transition: .2s ease-out;
+            }
+
+            .fab.show button.main,
+            .fab.show button.main {
+                outline: none;
+                background-color: #603808;
+                box-shadow: 0 3px 8px rgba(0, 0, 0, .5);
+            }
+
+            .fab.show button.main:before,
+            .fab.show button.main:before {
+                content: '↑';
+            }
+
+            .fab.show button.main+ul,
+            .fab.show button.main+ul {
+                bottom: 70px;
+            }
+
+            .fab.show button.main+ul li,
+            .fab.show button.main+ul li {
+                margin-bottom: 10px;
+                opacity: 1;
+            }
+
+            .fab.show button.main+ul li:hover label,
+            .fab.show button.main+ul li:hover label {
+                opacity: 1;
+            }
+        </style>
