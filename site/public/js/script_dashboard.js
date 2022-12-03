@@ -272,10 +272,10 @@ function loadChartsData() {
 //Função responsável por criar os gráficos
 function chartsGenerator(){  
     chart_1.innerHTML = null;//Quebrando o canvas
-    chart_1.innerHTML = `<canvas id="canvas_chart_1" style="position: relative; height: 40vh; width:37vw;"></canvas>`; //Recriando o canvas
+    chart_1.innerHTML = `<canvas id="canvas_chart_1" style="position: relative; height: 40vh; width:36vw;"></canvas>`; //Recriando o canvas
 
     chart_2.innerHTML = null;//Quebrando o canvas
-    chart_2.innerHTML = `<canvas id="canvas_chart_2" style="position: relative; height: 40vh; width:37vw;"></canvas>`;//Recriando o canvas
+    chart_2.innerHTML = `<canvas id="canvas_chart_2" style="position: relative; height: 40vh; width:36vw;"></canvas>`;//Recriando o canvas
 
   const data = {
     labels: dias,

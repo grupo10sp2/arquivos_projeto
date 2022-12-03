@@ -2,11 +2,11 @@
 var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
-/* var sqlServerConfig = {
+var sqlServerConfig = {
     server: "servercoffeetech.database.windows.net",
     database: "bd-coffeetech",
     user: "admincoffeetech",
-    password: "#GfGrupo10",
+    password: "#Gfgrupo10",
     pool: {
         max: 10,
         min: 0,
@@ -15,7 +15,7 @@ var sql = require('mssql');
     options: {
         encrypt: true, // for azure
     }
-} */
+}
 
 //CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
