@@ -152,6 +152,7 @@ header {
   border-radius: 20px;
   padding: 20px;
   color: white;
+  cursor: pointer;
 }
 
 .subtitulo-fazendas{

@@ -82,6 +82,10 @@
                             </div>  
                             `
                           }
+
+                          setTimeout(() => {
+                            adicionarEventoNasDivsFazenda()
+                          }, 100);
                         fazendas.innerHTML += `
                         <a href="cadastro-fazenda.html" class="adicionarFazenda">
                           <img src="images/plus.svg" alt="">
@@ -102,13 +106,13 @@
 exibirFazendasDoUsuario()
 
   /* Timeout para pegar as divs que viram do banco */
-  setTimeout(function adicionarEventoNasDivsFazenda(){
-  const divFazendasArray = document.querySelectorAll(".fazenda")
-  for(var i = 0; i < divFazendasArray.length; i++){
-    divFazendasArray[i].addEventListener("click", selecionarFazenda)
-  }
+  function adicionarEventoNasDivsFazenda(){
+    const divFazendasArray = document.querySelectorAll(".fazenda")
+    for(var i = 0; i < divFazendasArray.length; i++){
+      divFazendasArray[i].addEventListener("click", selecionarFazenda)
+    }
     
-  }, 100)
+  }
 
   function selecionarFazenda(evento){
     const divSelecionada = evento.currentTarget
