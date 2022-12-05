@@ -2,232 +2,230 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoffeeTech | Cadastro</title>
-    <!-- <script type="text/javascript" src="js/script_cadastro.js"></script> -->
-    <link rel="stylesheet" href="css/cadastro.css">
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoffeeTech | Cadastro</title>
+  <!-- <script type="text/javascript" src="js/script_cadastro.js"></script> -->
+  <link rel="stylesheet" href="css/cadastro.css">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-    <script src="./js/funcoes.js"></script>
-    
+  <script src="./js/funcoes.js"></script>
+
 
 
 </head>
 
 <body>
-    <main>
-        <!-- alerta erro -->
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
+  <main>
+    <!-- alerta erro -->
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
+
+
+      <section class="banner">
+        <div class="container">
+          <div class="formulario">
+            <img src="./images/user.png" alt="Ícone do usuário">
+            <h2 class="titulo">Bem Vindo!</h2>
+            <h2 class="subtitulo">Faça o seu cadastro</h2>
+
+            <div class="campo">
+              <label for="input_nome">Nome</label>
+              <input type="text" id="input_nome">
+            </div>
+            <div class="campo">
+              <label for="input_cpf">CPF</label>
+              <input type="number" onfocus="Focus(input_cpf)" id="input_cpf">
+            </div>
+            <div class="campo">
+              <label for="input_email">Email</label>
+              <input type="email" onfocus="Focus(input_email)" id="input_email">
+            </div>
+            <div class="campo">
+              <label for="input_senha">Senha</label>
+              <input type="password" onfocus="Focus(input_senha)" id="input_senha">
+            </div>
+            <div class="campo">
+              <label for="input_confirmacao_senha">Confirme sua Senha</label>
+              <input type="password" onfocus="Focus(input_confirmacao_senha)" id="input_confirmacao_senha">
+            </div><br>
+            <div id="div_aguardar" class="loading-div">
+              <img src="./images/gifLoading.gif" id="loading-gif">
             </div>
 
+            <a href="login.html">Já possui uma conta?</a>
 
-            <section class="banner">
-                <div class="container">
-                    <div class="formulario">
-                        <img src="./images/user.png" alt="Ícone do usuário">
-                        <h2 class="titulo">Bem Vindo!</h2>
-                        <h2 class="subtitulo">Faça o seu cadastro</h2>
+            <button onclick="cadastrar()">Cadastrar</button>
 
-                        <div class="campo">
-                            <label for="input_nome">Nome</label>
-                            <input type="text" id="input_nome">
-                        </div>
-                        <div class="campo">
-                            <label for="input_cpf">CPF</label>
-                            <input type="number" onfocus="Focus(input_cpf)" id="input_cpf">
-                        </div>
-                        <div class="campo">
-                            <label for="input_email">Email</label>
-                            <input type="email" onfocus="Focus(input_email)" id="input_email">
-                        </div>
-                        <div class="campo">
-                            <label for="input_senha">Senha</label>
-                            <input type="password" onfocus="Focus(input_senha)" id="input_senha">
-                        </div>
-                        <div class="campo">
-                            <label for="input_confirmacao_senha">Confirme sua Senha</label>
-                            <input type="password" onfocus="Focus(input_confirmacao_senha)"
-                                id="input_confirmacao_senha">
-                        </div><br>
-                        <div id="div_aguardar" class="loading-div">
-                            <img src="./images/gifLoading.gif" id="loading-gif">
-                        </div>
+            <a href="index.html">
+              <img class="home" src="./images/home.png" alt="Ícone Ínicio">
+            </a>
 
-                        <a href="login.html">Já possui uma conta?</a>
+          </div>
+        </div>
+      </section>
 
-                        <button onclick="cadastrar()">Cadastrar</button>
-
-                        <a href="index.html">
-                            <img class="home" src="./images/home.png" alt="Ícone Ínicio">
-                        </a>
-
-                    </div>
-                </div>
-            </section>
-
-            <!-- div_erros_login e div_aguardar -->
+      <!-- div_erros_login e div_aguardar -->
 
 
-            <div id="div_erros_login">
+      <div id="div_erros_login">
 
-            </div>
+      </div>
 
 
-    </main>
+  </main>
 
-    <!-- Botão central de suporte -->
-    <div class="fab">
-        <button class="main">
+  <!-- Botão central de suporte -->
+  <div class="fab">
+    <button class="main">
+    </button>
+    <ul>
+      <li>
+        <label for="opcao1">Manual</label>
+        <button id="opcao1">
+          <a> <i class="uil uil-setting"></i></a>
+
         </button>
-        <ul>
-          <li>
-            <label for="opcao1">Manual</label>
-            <button id="opcao1">
-              <a> <i class="uil uil-setting"></i></a>
-             
-            </button>
-          </li>
-          <li>
-            <label for="opcao2">suporte</label>
-            <button onclick="redirecionarAuvo()" id="opcao2">
-              <a><i class="uil uil-comment-info"></i></a>
-              
-            </button>
-          </li>
-          <!-- <li>
+      </li>
+      <li>
+        <label for="opcao2">suporte</label>
+        <button onclick="redirecionarAuvo()" id="opcao2">
+          <a><i class="uil uil-comment-info"></i></a>
+
+        </button>
+      </li>
+      <!-- <li>
             <label for="opcao3">Opção 3</label>
             <button id="opcao3">
             ☏
             </button>
           </li> -->
-        </ul>
-      </div>
-        </ul>
-        </div>
+    </ul>
+  </div>
+  </ul>
+  </div>
 
 </body>
 
 </html>
 <script>
 
-    function cadastrar() {
-        aguardar();
+  function cadastrar() {
+    aguardar();
 
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
-        var nomeVar = input_nome.value;
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
-        var confirmacaoSenhaVar = input_confirmacao_senha.value;
-        var cpfVar = input_cpf.value;
-
-
-        // Enviando o valor da nova input
-        if (verificarCadastro()) {
-            fetch("/usuarios/cadastrar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
-                    nomeServer: nomeVar,
-                    emailServer: emailVar,
-                    senhaServer: senhaVar,
-                    cpfServer: cpfVar,
-                })
-            }).then(function (resposta) {
-
-                console.log("resposta: ", resposta);
-
-                if (resposta.ok) {
-                    cardErro.style.display = "block";
-
-                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-                    setTimeout(() => {
-                        finalizarAguardar();
-                        window.location = "login.html";
-                    }, "2000")
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var confirmacaoSenhaVar = input_confirmacao_senha.value;
+    var cpfVar = input_cpf.value;
 
 
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-                finalizarAguardar();
-            });
+    // Enviando o valor da nova input
+    if (verificarCadastro()) {
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+          cpfServer: cpfVar,
+        })
+      }).then(function (resposta) {
 
-            return false;
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          setTimeout(() => {
+            finalizarAguardar();
+            window.location = "login.html";
+          }, "2000")
+
+
         } else {
-            finalizarAguardar()
+          throw ("Houve um erro ao tentar realizar o cadastro!");
         }
+      }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+      return false;
+    } else {
+      finalizarAguardar()
     }
+  }
 
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
+  function sumirMensagem() {
+    cardErro.style.display = "none"
+  }
+  function toggleFAB(fab) {
+    if (document.querySelector(fab).classList.contains('show')) {
+      document.querySelector(fab).classList.remove('show');
+    } else {
+      document.querySelector(fab).classList.add('show');
     }
-    function toggleFAB(fab) {
-        if (document.querySelector(fab).classList.contains('show')) {
-            document.querySelector(fab).classList.remove('show');
-        } else {
-            document.querySelector(fab).classList.add('show');
-        }
-    }
+  }
 
-    document.querySelector('.fab .main').addEventListener('click', function () {
-        toggleFAB('.fab');
+  document.querySelector('.fab .main').addEventListener('click', function () {
+    toggleFAB('.fab');
+  });
+
+  document.querySelectorAll('.fab ul li button').forEach((item) => {
+    item.addEventListener('click', function () {
+      toggleFAB('.fab');
     });
+  });
 
-    document.querySelectorAll('.fab ul li button').forEach((item) => {
-        item.addEventListener('click', function () {
-            toggleFAB('.fab');
-        });
-    });
-
-    function redirecionarAuvo(){
-        window.location.href = "https://coffeetech.auvo.com.br/Login#signin"
-      }   
+  function redirecionarAuvo() {
+    window.location.href = "https://coffeetech.auvo.com.br/Login#signin"
+  }
 
 </script>
 <script src="js/script_cadastro.js"></script>
 
 <style>
-     
-  .fab{
+  .fab {
     position: fixed;
-    bottom:10px;
-    right:10px;
+    bottom: 10px;
+    right: 10px;
   }
-  
-  .fab button{
+
+  .fab button {
     cursor: pointer;
     width: 48px;
     height: 48px;
     border-radius: 30px;
     background-color: #8b5e34;
     border: none;
-    box-shadow: 0 1px 5px rgba(0,0,0,.4);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
     font-size: 24px;
     color: white;
-      
+
     -webkit-transition: .2s ease-out;
     -moz-transition: .2s ease-out;
     transition: .2s ease-out;
   }
-  
-  .fab button:focus{
+
+  .fab button:focus {
     outline: none;
   }
-  
-  .fab button.main{
+
+  .fab button.main {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -237,82 +235,82 @@
     bottom: 0;
     z-index: 20;
   }
-  
-  .fab button.main:before{
+
+  .fab button.main:before {
     content: '⏚';
   }
-  
-  .fab ul{
-    position:absolute;
+
+  .fab ul {
+    position: absolute;
     bottom: 0;
     right: 0;
-    padding:0;
-    padding-right:5px;
-    margin:0;
-    list-style:none;
-    z-index:10;
-    
+    padding: 0;
+    padding-right: 5px;
+    margin: 0;
+    list-style: none;
+    z-index: 10;
+
     -webkit-transition: .2s ease-out;
     -moz-transition: .2s ease-out;
     transition: .2s ease-out;
   }
-  
-  .fab ul li{
+
+  .fab ul li {
     display: flex;
     justify-content: flex-start;
     position: relative;
     margin-bottom: -10%;
     opacity: 0;
-    
+
     -webkit-transition: .3s ease-out;
     -moz-transition: .3s ease-out;
     transition: .3s ease-out;
   }
-  
-  .fab ul li label{
-    margin-right:10px;
+
+  .fab ul li label {
+    margin-right: 10px;
     white-space: nowrap;
     display: block;
     margin-top: 10px;
     padding: 5px 8px;
     background-color: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,.2);
-    border-radius:3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    border-radius: 3px;
     height: 25px;
     font-size: 16px;
     pointer-events: none;
-    opacity:0;
-    
+    opacity: 0;
+
     -webkit-transition: .2s ease-out;
     -moz-transition: .2s ease-out;
     transition: .2s ease-out;
   }
-  
+
   .fab.show button.main,
-  .fab.show button.main{
+  .fab.show button.main {
     outline: none;
     background-color: #603808;
-    box-shadow: 0 3px 8px rgba(0,0,0,.5);
-   }
-   
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .5);
+  }
+
   .fab.show button.main:before,
-  .fab.show button.main:before{
+  .fab.show button.main:before {
     content: '↑';
   }
-  
-  .fab.show button.main + ul,
-  .fab.show button.main + ul{
+
+  .fab.show button.main+ul,
+  .fab.show button.main+ul {
     bottom: 70px;
   }
-  
-  .fab.show button.main + ul li,
-  .fab.show button.main + ul li{
+
+  .fab.show button.main+ul li,
+  .fab.show button.main+ul li {
     margin-bottom: 10px;
     opacity: 1;
   }
-  
-  .fab.show button.main + ul li:hover label,
-  .fab.show button.main + ul li:hover label{
+
+  .fab.show button.main+ul li:hover label,
+  .fab.show button.main+ul li:hover label {
     opacity: 1;
   }
 </style>

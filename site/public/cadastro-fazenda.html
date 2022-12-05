@@ -2,246 +2,248 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/cadastro-fazenda.css">
-    <link rel="icon" type="image/png" href="images/favicon.png" />
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <title>CoffeTech | Registrar Funcionário</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/script_cadastro.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/cadastro-fazenda.css">
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <title>CoffeTech | Registrar Funcionário</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/script_cadastro.js"></script>
 
-    <script src="./js/funcoes.js"></script>
+  <script src="./js/funcoes.js"></script>
 
 </head>
 
 <body>
-    <div class="banner">
-        <div class="dashboard">
-            <div class="divLateral">
-                <div>
-                    <img style="width: 100px; margin-bottom: 20px;" src="images/logo-2.png" alt="">
-                    <p>Bem vindo(a),</p>
-                    <p class="nomeUsuario" id="nomeUsuario">Fernando Brandão</p>
-                </div>
-
-                <nav class="navegacao">
-                    <ul>
-                      <a href="dashboard-admin.html">
-                        <li>
-                          <img src="images/signal-icon.png" alt="">
-                          <p>Painel</p>
-                        </li>
-                      </a>
-                      <a href="cadastro-funcionario.html">
-                        <li>
-                          <img src="images/add.png" alt="">
-                          <p>Registrar</p>
-                        </li>
-                      </a>
-                      <a href="fazendas.html">
-                        <li>
-                          <img src="images/barn.svg" alt="">
-                          <p>Fazendas</p>
-                        </li>
-                      </a>
-                    </ul>
-                  </nav>
-
-                <ul class="saida">
-                    <li>
-                        <a href="index.html">
-                            <img src="images/home-branco.png" alt="">
-                            <p>Home</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="index.html">
-                            <img src="images/exit.png" alt="">
-                            <p>Exit</p>
-                        </a>
-                    </li>
-                </ul>
-
-                
-            </div>
-
-            <div class="registrarFuncionario">
-                <div class="container">
-                    <header>
-                        <h1 class="titulo">Fazendas</h1>
-                    </header>
-                </div>
-                <span class="linha"></span>
-                <div class="cadastrar">
-                    <h2 class="tituloCadastrar">Adicionar Fazendas</h2>
-                    <div class="campos">
-                        <div class="campo">
-                            <label for="input_nome_fazenda">Nome da Fazenda</label>
-                            <input type="text" id="input_nome_fazenda">
-                            <span id="nome_fazenda"> </span>
-                        </div>
-
-                        <div class="campo">
-                            <label for="input_cnpj">CNPJ</label>
-                            <input type="text" id="input_cnpj">
-                        </div>
-                        <span id="cpnj_fazenda"> </span>
-                        
-                        <div class="campo">
-                            <label for="input_cep">CEP</label>
-                            <input type="text" id="input_cep">
-                        </div>
-                        <span id="cep_fazenda"> </span>
-
-                        <div class="campo">
-                            <label for="input_logradouro">Logradouro</label>
-                            <input type="text" id="input_logradouro">
-                        </div>
-                        <span id="logradouro_fazenda"> </span>
-
-                        <div class="campo">
-                            <label for="input_numero">Numero</label>
-                            <input type="text" id="input_numero">
-                        </div>
-                        <span id="numero_fazenda"> </span>
-
-                        <div class="campo">
-                            <label for="input_complemento">Complemento</label>
-                            <input type="text" id="input_complemento">
-                        </div>
-                        <span id="complemento_fazenda"> </span>
-
-                    </div>
-                    <!-- <div id="div_aguardar" class="loading-div">
-                        <img src="./images/gifLoading.gif" id="loading-gif">
-                    </div> -->
-                    <button onclick="cadastrarFazenda()" class="botao">Cadastrar</button>
-                </div>
-            </div>
+  <div class="banner">
+    <div class="dashboard">
+      <div class="divLateral">
+        <div>
+          <img style="width: 100px; margin-bottom: 20px;" src="images/logo-2.png" alt="">
+          <p>Bem vindo(a),</p>
+          <p class="nomeUsuario" id="nomeUsuario">Fernando Brandão</p>
         </div>
 
-        <div class="avisoCadastro" id="avisoCadastro">Cadastro concluído com sucesso!</div>
-        <!-- Botão central de suporte -->
-        <div class="fab">
-            <button class="main">
-            </button>
-            <ul>
+        <nav class="navegacao">
+          <ul>
+            <a href="dashboard-admin.html">
               <li>
-                <label for="opcao1">Manual</label>
-                <button id="opcao1">
-                  <a> <i class="uil uil-setting"></i></a>
-                 
-                </button>
+                <img src="images/signal-icon.png" alt="">
+                <p>Painel</p>
               </li>
+            </a>
+            <a href="cadastro-funcionario.html">
               <li>
-                <label for="opcao2">suporte</label>
-                <button id="opcao2">
-                  <a><i class="uil uil-comment-info"></i></a>
-                  
-                </button>
+                <img src="images/add.png" alt="">
+                <p>Registrar</p>
               </li>
-              <!-- <li>
+            </a>
+            <a href="fazendas.html">
+              <li>
+                <img src="images/barn.svg" alt="">
+                <p>Fazendas</p>
+              </li>
+            </a>
+          </ul>
+        </nav>
+
+        <ul class="saida">
+          <li>
+            <a href="index.html">
+              <img src="images/home-branco.png" alt="">
+              <p>Home</p>
+            </a>
+          </li>
+          <li>
+            <a href="index.html">
+              <img src="images/exit.png" alt="">
+              <p>Exit</p>
+            </a>
+          </li>
+        </ul>
+
+
+      </div>
+
+      <div class="registrarFuncionario">
+        <div class="container">
+          <header>
+            <h1 class="titulo">Fazendas</h1>
+          </header>
+        </div>
+        <span class="linha"></span>
+        <div class="cadastrar">
+          <h2 class="tituloCadastrar">Adicionar Fazendas</h2>
+          <div class="campos">
+            <div class="campo">
+              <label for="input_nome_fazenda">Nome da Fazenda</label>
+              <input type="text" id="input_nome_fazenda">
+              <span id="nome_fazenda"> </span>
+            </div>
+
+            <div class="campo">
+              <label for="input_cnpj">CNPJ</label>
+              <input type="text" id="input_cnpj">
+            </div>
+            <span id="cpnj_fazenda"> </span>
+
+            <div class="campo">
+              <label for="input_cep">CEP</label>
+              <input type="text" id="input_cep">
+            </div>
+            <span id="cep_fazenda"> </span>
+
+            <div class="campo">
+              <label for="input_logradouro">Logradouro</label>
+              <input type="text" id="input_logradouro">
+            </div>
+            <span id="logradouro_fazenda"> </span>
+
+            <div class="campo">
+              <label for="input_numero">Numero</label>
+              <input type="text" id="input_numero">
+            </div>
+            <span id="numero_fazenda"> </span>
+
+            <div class="campo">
+              <label for="input_complemento">Complemento</label>
+              <input type="text" id="input_complemento">
+            </div>
+            <span id="complemento_fazenda"> </span>
+
+          </div>
+          <!-- <div id="div_aguardar" class="loading-div">
+                        <img src="./images/gifLoading.gif" id="loading-gif">
+                    </div> -->
+          <button onclick="cadastrarFazenda()" class="botao">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="avisoCadastro" id="avisoCadastro">Cadastro concluído com sucesso!</div>
+    <!-- Botão central de suporte -->
+    <div class="fab">
+      <button class="main">
+      </button>
+      <ul>
+        <li>
+          <label for="opcao1">Manual</label>
+          <button id="opcao1">
+            <a> <i class="uil uil-setting"></i></a>
+
+          </button>
+        </li>
+        <li>
+          <label for="opcao2">suporte</label>
+          <button id="opcao2">
+            <a><i class="uil uil-comment-info"></i></a>
+
+          </button>
+        </li>
+        <!-- <li>
                 <label for="opcao3">Opção 3</label>
                 <button id="opcao3">
                 ☏
                 </button>
               </li> -->
-            </ul>
-          </div>
+      </ul>
+    </div>
 </body>
+
 </html>
 <script>
-    nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
-    function cadastrarFazenda(){
-        // aguardar2();
+  nomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO") + ""
+  function cadastrarFazenda() {
+    // aguardar2();
 
-        var nomeFazendaVar = input_nome_fazenda.value
-        var cnpjVar = input_cnpj.value
-        var cepVar = input_cep.value
-        var logradouroVar = input_logradouro.value
-        var numeroVar = input_numero.value
-        var complementoVar = input_complemento.value
+    var nomeFazendaVar = input_nome_fazenda.value
+    var cnpjVar = input_cnpj.value
+    var cepVar = input_cep.value
+    var logradouroVar = input_logradouro.value
+    var numeroVar = input_numero.value
+    var complementoVar = input_complemento.value
 
-       if( verificarFazenda()){
-            fetch("/usuarios/cadastrarFazenda", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    nomeFazendaServer: nomeFazendaVar,
-                    cnpjServer: cnpjVar,
-                    cepServer: cepVar,
-                    logradouroServer: logradouroVar,
-                    numeroServer: numeroVar,
-                    complementoServer: complementoVar
-                })
-            }).then(function (resposta){
-
-                if(resposta.ok){
-                    avisoCadastro.style.display = 'block'
-                    input_nome_fazenda.value = ''
-                    input_cnpj.value = ''
-                    input_cep.value = ''
-                    input_logradouro.value = ''
-                    input_numero.value = ''
-                    input_complemento.value = ''
-
-                    setTimeout(() => {
-                        avisoCadastro.style.display = 'none'
-                    }, 4000)
-                    // da um select na fazenda que acabou de ser cadastrada para pegar o id dela e dar um insert na tabela associativa
-                    selectFazenda()
-                } else {
-                    console.log('algo errado no THEN()')
-
-                }
-                finalizar2()
-            })
-        //} else {
-            //finalizar2()
-        //}
-
-    }
-
-    function selectFazenda(){
-        fetch("/usuarios/selectFazenda")
-            .then(function (resposta){
-                if(resposta.ok){
-                    resposta.json().then(function (response){
-                        var respostaJSON = JSON.parse(JSON.stringify(response))
-                        var idFazenda = respostaJSON[0].idFazenda
-                        
-
-                        insertTabelaAssociativa(idFazenda)
-                    })
-                }
-            })
-    }
-
-   function insertTabelaAssociativa(idFazenda){
-    var idUsuarioVar = Number(sessionStorage.getItem("ID_USUARIO"))
-    var idFazendaVar = Number(idFazenda)
-
-    fetch('/usuarios/insertTabelaAssociativa', {
+    if (verificarFazenda()) {
+      fetch("/usuarios/cadastrarFazenda", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            idFazendaServer: idFazendaVar,
-            idUsuarioServer: idUsuarioVar 
+          nomeFazendaServer: nomeFazendaVar,
+          cnpjServer: cnpjVar,
+          cepServer: cepVar,
+          logradouroServer: logradouroVar,
+          numeroServer: numeroVar,
+          complementoServer: complementoVar
         })
-    }).then(function(resposta){
-        if(resposta.ok){
-            console.log('insert na tabela associativa feita com sucesso')
-        }
-    })
-   }}
+      }).then(function (resposta) {
 
-   function toggleFAB(fab) {
+        if (resposta.ok) {
+          avisoCadastro.style.display = 'block'
+          input_nome_fazenda.value = ''
+          input_cnpj.value = ''
+          input_cep.value = ''
+          input_logradouro.value = ''
+          input_numero.value = ''
+          input_complemento.value = ''
+
+          setTimeout(() => {
+            avisoCadastro.style.display = 'none'
+          }, 4000)
+          // da um select na fazenda que acabou de ser cadastrada para pegar o id dela e dar um insert na tabela associativa
+          selectFazenda()
+        } else {
+          console.log('algo errado no THEN()')
+
+        }
+        finalizar2()
+      })
+      //} else {
+      //finalizar2()
+      //}
+
+    }
+
+    function selectFazenda() {
+      fetch("/usuarios/selectFazenda")
+        .then(function (resposta) {
+          if (resposta.ok) {
+            resposta.json().then(function (response) {
+              var respostaJSON = JSON.parse(JSON.stringify(response))
+              var idFazenda = respostaJSON[0].idFazenda
+
+
+              insertTabelaAssociativa(idFazenda)
+            })
+          }
+        })
+    }
+
+    function insertTabelaAssociativa(idFazenda) {
+      var idUsuarioVar = Number(sessionStorage.getItem("ID_USUARIO"))
+      var idFazendaVar = Number(idFazenda)
+
+      fetch('/usuarios/insertTabelaAssociativa', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          idFazendaServer: idFazendaVar,
+          idUsuarioServer: idUsuarioVar
+        })
+      }).then(function (resposta) {
+        if (resposta.ok) {
+          console.log('insert na tabela associativa feita com sucesso')
+        }
+      })
+    }
+  }
+
+  function toggleFAB(fab) {
     if (document.querySelector(fab).classList.contains('show')) {
       document.querySelector(fab).classList.remove('show');
     } else {
@@ -262,34 +264,33 @@
 </script>
 <script src="./js/script_fazenda.js"></script>
 <style>
-      
-  .fab{
+  .fab {
     position: fixed;
-    bottom:10px;
-    right:10px;
+    bottom: 10px;
+    right: 10px;
   }
-  
-  .fab button{
+
+  .fab button {
     cursor: pointer;
     width: 48px;
     height: 48px;
     border-radius: 30px;
     background-color: #8b5e34;
     border: none;
-    box-shadow: 0 1px 5px rgba(0,0,0,.4);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .4);
     font-size: 24px;
     color: white;
-      
+
     -webkit-transition: .2s ease-out;
     -moz-transition: .2s ease-out;
     transition: .2s ease-out;
   }
-  
-  .fab button:focus{
+
+  .fab button:focus {
     outline: none;
   }
-  
-  .fab button.main{
+
+  .fab button.main {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -299,82 +300,82 @@
     bottom: 0;
     z-index: 20;
   }
-  
-  .fab button.main:before{
+
+  .fab button.main:before {
     content: '⏚';
   }
-  
-  .fab ul{
-    position:absolute;
+
+  .fab ul {
+    position: absolute;
     bottom: 0;
     right: 0;
-    padding:0;
-    padding-right:5px;
-    margin:0;
-    list-style:none;
-    z-index:10;
-    
+    padding: 0;
+    padding-right: 5px;
+    margin: 0;
+    list-style: none;
+    z-index: 10;
+
     -webkit-transition: .2s ease-out;
     -moz-transition: .2s ease-out;
     transition: .2s ease-out;
   }
-  
-  .fab ul li{
+
+  .fab ul li {
     display: flex;
     justify-content: flex-start;
     position: relative;
     margin-bottom: -10%;
     opacity: 0;
-    
+
     -webkit-transition: .3s ease-out;
     -moz-transition: .3s ease-out;
     transition: .3s ease-out;
   }
-  
-  .fab ul li label{
-    margin-right:10px;
+
+  .fab ul li label {
+    margin-right: 10px;
     white-space: nowrap;
     display: block;
     margin-top: 10px;
     padding: 5px 8px;
     background-color: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,.2);
-    border-radius:3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    border-radius: 3px;
     height: 25px;
     font-size: 16px;
     pointer-events: none;
-    opacity:0;
-    
+    opacity: 0;
+
     -webkit-transition: .2s ease-out;
     -moz-transition: .2s ease-out;
     transition: .2s ease-out;
   }
-  
+
   .fab.show button.main,
-  .fab.show button.main{
+  .fab.show button.main {
     outline: none;
     background-color: #603808;
-    box-shadow: 0 3px 8px rgba(0,0,0,.5);
-   }
-   
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .5);
+  }
+
   .fab.show button.main:before,
-  .fab.show button.main:before{
+  .fab.show button.main:before {
     content: '↑';
   }
-  
-  .fab.show button.main + ul,
-  .fab.show button.main + ul{
+
+  .fab.show button.main+ul,
+  .fab.show button.main+ul {
     bottom: 70px;
   }
-  
-  .fab.show button.main + ul li,
-  .fab.show button.main + ul li{
+
+  .fab.show button.main+ul li,
+  .fab.show button.main+ul li {
     margin-bottom: 10px;
     opacity: 1;
   }
-  
-  .fab.show button.main + ul li:hover label,
-  .fab.show button.main + ul li:hover label{
+
+  .fab.show button.main+ul li:hover label,
+  .fab.show button.main+ul li:hover label {
     opacity: 1;
   }
 </style>

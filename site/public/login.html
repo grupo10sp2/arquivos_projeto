@@ -66,30 +66,30 @@
         <button class="main">
         </button>
         <ul>
-          <li>
-            <label for="opcao1">Manual</label>
-            <button id="opcao1">
-              <a> <i class="uil uil-setting"></i></a>
-             
-            </button>
-          </li>
-          <li>
-            <label for="opcao2">suporte</label>
-            <button onclick="redirecionarAuvo()"id="opcao2">
-              <a><i class="uil uil-comment-info"></i></a>
-              
-            </button>
-          </li>
-          <!-- <li>
+            <li>
+                <label for="opcao1">Manual</label>
+                <button id="opcao1">
+                    <a> <i class="uil uil-setting"></i></a>
+
+                </button>
+            </li>
+            <li>
+                <label for="opcao2">suporte</label>
+                <button onclick="redirecionarAuvo()" id="opcao2">
+                    <a><i class="uil uil-comment-info"></i></a>
+
+                </button>
+            </li>
+            <!-- <li>
             <label for="opcao3">Opção 3</label>
             <button id="opcao3">
             ☏
             </button>
           </li> -->
         </ul>
-      </div>
-        </ul>
-        </div>
+    </div>
+    </ul>
+    </div>
 </body>
 
 </html>
@@ -130,11 +130,11 @@
                         sessionStorage.FK_ADMIN = json.fkAdmin;
 
                         /* Se tiver fk entra na dashbora normal, se não tiver fk entra na dashboard-admin */
-                            setTimeout(function () {
+                        setTimeout(function () {
 
-                                window.location = "./fazendas.html";
-                            }, 1000);
-                        
+                            window.location = "./fazendas.html";
+                        }, 1000);
+
 
                     });
 
@@ -162,26 +162,26 @@
     }
 
     function toggleFAB(fab) {
-    if (document.querySelector(fab).classList.contains('show')) {
-      document.querySelector(fab).classList.remove('show');
-    } else {
-      document.querySelector(fab).classList.add('show');
+        if (document.querySelector(fab).classList.contains('show')) {
+            document.querySelector(fab).classList.remove('show');
+        } else {
+            document.querySelector(fab).classList.add('show');
+        }
     }
-  }
 
-  document.querySelector('.fab .main').addEventListener('click', function () {
-    toggleFAB('.fab');
-  });
-
-  document.querySelectorAll('.fab ul li button').forEach((item) => {
-    item.addEventListener('click', function () {
-      toggleFAB('.fab');
+    document.querySelector('.fab .main').addEventListener('click', function () {
+        toggleFAB('.fab');
     });
-  });
 
-function redirecionarAuvo(){
+    document.querySelectorAll('.fab ul li button').forEach((item) => {
+        item.addEventListener('click', function () {
+            toggleFAB('.fab');
+        });
+    });
+
+    function redirecionarAuvo() {
         window.location.href = "https://coffeetech.auvo.com.br/Login#signin"
-      }
+    }
 
 </script>
 <script src="js/script_login.js"></script>

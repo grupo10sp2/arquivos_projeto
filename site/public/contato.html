@@ -100,14 +100,14 @@
           <label for="opcao1">Manual</label>
           <button id="opcao1">
             <a> <i class="uil uil-setting"></i></a>
-           
+
           </button>
         </li>
         <li>
           <label for="opcao2">suporte</label>
-          <button onclick="redirecionarAuvo()"id="opcao2">
+          <button onclick="redirecionarAuvo()" id="opcao2">
             <a><i class="uil uil-comment-info"></i></a>
-            
+
           </button>
         </li>
         <!-- <li>
@@ -118,8 +118,8 @@
         </li> -->
       </ul>
     </div>
-      </ul>
-      </div>
+    </ul>
+  </div>
 </body>
 
 </html>
@@ -127,59 +127,59 @@
 <script>
 
   function cadastrar() {
-      //aguardar();
+    //aguardar();
 
-      //Recupere o valor da nova input pelo nome do id
-      // Agora vá para o método fetch logo abaixo
-      var nomeVar = input_nome.value;
-      var emailVar = input_email.value;
-      var telefoneVar = input_telefone.value;
-      var assuntoVar = input_assunto.value;
-      var descricaoVar = Textarea.value;
-
-
-      // Enviando o valor da nova input
-      if (verificarContato()) {
-          fetch("/contato/cadastrar", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify({
-                  // crie um atributo que recebe o valor recuperado aqui
-                  // Agora vá para o arquivo routes/usuario.js
-                  nomeServer: nomeVar,
-                  emailServer: emailVar,
-                  telefoneServer: telefoneVar,
-                  assuntoServer: assuntoVar,
-                  descricaoServer: descricaoVar,
-              })
-          }).then(function (resposta) {
-
-              console.log("resposta: ", resposta);
-
-              if (resposta.ok) {
-                 // cardErro.style.display = "block";
-
-                  alert('Sua solicitação de contato foi aprovada!')
-                  setTimeout(() => {
-                      // finalizarAguardar();
-                      window.location = "contatoAprovado.html";
-                  }, "2000")
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var telefoneVar = input_telefone.value;
+    var assuntoVar = input_assunto.value;
+    var descricaoVar = Textarea.value;
 
 
-              } else {
-                  throw ("Houve um erro ao tentar realizar o cadastro!");
-              }
-          }).catch(function (resposta) {
-              console.log(`#ERRO: ${resposta}`);
-              // finalizarAguardar();
-          });
+    // Enviando o valor da nova input
+    if (verificarContato()) {
+      fetch("/contato/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          telefoneServer: telefoneVar,
+          assuntoServer: assuntoVar,
+          descricaoServer: descricaoVar,
+        })
+      }).then(function (resposta) {
 
-          return false;
-      } else {
-          // finalizarAguardar()
-      }
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          // cardErro.style.display = "block";
+
+          alert('Sua solicitação de contato foi aprovada!')
+          setTimeout(() => {
+            // finalizarAguardar();
+            window.location = "contatoAprovado.html";
+          }, "2000")
+
+
+        } else {
+          throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+      }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+      });
+
+      return false;
+    } else {
+      // finalizarAguardar()
+    }
   }
 
 
@@ -201,8 +201,8 @@
     });
   });
 
-  function redirecionarAuvo(){
-        window.location.href = "https://coffeetech.auvo.com.br/Login#signin"
-      }
+  function redirecionarAuvo() {
+    window.location.href = "https://coffeetech.auvo.com.br/Login#signin"
+  }
 </script>
- <script src="./js/script_contato.js"></script>
+<script src="./js/script_contato.js"></script>
